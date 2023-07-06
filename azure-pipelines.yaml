@@ -3,7 +3,7 @@ trigger:
   batch: true
   branches:
     include:
-      - master
+      - DTSPO-13918-set-up
 
 resources:
   repositories:
