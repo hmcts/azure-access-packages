@@ -80,12 +80,12 @@ stages:
               component: "access-packages"
               terraformInitSubscription: ${{ variables.terraformInitSubscription }}
               tfVarsFile: NULL
-              # terraformEnvironmentVariables:
-              #   TF_VAR_client_id: $(client_id)
-              #   TF_VAR_client_secret: $(client_secret)
-              #   TF_VAR_tenant_id: $(tenant_id)
-              #   TF_CLI_ARGS_plan: "-parallelism=100"
-              #   TF_CLI_ARGS_apply: "-parallelism=100"
+              terraformEnvironmentVariables:
+                TF_VAR_client_id: $(client_id)
+                TF_VAR_client_secret: $(client_secret)
+                TF_VAR_tenant_id: $(tenant_id)
+                TF_CLI_ARGS_plan: "-parallelism=100"
+                TF_CLI_ARGS_apply: "-parallelism=100"
               initCommandOptions: >
                 -reconfigure
               planCommandOptions: >
