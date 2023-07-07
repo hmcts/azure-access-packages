@@ -73,7 +73,7 @@ stages:
           - template: steps/terraform.yaml@cnp-azuredevops-libraries
             parameters:
               location: ${{ parameters.location }}
-              serviceConnection: "DTS-SHAREDSERVICES-SBOX"
+              serviceConnection: "DTS-SHAREDSERVICES-PROD"
               product: ${{ variables.product }}
               overrideAction: ${{ parameters.overrideAction }}
               environment: "sbox"
