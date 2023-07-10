@@ -22,11 +22,11 @@ variable "client_secret" {
 
 # this are not used anywhere but its needed by CNP devops library
 variable "env" {
-  default = ""
+  type = string
 }
 variable "builtFrom" {
-  default = "hmcts/azure-access-packages"
+  type = string
 }
-variable "sds-product" {
-  default = "hmcts/azure-access-packages"
+variable "product" {
+  type = string
 }
