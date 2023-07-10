@@ -25,8 +25,8 @@ variable "env" {
   default = ""
 }
 variable "builtFrom" {
-  default = ""
+  default = "hmcts/azure-access-packages"
 }
-variable "product" {
-  default = ""
+variable "sds-product" {
+  default = "hmcts/azure-access-packages"
 }
