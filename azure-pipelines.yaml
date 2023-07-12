@@ -99,8 +99,8 @@ stages:
               planCommandOptions: >
                 -var subscription_id=${{ deployment.terraformSubscriptionID }}
                 -var env=${{ deployment.environment }}
-                -var client_id=$(client_id)
-                -var client_secret=$(client_secret)
-                -var tenant_id=$(tenant_id)
+                -var client_id=${{client_id}}
+                -var client_secret=${{client_secret}}
+                -var tenant_id=${{tenant_id}}
                 -compact-warnings
                 -lock-timeout=30s
