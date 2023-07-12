@@ -30,3 +30,7 @@ variable "builtFrom" {
 variable "product" {
   type = string
 }
+variable "subscription_id" {
+  description = "subscription id"
+  type        = string
+}
