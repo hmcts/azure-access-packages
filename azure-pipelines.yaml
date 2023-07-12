@@ -94,8 +94,8 @@ stages:
               #   TF_CLI_ARGS_plan: "-parallelism=100"
               #   TF_CLI_ARGS_apply: "-parallelism=100"
               initCommandOptions: >
-                 -reconfigure
-                 -var subscription_id=${{ deployment.terraformSubscriptionID }}
+                -reconfigure
+                -var subscription_id=${{ deployment.terraformSubscriptionID }}
               planCommandOptions: >
                 -var subscription_id=${{ deployment.terraformSubscriptionID }}
                 -var env=${{ deployment.environment }}
