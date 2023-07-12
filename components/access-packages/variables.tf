@@ -14,7 +14,7 @@ variable "tenant_id" {
 }
 
 variable "client_id" {
-  type a= string
+  type = string
   sensitive = true
 }
 
