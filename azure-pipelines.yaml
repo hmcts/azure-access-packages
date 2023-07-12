@@ -48,7 +48,6 @@ parameters:
       - destroy
 
 variables:
-  - group: access-packages
   - name: environment
     value: nonprod
   - name: timeoutInMinutes
