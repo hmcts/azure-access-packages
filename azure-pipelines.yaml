@@ -90,7 +90,9 @@ stages:
                 -reconfigure
                 -var subscription_id=${{ variables.terraformInitSubscription }}
               planCommandOptions: >
-                -var subscription_id=${{ variables.terraformInitSubscription }}
-                -var client_id=$(client_id)
+                -var env=$(client_id)
                 -var client_secret=$(client_secret)
                 -var tenant_id=$(tenant_id)
+                -compact-warnings
+                -lock-timeout=30s
+
