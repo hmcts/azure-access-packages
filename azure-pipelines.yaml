@@ -25,13 +25,6 @@ parameters:
       - plan
       - apply
 
-  - name: environment_components
-    type: object
-    default:
-      - environment: "nonprod"
-        terraformSubscriptionID: "1c4f0704-a29e-403d-b719-b90c34ef14c9"
-        storageAccountEnv: "stg"
-
   - name: location
     displayName: Location
     type: string
@@ -98,9 +91,6 @@ stages:
                 -var subscription_id=${{ variables.terraformInitSubscription }}
               planCommandOptions: >
                 -var subscription_id=${{ variables.terraformInitSubscription }}
-                -var env=${{ variables.terraformInitSubscription }}
                 -var client_id=$(client_id)
                 -var client_secret=$(client_secret)
                 -var tenant_id=$(tenant_id)
-                -compact-warnings
-                -lock-timeout=30s
