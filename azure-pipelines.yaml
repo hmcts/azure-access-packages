@@ -45,6 +45,8 @@ variables:
     value: 60
   - name: baseDirectory
     value: "components"
+  - name: component
+    value: access-packages
   - name: project
     value: "access-packages"
   - name: product
@@ -80,7 +82,7 @@ stages:
               baseDirectory: ${{ variables.baseDirectory }}
               overrideAction: ${{ parameters.overrideAction }}
               environment: "prod"
-              component: access-packages"
+              component: ${{ variables.component }}
               terraformInitSubscription: ${{ variables.terraformInitSubscription }}
               tfVarsFile: NULL
               initCommandOptions: >
