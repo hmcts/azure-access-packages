@@ -58,6 +58,7 @@ variables:
     value: "04d27a32-7a07-48b3-95b8-3c8691e1a263"
   - name: action
     value: ${{ parameters.action }}
+  - template: vars/input-variables.yaml@cnp-azuredevops-libraries
 
 stages:
   - stage: Precheck
@@ -72,24 +73,30 @@ stages:
               serviceConnection: 'DCD-CFT-Sandbox'
               overrideAction: ${{ parameters.overrideAction }}
 
-      - job: PlanAndApply
-        steps:
+
+  - ${{ each deployment in parameters.environment_components }}:
+    - stage: ${{ deployment.environment }}
+      displayName: access-packages ${{ deployment.environment }}
+
+      jobs:
+        - job: PlanAndApply
+          steps:
           - template: steps/terraform.yaml@cnp-azuredevops-libraries
             parameters:
               location: ${{ parameters.location }}
               serviceConnection: "DTS-SHAREDSERVICES-PROD"
               product: ${{ variables.product }}
               overrideAction: ${{ parameters.overrideAction }}
-              environment: ${{ parameters.environment_components[0].environment }}
+              environment: ${{ deployment.storageAccountEnv }}
               component: "access-packages"
               terraformInitSubscription: ${{ variables.terraformInitSubscription }}
               tfVarsFile: NULL
               initCommandOptions: >
                 -reconfigure
-                -var subscription_id=${{ parameters.environment_components[1].terraformSubscriptionID }}
+                -var subscription_id=${{ deployment.terraformSubscriptionID }}
               planCommandOptions: >
-                -var subscription_id=${{ parameters.environment_components[1].terraformSubscriptionID }}
-                -var env=${{ parameters.environment_components[0].environment }}
+                -var subscription_id=${{ deployment.terraformSubscriptionID }}
+                -var env=${{ deployment.environment }}
                 -var client_id=$(client_id)
                 -var client_secret=$(client_secret)
                 -var tenant_id=$(tenant_id)
