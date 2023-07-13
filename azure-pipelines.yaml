@@ -95,3 +95,5 @@ stages:
                 -var tenant_id=$(tenant_id)
                 -compact-warnings
                 -lock-timeout=30s
+
+│ Error: Failed to get existing workspaces: Error retrieving keys for Storage Account "c5ca62022e7536c8d566csa": storage.AccountsClient#ListKeys: Failure responding to request: StatusCode=404 -- Original Error: autorest/azure: Service returned an error. Status=404 Code="ResourceGroupNotFound" Message="Resource group 'azure-control--rg' could not be found."
