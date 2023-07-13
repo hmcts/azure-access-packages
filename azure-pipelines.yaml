@@ -44,7 +44,7 @@ parameters:
     type: object
     default:
       - environment: "prod"
-        terraformSubscriptionID: "8999dec3-0104-4a27-94ee-6588559729d1"
+        terraformSubscriptionID: "04d27a32-7a07-48b3-95b8-3c8691e1a263"
         storageAccountEnv: "prod"
 
 variables:
