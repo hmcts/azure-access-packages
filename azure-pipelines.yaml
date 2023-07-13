@@ -58,6 +58,7 @@ variables:
     value: "04d27a32-7a07-48b3-95b8-3c8691e1a263"
   - name: action
     value: ${{ parameters.action }}
+
 stages:
   - stage: Precheck
     jobs:
@@ -79,16 +80,16 @@ stages:
               serviceConnection: "DTS-SHAREDSERVICES-PROD"
               product: ${{ variables.product }}
               overrideAction: ${{ parameters.overrideAction }}
-              environment: parameters.environment_components.storageAccountEnv }}
+              environment: ${{ parameters.environment_components.storageAccountEnv }}
               component: "access-packages"
-              terraformInitSubscription: ${{ deployment.terraformSubscriptionID }}
+              terraformInitSubscription: ${{ variables.terraformInitSubscription }}
               tfVarsFile: NULL
               initCommandOptions: >
                 -reconfigure
-                -var subscription_id=${{ deployment.terraformSubscriptionID }}
+                -var subscription_id=${{ parameters.environment_components.terraformSubscriptionID }}
               planCommandOptions: >
-                -var subscription_id=${{ deployment.terraformSubscriptionID }}
-                -var env=${{ deployment.environment }}
+                -var subscription_id=${{ parameters.environment_components.terraformSubscriptionID }}
+                -var env=${{ parameters.environment_components.environment }}
                 -var client_id=$(client_id)
                 -var client_secret=$(client_secret)
                 -var tenant_id=$(tenant_id)
