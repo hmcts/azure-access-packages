@@ -95,3 +95,4 @@ stages:
                 -var tenant_id=$(tenant_id)
                 -compact-warnings
                 -lock-timeout=30s
+                -var subscription_id=${{ parameters.environment_components[1].terraformSubscriptionID }}
