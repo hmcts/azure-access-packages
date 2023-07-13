@@ -80,16 +80,16 @@ stages:
               serviceConnection: "DTS-SHAREDSERVICES-PROD"
               product: ${{ variables.product }}
               overrideAction: ${{ parameters.overrideAction }}
-              environment: ${{ variables.environment_components[0].environment }}
+              environment: ${{ parameters.environment_components[0].environment }}
               component: "access-packages"
               terraformInitSubscription: ${{ variables.terraformInitSubscription }}
               tfVarsFile: NULL
               initCommandOptions: >
                 -reconfigure
-                -var subscription_id=${{ variables.terraformInitSubscription }}
+                -var subscription_id=${{ parameters.environment_components[1].terraformSubscriptionID }}
               planCommandOptions: >
-                -var subscription_id=${{ variables.terraformInitSubscription }}
-                -var env=${{ variables.environment_components[0].environment }}
+                -var subscription_id=${{ parameters.environment_components[1].terraformSubscriptionID }}
+                -var env=${{ parameters.environment_components[0].environment }}
                 -var client_id=$(client_id)
                 -var client_secret=$(client_secret)
                 -var tenant_id=$(tenant_id)
