@@ -25,13 +25,6 @@ parameters:
       - plan
       - apply
 
-  - name: environment_components
-    type: object
-    default:
-      - environment: "prod"
-        terraformSubscriptionID: "8999dec3-0104-4a27-94ee-6588559729d1"
-        storageAccountEnv: "prod"
-
   - name: location
     displayName: Location
     type: string
@@ -46,6 +39,13 @@ parameters:
       - plan
       - apply
       - destroy
+
+  # - name: environment_components
+  #   type: object
+  #   default:
+  #     - environment: "prod"
+  #       terraformSubscriptionID: "8999dec3-0104-4a27-94ee-6588559729d1"
+  #       storageAccountEnv: "prod"
 
 variables:
   - name: timeoutInMinutes
@@ -80,20 +80,18 @@ stages:
               serviceConnection: "DTS-SHAREDSERVICES-PROD"
               product: ${{ variables.product }}
               overrideAction: ${{ parameters.overrideAction }}
-              environment: ${{ parameters.environment_components.storageAccountEnv }}
+              environment: "prod"
               component: "access-packages"
               terraformInitSubscription: ${{ variables.terraformInitSubscription }}
               tfVarsFile: NULL
               initCommandOptions: >
                 -reconfigure
-                -var subscription_id=${{ parameters.environment_components.terraformSubscriptionID }}
+                -var subscription_id=${{ variables.terraformInitSubscription }}
               planCommandOptions: >
-                -var subscription_id=${{ parameters.environment_components.terraformSubscriptionID }}
-                -var env=${{ parameters.environment_components.environment }}
+                -var subscription_id=${{ variables.terraformInitSubscription }}
+                -var env="prod"
                 -var client_id=$(client_id)
                 -var client_secret=$(client_secret)
                 -var tenant_id=$(tenant_id)
                 -compact-warnings
                 -lock-timeout=30s
-
-│ Error: Failed to get existing workspaces: Error retrieving keys for Storage Account "c5ca62022e7536c8d566csa": storage.AccountsClient#ListKeys: Failure responding to request: StatusCode=404 -- Original Error: autorest/azure: Service returned an error. Status=404 Code="ResourceGroupNotFound" Message="Resource group 'azure-control--rg' could not be found."
