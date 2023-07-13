@@ -87,7 +87,7 @@ stages:
               serviceConnection: "DTS-SHAREDSERVICES-PROD"
               product: ${{ variables.product }}
               overrideAction: ${{ parameters.overrideAction }}
-              environment: ${{ deployment.storageAccountEnv }}
+              environment: "prod"
               component: "access-packages"
               terraformInitSubscription: ${{ variables.terraformInitSubscription }}
               tfVarsFile: NULL
