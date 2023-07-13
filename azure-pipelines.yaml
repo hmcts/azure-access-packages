@@ -47,21 +47,6 @@ parameters:
       - apply
       - destroy
 
-variables:
-  - name: environment
-    value: prod
-  - name: timeoutInMinutes
-    value: 60
-  - name: project
-    value: "access-packages"
-  - name: product
-    value: "sds-platform"
-  - name: terraformInitSubscription
-    value: "04d27a32-7a07-48b3-95b8-3c8691e1a263"
-  - name: action
-    value: ${{ parameters.action }}
-  - template: vars/input-variables.yaml@cnp-azuredevops-libraries
-
 
 stages:
   - stage: Precheck
@@ -76,8 +61,6 @@ stages:
               serviceConnection: 'DCD-CFT-Sandbox'
               overrideAction: ${{ parameters.overrideAction }}
 
-  - stage: deploy
-    jobs:
       - job: PlanAndApply
         steps:
           - template: steps/terraform.yaml@cnp-azuredevops-libraries
@@ -86,16 +69,18 @@ stages:
               serviceConnection: "DTS-SHAREDSERVICES-PROD"
               product: ${{ variables.product }}
               overrideAction: ${{ parameters.overrideAction }}
-              environment: "prod"
+              environment: parameters.environment_components.storageAccountEnv }}
               component: "access-packages"
-              terraformInitSubscription: ${{ variables.terraformInitSubscription }}
+              terraformInitSubscription: ${{ deployment.terraformSubscriptionID }}
               tfVarsFile: NULL
               initCommandOptions: >
                 -reconfigure
-                -var subscription_id=${{ variables.terraformInitSubscription }}
+                -var subscription_id=${{ deployment.terraformSubscriptionID }}
               planCommandOptions: >
-                -var subscription_id=${{ variables.terraformInitSubscription }}
-                -var env=${{ variables.environment }}
-                -var client_id=${{ variables.client_id }}
-                -var client_secret=${{ variables.client_secret }}
-                -var tenant_id=${{ variables.tenant_id }}
+                -var subscription_id=${{ deployment.terraformSubscriptionID }}
+                -var env=${{ deployment.environment }}
+                -var client_id=$(client_id)
+                -var client_secret=$(client_secret)
+                -var tenant_id=$(tenant_id)
+                -compact-warnings
+                -lock-timeout=30s

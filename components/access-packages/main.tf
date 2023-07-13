@@ -9,6 +9,4 @@ resource "azuread_access_package_catalog" "catalog" {
   description        = each.value.description
   published          = each.value.published
   externally_visible = each.value.externally_visible
-
 }
-
