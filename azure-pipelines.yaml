@@ -40,12 +40,12 @@ parameters:
       - apply
       - destroy
 
-  # - name: environment_components
-  #   type: object
-  #   default:
-  #     - environment: "prod"
-  #       terraformSubscriptionID: "8999dec3-0104-4a27-94ee-6588559729d1"
-  #       storageAccountEnv: "prod"
+  - name: environment_components
+    type: object
+    default:
+      - environment: "prod"
+        terraformSubscriptionID: "8999dec3-0104-4a27-94ee-6588559729d1"
+        storageAccountEnv: "prod"
 
 variables:
   - name: timeoutInMinutes
@@ -80,7 +80,7 @@ stages:
               serviceConnection: "DTS-SHAREDSERVICES-PROD"
               product: ${{ variables.product }}
               overrideAction: ${{ parameters.overrideAction }}
-              environment: "prod"
+              environment: ${{ variables.environment_components[0].environment }}
               component: "access-packages"
               terraformInitSubscription: ${{ variables.terraformInitSubscription }}
               tfVarsFile: NULL
@@ -89,7 +89,7 @@ stages:
                 -var subscription_id=${{ variables.terraformInitSubscription }}
               planCommandOptions: >
                 -var subscription_id=${{ variables.terraformInitSubscription }}
-                -var env="prod"
+                -var env=${{ variables.environment_components[0].environment }}
                 -var client_id=$(client_id)
                 -var client_secret=$(client_secret)
                 -var tenant_id=$(tenant_id)
