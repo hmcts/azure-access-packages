@@ -96,6 +96,6 @@ stages:
               planCommandOptions: >
                 -var subscription_id=${{ variables.terraformInitSubscription }}
                 -var env=${{ variables.environment }}
-                -var client_id=${{ variables.clientId }}
-                -var client_secret=${{ variables.clientSecret }}
-                -var tenant_id=${{ variables.tenantId }}
+                -var client_id=${{ variables.client_id }}
+                -var client_secret=${{ variables.client_secret }}
+                -var tenant_id=${{ variables.tenant_id }}
