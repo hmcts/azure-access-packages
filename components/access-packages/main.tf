@@ -9,3 +9,4 @@ resource "azuread_access_package_catalog" "catalog" {
   published          = each.value.published
   externally_visible = each.value.externally_visible
 }
+
