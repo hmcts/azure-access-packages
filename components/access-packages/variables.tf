@@ -1,3 +1,8 @@
+variable "resource_group_name" {
+  description = "name of the resource group"
+  default     = "access-packages-rg"
+}
+
 variable "tenant_id" {
   sensitive = true
 }
