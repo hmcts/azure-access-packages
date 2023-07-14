@@ -84,16 +84,19 @@ stages:
               overrideAction: ${{ parameters.overrideAction }}
               environment: "prod"
               component: "access-packages"
-              tfVarsFile: NULL
               terraformInitSubscription: ${{ variables.terraformInitSubscription }}
+              tfVarsFile: NULL
+              terraformEnvironmentVariables:
+                TF_VAR_client_id: $(client_id)
+                TF_VAR_client_secret: $(client_secret)
+                TF_VAR_tenant_id: $(tenant_id)
+                TF_CLI_ARGS_plan: "-parallelism=100"
+                TF_CLI_ARGS_apply: "-parallelism=100"
               initCommandOptions: >
                 -reconfigure
                 -var subscription_id=${{ parameters.environment_components[0].terraformSubscriptionID }}
               planCommandOptions: >
                 -var subscription_id=${{ parameters.environment_components[0].terraformSubscriptionID }}
                 -var env=${{ parameters.environment_components[0].environment }}
-                -var client_id=${{ variables.client_id }}
-                -var client_secret=${{ variables.secret_id }}
-                -var tenant_id=${{ variables.tenant_id }}
                 -compact-warnings
                 -lock-timeout=30s
