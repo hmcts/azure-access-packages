@@ -94,9 +94,6 @@ stages:
                 TF_CLI_ARGS_apply: "-parallelism=100"
               initCommandOptions: >
                 -reconfigure
-                -var subscription_id=${{ parameters.environment_components[0].terraformSubscriptionID }}
               planCommandOptions: >
-                -var subscription_id=${{ parameters.environment_components[0].terraformSubscriptionID }}
-                -var env=${{ parameters.environment_components[0].environment }}
                 -compact-warnings
                 -lock-timeout=30s
