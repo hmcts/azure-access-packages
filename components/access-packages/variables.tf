@@ -3,6 +3,11 @@ variable "resource_group_name" {
   default     = "access-packages-rg"
 }
 
+variable "location" {
+  description = "location of the resource"
+  default     = "uksouth"
+}
+
 variable "tenant_id" {
   sensitive = true
 }
