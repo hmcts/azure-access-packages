@@ -16,9 +16,9 @@ variable "client_id" {
   sensitive = true
 }
 
-variable "client_secret" {
-  sensitive = true
-}
+# variable "client_secret" {
+#   sensitive = true
+# }
 
 # this are not used anywhere but its needed by CNP devops library
 variable "env" {
