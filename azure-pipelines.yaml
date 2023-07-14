@@ -40,12 +40,6 @@ parameters:
       - apply
       - destroy
 
-  - name: environment_components
-    type: object
-    default:
-      - environment: "prod"
-        terraformSubscriptionID: "8999dec3-0104-4a27-94ee-6588559729d1"
-        storageAccountEnv: "prod"
 
 variables:
   - name: timeoutInMinutes
@@ -59,6 +53,12 @@ variables:
   - name: action
     value: ${{ parameters.action }}
   - template: vars/input-variables.yaml@cnp-azuredevops-libraries
+  - name: environment
+    value: prod
+  - name: storageAccountEnv
+    value: prod
+  - name: terraformSubscriptionID
+    value: "8999dec3-0104-4a27-94ee-6588559729d1"
 
 
 stages:
@@ -82,16 +82,16 @@ stages:
               serviceConnection: "DTS-SHAREDSERVICES-PROD"
               product: ${{ variables.product }}
               overrideAction: ${{ parameters.overrideAction }}
-              environment: ${{ parameters.environment_components[0].storageAccountEnv }}
+              environment: ${{ variables.environment }}
               component: "access-packages"
               terraformInitSubscription: ${{ variables.terraformInitSubscription }}
               tfVarsFile: NULL
               initCommandOptions: >
                 -reconfigure
-                -var subscription_id=${{ parameters.environment_components[0].terraformSubscriptionID }}
+                -var subscription_id=${{ variables.terraformSubscriptionID }}
               planCommandOptions: >
-                -var subscription_id=${{ parameters.environment_components[0].terraformSubscriptionID }}
-                -var env=${{ parameters.environment_components[0].environment }}
+                -var subscription_id=${{ variables.terraformSubscriptionID }}
+                -var env=${{ variables.environment }}
                 -var client_id=$(client_id)
                 -var client_secret=$(client_secret)
                 -var tenant_id=$(tenant_id)
