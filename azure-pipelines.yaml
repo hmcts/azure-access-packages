@@ -60,25 +60,20 @@ variables:
     value: ${{ parameters.action }}
   - template: vars/input-variables.yaml@cnp-azuredevops-libraries
 
+
 stages:
-  - stage: Precheck
-    jobs:
-      - job:
-        timeoutInMinutes: ${{ variables.timeoutInMinutes }}
-        steps:
-          - template: steps/terraform-precheck.yaml@cnp-azuredevops-libraries
-            parameters:
-              keyvaultName: 'infra-vault-nonprod'
-              keyvaultSecret: 'azure-devops-token'
-              serviceConnection: 'DCD-CFT-Sandbox'
-              overrideAction: ${{ parameters.overrideAction }}
-
-
-  - ${{ each deployment in parameters.environment_components }}:
-    - stage: ${{ deployment.environment }}
-      displayName: access-packages ${{ deployment.environment }}
-
+    - stage: Precheck
       jobs:
+        - job:
+          timeoutInMinutes: ${{ variables.timeoutInMinutes }}
+          steps:
+            - template: steps/terraform-precheck.yaml@cnp-azuredevops-libraries
+              parameters:
+                keyvaultName: 'infra-vault-nonprod'
+                keyvaultSecret: 'azure-devops-token'
+                serviceConnection: 'DCD-CFT-Sandbox'
+                overrideAction: ${{ parameters.overrideAction }}
+
         - job: PlanAndApply
           steps:
           - template: steps/terraform.yaml@cnp-azuredevops-libraries
@@ -89,14 +84,14 @@ stages:
               overrideAction: ${{ parameters.overrideAction }}
               environment: "prod"
               component: "access-packages"
-              terraformInitSubscription: ${{ variables.terraformInitSubscription }}
               tfVarsFile: NULL
+              terraformInitSubscription: ${{ variables.terraformInitSubscription }}
               initCommandOptions: >
                 -reconfigure
-                -var subscription_id=${{ deployment.terraformSubscriptionID }}
+                -var subscription_id=${{ parameters.environment_components[0].terraformSubscriptionID }}
               planCommandOptions: >
-                -var subscription_id=${{ deployment.terraformSubscriptionID }}
-                -var env=${{ deployment.environment }}
+                -var subscription_id=${{ parameters.environment_components[0].terraformSubscriptionID }}
+                -var env=${{ parameters.environment_components[0].environment }}
                 -var client_id=${{ variables.client_id }}
                 -var client_secret=${{ variables.secret_id }}
                 -var tenant_id=${{ variables.tenant_id }}
