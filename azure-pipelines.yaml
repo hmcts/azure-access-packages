@@ -76,24 +76,30 @@ stages:
 
         - job: PlanAndApply
           steps:
-          - template: steps/terraform.yaml@cnp-azuredevops-libraries
-            parameters:
-              location: ${{ parameters.location }}
-              serviceConnection: "DTS-SHAREDSERVICES-PROD"
-              product: ${{ variables.product }}
-              overrideAction: ${{ parameters.overrideAction }}
-              environment: ${{ variables.environment }}
-              component: "access-packages"
-              terraformInitSubscription: ${{ variables.terraformInitSubscription }}
-              tfVarsFile: NULL
-              initCommandOptions: >
-                -reconfigure
-                -var subscription_id=${{ variables.terraformSubscriptionID }}
-              planCommandOptions: >
-                -var subscription_id=${{ variables.terraformSubscriptionID }}
-                -var env=${{ variables.environment }}
-                -var client_id=$(client_id)
-                -var client_secret=$(client_secret)
-                -var tenant_id=$(tenant_id)
-                -compact-warnings
-                -lock-timeout=30s
+            - task: AzureKeyVault@1
+              inputs:
+                azureSubscription: 'DTS-SHAREDSERVICES-PROD'
+                KeyVaultName: 'access-packages-kv-test'
+                SecretsFilter: 'access-packages'
+              displayName: 'Get Key Vault Secret'
+
+            - template: steps/terraform.yaml@cnp-azuredevops-libraries
+              parameters:
+                location: ${{ parameters.location }}
+                serviceConnection: "DTS-SHAREDSERVICES-PROD"
+                product: ${{ variables.product }}
+                overrideAction: ${{ parameters.overrideAction }}
+                environment: ${{ variables.environment }}
+                component: "access-packages"
+                terraformInitSubscription: ${{ variables.terraformInitSubscription }}
+                tfVarsFile: NULL
+                initCommandOptions: >
+                  -reconfigure
+                  -var subscription_id=${{ variables.terraformSubscriptionID }}
+                planCommandOptions: >
+                  -var subscription_id=${{ variables.terraformSubscriptionID }}
+                  -var env=${{ variables.environment }}
+                  -var client_id=$(client_id)
+                  -var client_secret=$(access-packages)
+                  -compact-warnings
+                  -lock-timeout=30s
