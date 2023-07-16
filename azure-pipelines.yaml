@@ -84,7 +84,7 @@ stages:
           steps:
             - task: AzureKeyVault@1
               inputs:
-                azureSubscription: 'DTS-SHAREDSERVICES-PROD'
+                azureSubscription: 'DCD-CFT-Sandbox'
                 KeyVaultName: 'access-packages-kv-test'
                 SecretsFilter: 'access-packages'
               displayName: 'Get Key Vault Secret'
