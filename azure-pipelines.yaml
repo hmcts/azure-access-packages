@@ -72,8 +72,8 @@ stages:
           steps:
             - template: steps/terraform-precheck.yaml@cnp-azuredevops-libraries
               parameters:
-                keyvaultName: 'infra-vault-nonprod'
-                keyvaultSecret: 'azure-devops-token'
+                KeyVaultName: 'access-packages-kv-test'
+                keyvaultSecret: 'access-packages'
                 serviceConnection: 'DCD-CFT-Sandbox'
                 overrideAction: ${{ parameters.overrideAction }}
 
@@ -82,12 +82,12 @@ stages:
       jobs:
         - job: PlanAndApply
           steps:
-            - task: AzureKeyVault@1
-              inputs:
-                azureSubscription: 'DCD-CFT-Sandbox'
-                KeyVaultName: 'access-packages-kv-test'
-                SecretsFilter: 'access-packages'
-              displayName: 'Get Key Vault Secret'
+            # - task: AzureKeyVault@1
+            #   inputs:
+            #     azureSubscription: 'DCD-CFT-Sandbox'
+            #     KeyVaultName: 'access-packages-kv-test'
+            #     SecretsFilter: 'access-packages'
+            #   displayName: 'Get Key Vault Secret'
 
             - template: steps/terraform.yaml@cnp-azuredevops-libraries
               parameters:
