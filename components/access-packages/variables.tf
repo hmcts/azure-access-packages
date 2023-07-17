@@ -16,7 +16,7 @@ variable "client_id" {
   sensitive = true
 }
 
-variable "access-packages" {
+variable "client_secret" {
   sensitive = true
 }
 
