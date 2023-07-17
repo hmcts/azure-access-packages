@@ -42,6 +42,7 @@ parameters:
 
 
 variables:
+  - group: secret-test
   - name: timeoutInMinutes
     value: 60
   - name: project
@@ -82,13 +83,6 @@ stages:
       jobs:
         - job: PlanAndApply
           steps:
-            - task: AzureKeyVault@1
-              inputs:
-                azureSubscription: 'DTS-SHAREDSERVICES-PROD'
-                KeyVaultName: 'access-packages-kv-test'
-                SecretsFilter: 'access-packages'
-              displayName: 'Get Key Vault Secret'
-
             - template: steps/terraform.yaml@cnp-azuredevops-libraries
               parameters:
                 location: ${{ parameters.location }}
@@ -106,6 +100,7 @@ stages:
                   -var subscription_id=${{ variables.terraformSubscriptionID }}
                   -var env=${{ variables.environment }}
                   -var client_id=${{ variables.client_id }}
+                  -var client_secret=$(secret-test.client_secret)
                   -var tenant_id=${{ variables.tenant_id }}
                   -compact-warnings
                   -lock-timeout=30s
