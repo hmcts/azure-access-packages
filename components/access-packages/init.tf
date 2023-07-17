@@ -18,6 +18,6 @@ provider "azurerm" {
 
 provider "azuread" {
   client_id     = var.client_id
-  client_secret = var.access-package
+  client_secret = var.access-packages
   tenant_id     = var.tenant_id
 }
