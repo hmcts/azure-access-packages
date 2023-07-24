@@ -10,14 +10,17 @@ variable "location" {
 
 variable "tenant_id" {
   sensitive = true
+  default   = ""
 }
 
 variable "client_id" {
   sensitive = true
+  default   = ""
 }
 
 variable "client_secret" {
   sensitive = true
+  default   = ""
 }
 
 # this are not used anywhere but its needed by CNP devops library
