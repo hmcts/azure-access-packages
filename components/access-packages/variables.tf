@@ -1,7 +1,7 @@
-variable "resource_group_name" {
-  description = "name of the resource group"
-  default     = "access-packages-rg"
-}
+# variable "resource_group_name" {
+#   description = "name of the resource group"
+#   default     = "access-packages-rg"
+# }
 
 variable "location" {
   description = "location of the resource"
