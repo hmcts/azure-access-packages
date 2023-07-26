@@ -87,8 +87,8 @@ stages:
         - task: AzureKeyVault@1
           displayName: "Get access-packages Secrets from access-packages-kv-test"
           inputs:
-            azureSubscription: ${{ parameters.serviceConnection }}
-            connectedServiceName: ${{ parameters.serviceConnection }}
+            azureSubscription: ${{ variables.serviceConnection }}
+            connectedServiceName: ${{ variables.serviceConnection }}
             keyVaultName: access-packages-kv-test
             secretsFilter: "access-packages"
 
