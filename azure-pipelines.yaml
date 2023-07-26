@@ -11,10 +11,10 @@ resources:
       type: github
       ref: refs/heads/master
       name: hmcts/cnp-azuredevops-libraries
-      endpoint: 'hmcts'
+      endpoint: "hmcts"
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: "ubuntu-latest"
 
 parameters:
   - name: action
@@ -40,7 +40,6 @@ parameters:
       - apply
       - destroy
 
-
 variables:
   - group: secret-test
   - name: timeoutInMinutes
@@ -51,6 +50,8 @@ variables:
     value: "sds-platform"
   - name: terraformInitSubscription
     value: "04d27a32-7a07-48b3-95b8-3c8691e1a263"
+  - name: serviceConnection
+    value: DTS-SHAREDSERVICES-PROD
   - name: action
     value: ${{ parameters.action }}
   - template: vars/input-variables.yaml@cnp-azuredevops-libraries
@@ -63,44 +64,57 @@ variables:
   - name: tenant_id
     value: "531ff96d-0ae9-462a-8d2d-bec7c0b42082"
   - name: client_id
-    value: 5a03bb64-bdac-4187-b9c4-8936e3809656"
+    value: "5a03bb64-bdac-4187-b9c4-8936e3809656"
 
 stages:
-    - stage: Precheck
-      jobs:
-        - job:
-          timeoutInMinutes: ${{ variables.timeoutInMinutes }}
-          steps:
-            - template: steps/terraform-precheck.yaml@cnp-azuredevops-libraries
-              parameters:
-                keyvaultName: 'infra-vault-nonprod'
-                keyvaultSecret: 'azure-devops-token'
-                serviceConnection: 'DCD-CFT-Sandbox'
-                overrideAction: ${{ parameters.overrideAction }}
+  - stage: Precheck
+    jobs:
+      - job:
+        timeoutInMinutes: ${{ variables.timeoutInMinutes }}
+        steps:
+          - template: steps/terraform-precheck.yaml@cnp-azuredevops-libraries
+            parameters:
+              keyvaultName: "infra-vault-nonprod"
+              keyvaultSecret: "azure-devops-token"
+              serviceConnection: "DCD-CFT-Sandbox"
+              overrideAction: ${{ parameters.overrideAction }}
 
-    - stage: deploy
-      dependsOn: Precheck
-      jobs:
-        - job: PlanAndApply
-          steps:
-            - template: steps/terraform.yaml@cnp-azuredevops-libraries
-              parameters:
-                location: ${{ parameters.location }}
-                serviceConnection: "DTS-SHAREDSERVICES-PROD"
-                product: ${{ variables.product }}
-                overrideAction: ${{ parameters.overrideAction }}
-                environment: ${{ variables.environment }}
-                component: "access-packages"
-                terraformInitSubscription: ${{ variables.terraformInitSubscription }}
-                tfVarsFile: NULL
-                initCommandOptions: >
-                  -reconfigure
-                  -var subscription_id=${{ variables.terraformSubscriptionID }}
-                planCommandOptions: >
-                  -var subscription_id=${{ variables.terraformSubscriptionID }}
-                  -var env=${{ variables.environment }}
-                  -var client_id=${{ variables.client_id }}
-                  -var client_secret=$(access_packages)
-                  -var tenant_id=${{ variables.tenant_id }}
-                  -compact-warnings
-                  -lock-timeout=30s
+  - stage: getkeyvault
+    dependsOn: Precheck
+    jobs:
+      - job: PlanAndApply
+        steps:
+          - task: AzureKeyVault@1
+        displayName: "Get access-packages Secrets from access-packages-kv-test"
+        inputs:
+            azureSubscription: ${{ parameters.serviceConnection }}
+            connectedServiceName: ${{ parameters.serviceConnection }}
+            keyVaultName: access-packages-kv-test
+            secretsFilter: "access-packages"
+
+  - stage: deploy
+    dependsOn: Precheck
+    jobs:
+      - job: PlanAndApply
+        steps:
+          - template: steps/terraform.yaml@cnp-azuredevops-libraries
+            parameters:
+              location: ${{ parameters.location }}
+              serviceConnection: ${{ variables.serviceConnection }}
+              product: ${{ variables.product }}
+              overrideAction: ${{ parameters.overrideAction }}
+              environment: ${{ variables.environment }}
+              component: "access-packages"
+              terraformInitSubscription: ${{ variables.terraformInitSubscription }}
+              tfVarsFile: NULL
+              initCommandOptions: >
+                -reconfigure
+                -var subscription_id=${{ variables.terraformSubscriptionID }}
+              planCommandOptions: >
+                -var subscription_id=${{ variables.terraformSubscriptionID }}
+                -var env=${{ variables.environment }}
+                -var client_id=${{ variables.client_id }}
+                -var client_secret=$(access-packages)
+                -var tenant_id=${{ variables.tenant_id }}
+                -compact-warnings
+                -lock-timeout=30s
