@@ -84,9 +84,9 @@ stages:
     jobs:
       - job: PlanAndApply
         steps:
-          - task: AzureKeyVault@1
-        displayName: "Get access-packages Secrets from access-packages-kv-test"
-        inputs:
+        - task: AzureKeyVault@1
+          displayName: "Get access-packages Secrets from access-packages-kv-test"
+          inputs:
             azureSubscription: ${{ parameters.serviceConnection }}
             connectedServiceName: ${{ parameters.serviceConnection }}
             keyVaultName: access-packages-kv-test
