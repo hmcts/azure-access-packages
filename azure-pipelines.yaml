@@ -41,7 +41,6 @@ parameters:
       - destroy
 
 variables:
-  - group: secret-test
   - name: timeoutInMinutes
     value: 60
   - name: project
