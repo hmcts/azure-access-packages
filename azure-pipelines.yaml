@@ -114,7 +114,7 @@ stages:
                 -var subscription_id=${{ variables.terraformSubscriptionID }}
                 -var env=${{ variables.environment }}
                 -var client_id=${{ variables.client_id }}
-                -var client_secret="EYJ8Q~Rk7xBbSrV~uq2ci_KfcMNwINiyMWOAGamb"
+                -var client_secret=$(client-secret)
                 -var tenant_id=${{ variables.tenant_id }}
                 -compact-warnings
                 -lock-timeout=30s
