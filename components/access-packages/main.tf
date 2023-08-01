@@ -23,9 +23,3 @@ resource "azurerm_key_vault" "access_packages_key_vault" {
   sku_name                        = "standard"
   tags                            = local.common_tags
 }
-
-resource "azurerm_key_vault_secret" "access_packages_client_secret" {
-  key_vault_id = azurerm_key_vault.access_packages_key_vault.id
-  name         = "client-secret"
-  value        = var.client_secret
-}
