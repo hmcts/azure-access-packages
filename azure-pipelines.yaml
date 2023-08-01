@@ -85,12 +85,12 @@ stages:
       - job: PlanAndApply
         steps:
         - task: AzureKeyVault@1
-          displayName: "Get access-packages Secrets from access-packages-kv-test"
+          displayName: "Get access-packages Secrets from access-packages-kv"
           inputs:
             azureSubscription: ${{ variables.serviceConnection }}
             connectedServiceName: ${{ variables.serviceConnection }}
-            keyVaultName: access-packages-kv-test
-            secretsFilter: "access-packages"
+            keyVaultName: access-packages-kv
+            secretsFilter: "client-secret" 
 
   - stage: deploy
     dependsOn: Precheck
@@ -114,7 +114,7 @@ stages:
                 -var subscription_id=${{ variables.terraformSubscriptionID }}
                 -var env=${{ variables.environment }}
                 -var client_id=${{ variables.client_id }}
-                -var client_secret=$(access-packages)
+                -var client_secret=$(client-secret)
                 -var tenant_id=${{ variables.tenant_id }}
                 -compact-warnings
                 -lock-timeout=30s
