@@ -20,7 +20,7 @@ variable "client_id" {
 
 variable "client_secret" {
   sensitive = true
-  # default   = ""
+  default   = ""
 }
 
 # this are not used anywhere but its needed by CNP devops library
