@@ -78,24 +78,19 @@ stages:
               serviceConnection: "DCD-CFT-Sandbox"
               overrideAction: ${{ parameters.overrideAction }}
 
-  - stage: getkeyvault
-    dependsOn: Precheck
-    jobs:
-      - job: PlanAndApply
-        steps:
-        - task: AzureKeyVault@1
-          displayName: "Get access-packages Secrets from access-packages-kv"
-          inputs:
-            azureSubscription: ${{ variables.serviceConnection }}
-            connectedServiceName: ${{ variables.serviceConnection }}
-            keyVaultName: access-packages-kv
-            secretsFilter: "client-secret" 
-
   - stage: deploy
     dependsOn: Precheck
     jobs:
       - job: PlanAndApply
         steps:
+          - task: AzureKeyVault@1
+            displayName: "Get access-packages Secrets from access-packages-kv"
+            inputs:
+              azureSubscription: ${{ variables.serviceConnection }}
+              connectedServiceName: ${{ variables.serviceConnection }}
+              keyVaultName: access-packages-kv
+              secretsFilter: "client-secret"
+
           - template: steps/terraform.yaml@cnp-azuredevops-libraries
             parameters:
               location: ${{ parameters.location }}
