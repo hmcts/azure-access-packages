@@ -41,7 +41,6 @@ parameters:
       - destroy
 
 variables:
-  - group: secret-test
   - name: timeoutInMinutes
     value: 60
   - name: project
@@ -79,24 +78,19 @@ stages:
               serviceConnection: "DCD-CFT-Sandbox"
               overrideAction: ${{ parameters.overrideAction }}
 
-  - stage: getkeyvault
-    dependsOn: Precheck
-    jobs:
-      - job: PlanAndApply
-        steps:
-        - task: AzureKeyVault@1
-          displayName: "Get access-packages Secrets from access-packages-kv-test"
-          inputs:
-            azureSubscription: ${{ variables.serviceConnection }}
-            connectedServiceName: ${{ variables.serviceConnection }}
-            keyVaultName: access-packages-kv-test
-            secretsFilter: "access-packages"
-
   - stage: deploy
     dependsOn: Precheck
     jobs:
       - job: PlanAndApply
         steps:
+          - task: AzureKeyVault@1
+            displayName: "Get Secrets from Keyvault"
+            inputs:
+              azureSubscription: ${{ variables.serviceConnection }}
+              connectedServiceName: ${{ variables.serviceConnection }}
+              keyVaultName: access-packages-kv
+              secretsFilter: "client-secret"
+
           - template: steps/terraform.yaml@cnp-azuredevops-libraries
             parameters:
               location: ${{ parameters.location }}
@@ -114,7 +108,7 @@ stages:
                 -var subscription_id=${{ variables.terraformSubscriptionID }}
                 -var env=${{ variables.environment }}
                 -var client_id=${{ variables.client_id }}
-                -var client_secret=$(access-packages)
+                -var client_secret=$(client-secret)
                 -var tenant_id=${{ variables.tenant_id }}
                 -compact-warnings
                 -lock-timeout=30s
