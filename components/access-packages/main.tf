@@ -18,11 +18,6 @@ resource "azuread_access_package" "package" {
   catalog_id   = azuread_access_package_catalog.catalog[each.value.catalog_name].id
 }
 
-#   for_each           = var.access_package_catalogs
-#   catalog_id         = azuread_access_package_catalog.catalog.id
-#   display_name       = each.value.name
-#   description        = each.value.description
-# }
 resource "azurerm_key_vault" "access_packages_key_vault" {
   name                            = "access-packages-kv"
   location                        = var.location
