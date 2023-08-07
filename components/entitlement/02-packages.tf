@@ -85,7 +85,7 @@ locals {
 
     {
       name         = "SecOps Production Bastion Server Access"
-      description  = "This will provide access to Bastion Servers for SevOps in Production environments."
+      description  = "This will provide access to Bastion Servers for SecOps in Production environments."
       catalog_name = "Bastion Servers"
     },
 
