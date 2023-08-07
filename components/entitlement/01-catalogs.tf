@@ -41,7 +41,7 @@ locals {
       externally_visible = true
     },
 
-     {
+    {
       name               = "SC"
       description        = "Grants access to the SC groups"
       published          = true
@@ -76,7 +76,7 @@ locals {
       externally_visible = false
     },
 
-     {
+    {
       name               = "Management Subscriptions"
       description        = "A catalog for JIT access to management subscriptions"
       published          = true

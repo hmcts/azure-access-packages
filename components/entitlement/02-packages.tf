@@ -257,7 +257,7 @@ locals {
       catalog_name = "General"
     },
 
-    
+
     # Add more packages as needed
   ]
 }
