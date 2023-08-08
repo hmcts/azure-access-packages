@@ -12,8 +12,8 @@ To get started with this repository, you will need to have an Azure subscription
 
 # Creating access packages
 
-- To create an access package for catalogs if not an existing one, add an entry to [01-catalogs.tf](entitlement/01-catalogs.tf)
-- Also add an entry for packages to [02-packages.tf](entitlement/02-pakcages.tf)
+- To create an access package for catalogs if not an existing one, add an entry to [01-catalogs](entitlement/01-catalogs.tf)
+- Also add an entry for packages to [02-packages](entitlement/02-packages.tf)
 
 
 # Notes
