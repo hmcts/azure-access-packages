@@ -1,2 +1,48 @@
-# azure-access-packages
- Role to manage Microsoft access packages configuration.
+# Azure Access Packages
+This repository contains code and configuration files for managing Microsoft access packages in Azure.
+
+
+# Overview
+Access packages are a way to group Azure resources and assign permissions to users and groups. Access packages can be used to simplify access management and ensure that users have the appropriate permissions to access the resources they need.
+
+
+# Entitlement management
+
+Entitlements are either in the form of `catalogs` or `packages`. A catalog needs to exist if its to be used 
+in the definition of an access package.
+
+## Catalogs
+
+### New entries
+To create a new catalog entry, add the item definition to the [Catalogs](components/entitlement/02-packages.tf) definition file found in the [entitlement](components/entitlement) folder
+Below is an example of a `catalog` definition
+```json
+{
+  name               = "<catalog name>" # Should be unique
+  description        = "<catalog description>"
+  published          = <true|false>
+  externally_visible = <true|false>
+}
+```
+You can add your new definition to the bottom of the list and this would be created after the PR is merged
+
+### Existing entries
+To update an existing entry, simple update the  current entry the definition file and terraform would update the relevant
+resources after PR is merged.
+
+## Packages
+To create a  package entry, add the item definition to the [Packages](components/entitlement//02-packages.tf) definition file found in the [entitlement](components/entitlement) folder
+Below is an example of a `package` definition
+```json
+{
+  name         = "<package name>"
+  description  = "<package name>"
+  catalog_name = "<package name>" # Must be same name or already defined in the catalog file 
+}
+```
+You can add your new definition to the bottom of the list and this would be created after the PR is merged
+
+
+# Notes
+- All new items are added from definition file in the [entitlement](components/entitlement) folder
+- A Service Principal is used for authentication.
