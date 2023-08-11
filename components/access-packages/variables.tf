@@ -27,18 +27,21 @@ variable "client_secret" {
 variable "env" {
   type = string
 }
+
 variable "builtFrom" {
   type = string
 }
+
 variable "product" {
   type = string
 }
+
 variable "subscription_id" {
   description = "subscription id"
   type        = string
 }
 
 variable "expiresAfter" {
-  description = "Date when Sandbox resources can be deleted. Format: YYYY-MM-DD"
+  description = "Date when resources can be deleted. Format: YYYY-MM-DD"
   default     = "3000-01-01"
 }

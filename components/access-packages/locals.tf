@@ -1,11 +1,7 @@
 locals {
-  catalogs    = module.entitlements.catalogs
-  packages    = module.entitlements.packages
+  catalogs    = yamldecode(file("../../entitlement-catalogs.yml")).catalogs
+  packages    = yamldecode(file("../../entitlement-packages.yml")).packages
   common_tags = module.ctags.common_tags
-}
-
-module "entitlements" {
-  source = "../entitlement"
 }
 
 # Common tags
