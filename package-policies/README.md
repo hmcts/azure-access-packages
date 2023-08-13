@@ -1,0 +1,61 @@
+## Skeleton Template
+```yaml
+access_package: 
+policies:
+  - display_name: 
+    description: 
+    duration_in_days: 
+    expiration_date: 
+    approval_settings:
+      approval_required_for_extension:
+      approval_required:
+      approval_stage:
+        alternative_approval_enabled:
+        alternative_approver:
+          backup:
+          object_id:
+          subject_type:
+        approval_timeout_in_days:
+        approver_justification_required:
+        enable_alternative_approval_in_days:
+        primary_approver:
+          backup:
+          object_id:
+          subject_type:
+      requestor_justification_required:
+    assignment_review_settings:
+      access_recommendation_enabled:
+      access_review_timeout_behavior:
+      approver_justification_required:
+      duration_in_days:
+      enabled:
+      review_frequency:
+      review_type:
+      reviewer:
+        backup:
+        object_id:
+        subject_type:
+      starting_on:
+    extension_enabled:
+    question:
+      choice:
+        actual_value:
+        display_value:
+          default_text:
+          localized_text:
+            content:
+            language_code:
+      required:
+      sequence:
+      text:
+        default_text:
+        localized_text:
+          content:
+          language_code:
+    requestor_settings:
+      requestor:
+        object_id:
+        subject_type:
+      requests_accepted:
+      scope_type:
+```
