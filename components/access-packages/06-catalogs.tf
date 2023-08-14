@@ -53,11 +53,11 @@ data "azuread_user" "this" {
     for item in local.catalog_role_assignment_users : "${item.catalog_name}:${item.assignee}" => item
   }
 
-  user_principal_name = each.value.user.user_principal_name      # The user principal name (UPN) of the user.
-  object_id           = try(each.value.user.object_id, null)     # (Optional) The object ID of the user.
-  employee_id         = try(each.value.user.employee_id, null)   # (Optional) The employee identifier assigned to the user.
-  mail                = try(each.value.user.mail, null)          # (Optional) The SMTP address for the user.
-  mail_nickname       = try(each.value.user.mail_nickname, null) # (Optional) The email alias of the user.
+  user_principal_name = each.value.user.user_principal_name
+  object_id           = try(each.value.user.object_id, null)
+  employee_id         = try(each.value.user.employee_id, null)
+  mail                = try(each.value.user.mail, null)
+  mail_nickname       = try(each.value.user.mail_nickname, null)
 }
 
 # ------- Resources roles and administrators: Users ------- #
@@ -75,10 +75,10 @@ data "azuread_group" "this" {
   for_each = {
     for group in local.catalog_role_assignment_groups : "${group.catalog_name}:${group.group.display_name}" => group
   }
-  display_name     = each.value.group.display_name                # The display name for the group.
-  mail_enabled     = try(each.value.group.mail_enabled, null)     # (Optional) Whether the group is mail-enabled.
-  object_id        = try(each.value.group.object_id, null)        # (Optional) Specifies the object ID of the group.
-  security_enabled = try(each.value.group.security_enabled, null) # (Optional) Whether the group is a security group.
+  display_name     = each.value.group.display_name
+  mail_enabled     = try(each.value.group.mail_enabled, null)
+  object_id        = try(each.value.group.object_id, null)
+  security_enabled = try(each.value.group.security_enabled, null)
 }
 
 # ------- Resources roles and administrators: Groups ------- #
