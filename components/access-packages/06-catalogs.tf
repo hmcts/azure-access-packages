@@ -41,12 +41,10 @@ resource "azuread_access_package_resource_catalog_association" "this" {
 # Either a User or a Group (Service Principal not baked in for now)
 # ------------------------------------------------------------------------
 
-# ------- Owner types ------- #
 data "azuread_access_package_catalog_role" "this" {
   display_name = "Catalog owner"
 }
 
-# ------- display_name must be specified ------- #
 data "azuread_group" "this" {
   display_name     = "DTS Platform Operations"
   security_enabled = true
