@@ -12,8 +12,12 @@ Entitlements are either in the form of `catalogs` or `packages`. A catalog needs
 in the definition of an access package.
 
 ## Catalogs
+The `Catalog` definitions are used to manage an access package catalog within Identity Governance in Azure Active Directory. Catalogs
+are like buckets of resources consist of have 2 main sections
+- Resources
+- Roles and administrators
 
-### New entries
+### New Catalog
 To create a new catalog entry, add the item definition to the [Catalogs](components/entitlement/02-packages.tf) definition file found in the [entitlement](components/entitlement) folder
 Below is an example of a `catalog` definition
 ```json
@@ -25,6 +29,20 @@ Below is an example of a `catalog` definition
 }
 ```
 You can add your new definition to the bottom of the list and this would be created after the PR is merged
+
+### Resources
+A `catalog` may have some resources associated with them that form part of what can be made available to users.
+Resources are added to a catalog by adding an entry in the `resources` section of the yml definiation
+```yaml
+    resources:
+      - "DTS Admin Data Platform (sub:DTS-SHAREDSERVICES-PROD)"
+      - ...
+```
+Generally these are resource groops that have been created in Azure AD.
+
+### Roles and administrators
+We have only one role administrator which is the `DTS Platform Operations` that would be used by resources
+created via this repository. The `DTS Platform Operations` is defined as a `Catalog owner` on all catalogs created
 
 ### Existing entries
 To update an existing entry, simple update the  current entry the definition file and terraform would update the relevant
