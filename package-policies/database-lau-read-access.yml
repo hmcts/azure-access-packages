@@ -12,47 +12,47 @@ policies:
         alternative_approver:
           backup: true
           object_id: object_id
-          subject_type: groupMembers
+          subject_type: "groupMembers"
         approval_timeout_in_days: 10
         approver_justification_required: true
         enable_alternative_approval_in_days: 5
         primary_approver:
           backup: true
           object_id: object_id
-          subject_type: groupMembers
+          subject_type: "groupMembers"
       requestor_justification_required: true
     assignment_review_settings:
-      access_recommendation_enabled:
-      access_review_timeout_behavior:
-      approver_justification_required:
-      duration_in_days:
-      enabled:
-      review_frequency:
-      review_type:
+      access_recommendation_enabled: true
+      access_review_timeout_behavior: "keepAccess"
+      approver_justification_required: true
+      duration_in_days: 3
+      enabled: true
+      review_frequency: "weekly"
+      review_type: "Self"
       reviewer:
-        backup:
-        object_id:
-        subject_type:
-      starting_on:
-    extension_enabled:
+        backup: true
+        object_id: "object_id"
+        subject_type: "groupMembers"
+      starting_on: "2018-01-01T01:02:03Z"
+    extension_enabled: true
     question:
       choice:
-        actual_value:
+        actual_value: actual_value
         display_value:
-          default_text:
+          default_text: default_text
           localized_text:
-            content:
-            language_code:
-      required:
-      sequence:
+            content: content
+            language_code: language_code
+      required: true
+      sequence: 1
       text:
-        default_text:
+        default_text: "default_text"
         localized_text:
-          content:
-          language_code:
+          content: "content"
+          language_code: "language_code"
     requestor_settings:
       requestor:
-        object_id:
-        subject_type:
-      requests_accepted:
-      scope_type:
+        object_id: "object_id"
+        subject_type: "groupMembers"
+      requests_accepted: true
+      scope_type: "AllExistingDirectoryMemberUsers"

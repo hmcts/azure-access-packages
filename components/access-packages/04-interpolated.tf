@@ -18,11 +18,12 @@ locals {
         for resource in try(catalog.resources, []) : {
           name                 = package.name
           resource_association = "${catalog.name}:${resource}"
-        } if contains(try(package.resource_roles, []),resource)
+        } if contains(try(package.resource_roles, []), resource)
       ] if package.catalog_name == catalog.name
     ]
   ])
 
+  # Idea 1 is for nested policy structure
   package_policies = flatten([
     for policy_file in fileset(path.module, "../../package-policies/*.yml") : [
       yamldecode(file(policy_file))
