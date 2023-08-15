@@ -1,10 +1,8 @@
 # Azure Access Packages
 This repository contains code and configuration files for managing Microsoft access packages in Azure.
 
-
 # Overview
 Access packages are a way to group Azure resources and assign permissions to users and groups. Access packages can be used to simplify access management and ensure that users have the appropriate permissions to access the resources they need.
-
 
 # Entitlement management
 
@@ -18,14 +16,16 @@ are like buckets of resources consist of have 2 main sections
 - Roles and administrators
 
 ### New Catalog
-To create a new catalog entry, add the item definition to the [Catalogs](components/entitlement/02-packages.tf) definition file found in the [entitlement](components/entitlement) folder
+To create a new catalog entry, add the item definition to the [Catalogs](entitlement-catalogs.yml) definition file found in the root folder.
 Below is an example of a `catalog` definition
-```json
+
+```yml
 {
-  name               = "<catalog name>" # Should be unique
-  description        = "<catalog description>"
-  published          = <true|false>
-  externally_visible = <true|false>
+  "name"               : "<catalog name>"
+  "description"        :  "<catalog description>"
+  "published"          : <true|false>
+  "externally_visible" : <true|false>
+  "resources"          : []
 }
 ```
 You can add your new definition to the bottom of the list and this would be created after the PR is merged
@@ -38,7 +38,7 @@ Resources are added to a catalog by adding an entry in the `resources` section o
       - "DTS Admin Data Platform (sub:DTS-SHAREDSERVICES-PROD)"
       - ...
 ```
-Generally these are resource groops that have been created in Azure AD.
+Generally these are resource groups that have been created in Azure AD.
 
 ### Roles and administrators
 We have only one role administrator which is the `DTS Platform Operations` that would be used by resources
@@ -49,18 +49,13 @@ To update an existing entry, simple update the  current entry the definition fil
 resources after PR is merged.
 
 ## Packages
-To create a  package entry, add the item definition to the [Packages](components/entitlement//02-packages.tf) definition file found in the [entitlement](components/entitlement) folder
+To create a  package entry, add the item definition to the [Packages](entitlement-packages.yml) definition file found in the root folder
 Below is an example of a `package` definition
-```json
+```yaml
 {
-  name         = "<package name>"
-  description  = "<package name>"
-  catalog_name = "<package name>" # Must be same name or already defined in the catalog file 
+  "name"         : "<package name>"
+  "description"  : "<package name>"
+  "catalog_name" : "<package name>" # Defined in the catalog file 
 }
 ```
 You can add your new definition to the bottom of the list and this would be created after the PR is merged
-
-
-# Notes
-- All new items are added from definition file in the [entitlement](components/entitlement) folder
-- A Service Principal is used for authentication.
