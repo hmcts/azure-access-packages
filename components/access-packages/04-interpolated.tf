@@ -23,7 +23,6 @@ locals {
     ]
   ])
 
-  # Idea 1 is for nested policy structure
   package_policies = flatten([
     for policy_file in fileset(path.module, "../../package-policies/*.yml") : [
       yamldecode(file(policy_file))
