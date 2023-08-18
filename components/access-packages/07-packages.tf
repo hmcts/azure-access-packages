@@ -39,7 +39,7 @@ resource "azuread_access_package_resource_package_association" "this" {
 
 resource "azuread_access_package_assignment_policy" "this" {
   for_each = {
-    for idx, policy in local.package_assignment_policy : format("%02s:%s", idx, policy.access_package) => policy
+    for item in local.package_assignment_policy : "${item.policy_name}:${item.access_package}" => item
   }
   access_package_id = azuread_access_package.package[each.value.access_package].id
   display_name      = each.value.policy.display_name

@@ -11,20 +11,24 @@ packages:
     catalog_name: "Databases"
     resource_roles:
       - "DTS JIT Access lau DB Reader SC"
+    policy: "Database"
 
   - name: "Database - PCQ read access"
     description: "Grants read access to PCQ database"
     catalog_name: "Databases"
+    policy: "Database"
     resource_roles:
       - "DTS JIT Access pcq DB Reader SC"
 
   - name: "Database - hmc-cft-hearing read access"
     description: "Grants read access to hmc databases"
     catalog_name: "Databases"
+    policy: "General"
 
   - name: "Database - libragob read access"
     description: "Grants read access to libragob production databases"
     catalog_name: "Databases"
+    policy: "General"
 
   - name: "Database - PIP read access"
     description: "Grants read access to PIP databases"
@@ -57,6 +61,8 @@ packages:
   - name: "SecOps Production Bastion Server Access"
     description: "This will provide access to Bastion Servers for SecOps in Production environments."
     catalog_name: "Bastion Servers"
+    resource_roles:
+      - "DTS Production Bastion Access for Users (SecOps)"
 
   - name: "Databases - Fact Read Access"
     description: "Grants read access to fact database"
