@@ -1,4 +1,4 @@
-#database access self approval no question or alternate  Approval 14 days with no alternative reviwer  - DM Read Access
+#database access self approval no question or alternate  Approval 14 days with no alternative reviewer 
 name: "Database-No-Question"
 policy:
   display_name: "Initial Policy"
@@ -28,7 +28,7 @@ policy:
     approver_justification_required: true
     duration_in_days: 14
     enabled: true
-    review_frequency: "weekly"
+    # review_frequency: "weekly"
     review_type: "Self"
     reviewer:
       backup: true

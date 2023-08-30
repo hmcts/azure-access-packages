@@ -5,7 +5,7 @@ packages:
   - name: "DB Sandbox Demo"
     description: "Grants access to all sandbox databases"
     catalog_name: "CFT DB Sandbox - Test"
-    # policy:
+    policy: Database-Approver
 
   - name: "Database - lau read access"
     description: "Grants read access to lau databases"
@@ -82,7 +82,7 @@ packages:
   - name: "SecOps Sandbox Bastion Server Access)"
     description: "This will provide access to Bastion Servers for SevOps in Sandbox (SBOX) environments."
     catalog_name: "Bastion Servers"
-    # policy: 
+    policy: "General"
 
    
   - name: "SecOps Production Bastion Server Access"
@@ -102,7 +102,7 @@ packages:
   - name: "Database - DM read access"
     description: "Grants read access to Evidence (DM) Database"
     catalog_name: "Databases"
-    # policy: 
+    policy: Database-Question
     resource_roles:
       - "DTS JIT Access dm-store DB Reader SC"
 
@@ -174,7 +174,7 @@ packages:
   - name: "Non-Production Bastion Server Access"
     description: "This will provide access to Bastion Servers in Non-Production environments."
     catalog_name: "Bastion Servers"
-    # policy:
+    policy: "SC-Question"
     resource_roles:
       - "DTS Non-Production Bastion Access for Users"
 
@@ -247,14 +247,14 @@ packages:
   - name: "CFT DB Sandbox Demo"
     description: "Grants read access to CFT DBs in sandbox"
     catalog_name: "CFT DB Sandbox - Test"
-    # policy:
+    policy: Database-Approver
     resource_roles:
       - "DTS JIT Access DB Reader SC CFT"
 
   - name: "CFT sandbox DB read - test"
     description: "Testing access package for CFT db sandbox"
     catalog_name: "CFT DB Sandbox - Test"
-   # policy: 
+    policy: "Database"
     resource_roles:
       - "dcd_reform_dev_logs"
 

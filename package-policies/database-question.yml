@@ -1,20 +1,20 @@
-#database access approver required 3 days timeout for CFT DB Sandbox Demo & DB  Sandbox Demo
-name: "Database-Approver"
+#database access self approve question unlimitied access for Database DM read access
+name: "Database-Question"
 policy:
   display_name: "Initial Policy"
   description: "Initial Policy"
-  duration_in_days: 1
+  duration_in_days: 1000
   expiration_date: "sd" #YYYY-MM-DDTHH:MM:SSZ
   approval_settings:
     approval_required_for_extension: true
     approval_required: true
     approval_stage:
-      alternative_approval_enabled: false
+      alternative_approval_enabled: true
       alternative_approver:
         backup: true
         object_id: object_id
-        subject_type: "singleuser"
-      approval_timeout_in_days: 3
+        subject_type: "groupMembers"
+      approval_timeout_in_days: 30
       approver_justification_required: true
       enable_alternative_approval_in_days: 0
       primary_approver:
@@ -26,7 +26,7 @@ policy:
     access_recommendation_enabled: true
     access_review_timeout_behavior: "keepAccess"
     approver_justification_required: true
-    duration_in_days: 14
+    duration_in_days: 1000
     enabled: true
     review_frequency: "annual"
     review_type: "Reviewer"
