@@ -1,4 +1,4 @@
-#self approval no question 1 day access
+#self approval no question 1 day access duration to review 25 days alternative approver
 name: "SC-Approval"
 policy:
   display_name: "Initial Policy"
