@@ -1,5 +1,5 @@
 #database access approver required 3 days timeout
-name: "Database"
+name: "Database-Approver"
 policy:
   display_name: "Initial Policy"
   description: "Initial Policy"

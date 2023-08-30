@@ -1,5 +1,5 @@
 #self approval no question 1 day and review access 25 days
-name: "Self-Approval"
+name: "SC-No-Question"
 policy:
   display_name: "Initial Policy"
   description: "Initial Policy"

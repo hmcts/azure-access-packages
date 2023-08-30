@@ -1,5 +1,5 @@
 #self approval, no alternative access 180 days and 5 questions
-name: "SC-Access"
+name: "SC"
 policy:
   display_name: "Initial Policy"
   description: "Initial Policy"
