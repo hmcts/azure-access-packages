@@ -1,5 +1,5 @@
-#database access self approval & no alternate approver 1 day with jira question Database - lau read access
-name: "Database"
+#database access self approval no question or alternate  Approval 14 days with no alternative reviwer  - DM Read Access
+name: "Database-No-Question"
 policy:
   display_name: "Initial Policy"
   description: "Initial Policy"
@@ -7,13 +7,13 @@ policy:
   expiration_date: "sd" #YYYY-MM-DDTHH:MM:SSZ
   approval_settings:
     approval_required_for_extension: true
-    approval_required: true
+    approval_required: false
     approval_stage:
       alternative_approval_enabled: false
       alternative_approver:
-        backup: true
+        backup: false
         object_id: object_id
-        subject_type: "groupMembers"
+        subject_type: "groupMembers" 
       approval_timeout_in_days: 14
       approver_justification_required: true
       enable_alternative_approval_in_days: 0
@@ -36,21 +36,6 @@ policy:
       subject_type: "groupMembers"
     starting_on: "2018-01-01T01:02:03Z"
   extension_enabled: true
-  question:
-    choice:
-      actual_value: actual_value
-      display_value:
-        default_text: "default_text" 
-        localized_text:
-          content: "Include JIRA link in business justification expiration"
-          language_code: language_code
-    required: true
-    sequence: 1
-    text:
-      default_text: "default_text"
-      localized_text:
-        content: "content"
-        language_code: "language_code"
   requestor_settings:
     requestor:
       object_id: "object_id"

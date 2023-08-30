@@ -1,26 +1,26 @@
-#self  approval with no question duration 1 day
-name: "General-Self-Approval"
+#self approval no question 1 day access
+name: "Self-Approval"
 policy:
   display_name: "Initial Policy"
   description: "Initial Policy"
   duration_in_days: 1
-  extension_enabled: true
+  extension_enabled: false
   approval_settings:
-    approval_required: false
+    approval_required: true
     approval_stage:
       alternative_approval_enabled: false
       alternative_approver:
-        backup: true
+        backup: false
         object_id: object_id
         subject_type: "groupMembers"
-      approval_timeout_in_days: 14
+      approval_timeout_in_days: 10
       approver_justification_required: true
-      enable_alternative_approval_in_days: 14
+      enable_alternative_approval_in_days: 5
     requestor_justification_required: true
   assignment_review_settings:
     access_recommendation_enabled: true
     access_review_timeout_behavior: "acceptAccessRecommendation"
-    approver_justification_required: true
+    approver_justification_required: false
     duration_in_days: 25
     enabled: true
     review_frequency: "quarterly"
@@ -30,3 +30,4 @@ policy:
       subject_type: "groupMembers"
     requests_accepted: true
     scope_type: "AllExistingDirectoryMemberUsers"
+  
