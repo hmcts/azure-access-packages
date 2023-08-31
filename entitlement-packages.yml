@@ -75,7 +75,7 @@ packages:
   - name: "Strategic Data Platform - Production (PlatOps and PET)"
     description: "Access to SDP Production"
     catalog_name: "SC"
-    # policy: 
+    policy: SC-No-Question"
     resource_roles:
       - "DTS SDP JIT Production PlatOps and PET"
 
@@ -84,7 +84,6 @@ packages:
     catalog_name: "Bastion Servers"
     policy: "General"
 
-   
   - name: "SecOps Production Bastion Server Access"
     description: "This will provide access to Bastion Servers for SecOps in Production environments."
     catalog_name: "Bastion Servers"
@@ -181,7 +180,9 @@ packages:
   - name: "Production Bastion Server Access"
     description: "This will provide access to Bastion Servers in Production environments."
     catalog_name: "Bastion Servers"
-    # policy:
+    policy:
+      - "SC-No-Question-8"
+      - "SC-No-Question"
     resource_roles:
       - "DTS Production Bastion Access for Users (DevOps)"
 
@@ -277,7 +278,7 @@ packages:
   - name: "Hub Subscriptions Access (Reader)"
     description: "Initial Policy"
     catalog_name: "Hub"
-    # policy:
+    policy: "General"
     resource_roles:
       - "DTS Readers (sub: hmcts-hub-nonprod-intsvc)"
       - "DTS Readers (sub: hmcts-hub-sbox-intsvc)"
