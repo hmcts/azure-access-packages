@@ -1,4 +1,4 @@
-#database access self approval no question or alternate  Approval 14 days with no alternative reviewer 
+#database access self approval no question or alternate - Approval 14 days with no alternative reviewer 
 name: "Database-No-Question"
 policy:
   display_name: "Initial Policy"

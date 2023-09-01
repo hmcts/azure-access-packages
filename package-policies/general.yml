@@ -1,4 +1,4 @@
-#no approval, no question, duration for 365 day and reviewed annually
+#no approval, no question, duration for 365 day and reviewed - ideal for sandbox
 name: "General"
 policy:
   display_name: "Initial Policy"
