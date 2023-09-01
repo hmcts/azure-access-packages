@@ -28,7 +28,7 @@ policy:
     approver_justification_required: true
     duration_in_days: 14
     enabled: true
-    # review_frequency: "weekly"
+    review_frequency: "weekly"
     review_type: "Self"
     reviewer:
       backup: true

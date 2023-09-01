@@ -29,7 +29,7 @@ policy:
     duration_in_days: 1000
     enabled: true
     review_frequency: "annual"
-    review_type: "Reviewer"
+    review_type: "Reviewers"
     reviewer:
       backup: true
       object_id: "object_id"
