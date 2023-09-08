@@ -18,7 +18,7 @@ To associate a policy with an access package simple
   
 ```yaml
 name: "General"
-policy:
+policies:
  ...
 ```
 
@@ -26,7 +26,8 @@ policy:
 
 ```yaml
     ...
-    policy: "General"
+    policies: 
+      - "General"
 ```
 
 When terraform processes the access packages if would associate your access package with the policy.

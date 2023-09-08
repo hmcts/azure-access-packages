@@ -23,7 +23,7 @@ locals {
     ]
   ])
 
-  package_policies = flatten([
+  policy_definitions = flatten([
     for policy_file in fileset(path.module, "../../package-policies/*.yml") : [
       yamldecode(file(policy_file))
     ]
@@ -31,12 +31,14 @@ locals {
 
   package_assignment_policy = flatten([
     for package in local.packages : [
-      for package_policy in local.package_policies : {
-        access_package = package.name
-        policy_name    = package_policy.name
-        policy         = package_policy.policy
-      } if package.policy == package_policy.name
-    ] if try(package.policy, null) != null
+      for policy in package.policies : [
+        for policy_definition in local.policy_definitions : {
+          access_package = package.name
+          policy_name    = policy_definition.name
+          policy         = policy_definition.policy
+        } if policy == policy_definition.name
+      ]
+    ] if try(package.policies, null) != null
   ])
 
   common_tags = module.ctags.common_tags

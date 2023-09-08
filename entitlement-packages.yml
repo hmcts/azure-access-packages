@@ -5,33 +5,38 @@ packages:
   - name: "DB Sandbox Demo"
     description: "Grants access to all sandbox databases"
     catalog_name: "CFT DB Sandbox - Test"
-    policy: Database-Approver
+    policies:
+      - "Database-Approver"
 
   - name: "Database - lau read access"
     description: "Grants read access to lau databases"
     catalog_name: "Databases"
     resource_roles:
       - "DTS JIT Access lau DB Reader SC"
-    policy: "Database"
+    policies:
+      - "Database"
 
   - name: "Database - PCQ read access"
     description: "Grants read access to PCQ database"
     catalog_name: "Databases"
-    policy: "Database"
+    policies:
+      - "Database"
     resource_roles:
       - "DTS JIT Access pcq DB Reader SC"
 
   - name: "Database - hmc-cft-hearing read access"
     description: "Grants read access to hmc databases"
     catalog_name: "Databases"
-    policy: "Database"
+    policies:
+      - "Database"
     resource_roles:
       - "DTS JIT Access hmc DB Reader SC"
 
   - name: "Database - libragob read access"
     description: "Grants read access to libragob production databases"
     catalog_name: "Databases"
-    policy: "Database"
+    policies:
+      - "Database"
     resource_roles:
       - "DTS JIT Access libragob DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
@@ -39,7 +44,8 @@ packages:
   - name: "Database - PIP read access"
     description: "Grants read access to PIP databases"
     catalog_name: "Databases"
-    policy: "Database"
+    policies:
+      - "Database"
     resource_roles:
       - "DTS JIT Access pip DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
@@ -47,89 +53,102 @@ packages:
   - name: "Strategic Data Platform - Production (Engineers)"
     description: "Access to SDP Production"
     catalog_name: "SC"
-    policy: "SC-No-Question"
+    policies:
+      - "SC-No-Question"
     resource_roles:
       - "DTS SDP JIT Production Data Engineers"
 
   - name: "Databases - Translation Service Read Access"
     description: "Grants read access to Translation Service (ts) database"
     catalog_name: "Databases"
-    policy: "Database"
+    policies:
+      - "Database"
     resource_roles:
       - "DTS JIT Access ts DB Reader SC"
 
   - name: "Databases - Work Allocation Read Access"
     description: "Grants read access to Work Allocation (wa) databases [wa_workflow, wa_case_event & cft_task_db]"
     catalog_name: "Databases"
-    policy: "Database"
+    policies:
+      - "Database"
     resource_roles:
       - "DTS JIT Access wa DB Reader SC"
 
   - name: "Database - ethos read access"
     description: "Grants read access to Ethos database"
     catalog_name: "Databases"
-    policy: "Database"
+    policies:
+      - "Database"
     resource_roles:
       - "DTS JIT Access ethos DB Reader SC"
 
   - name: "Strategic Data Platform - Production (PlatOps and PET)"
     description: "Access to SDP Production"
     catalog_name: "SC"
-    policy: SC-No-Question"
+    policies:
+      - "SC-No-Question"
     resource_roles:
       - "DTS SDP JIT Production PlatOps and PET"
 
   - name: "SecOps Sandbox Bastion Server Access)"
     description: "This will provide access to Bastion Servers for SevOps in Sandbox (SBOX) environments."
     catalog_name: "Bastion Servers"
-    policy: "General"
+    policies:
+      - "General"
 
   - name: "SecOps Production Bastion Server Access"
     description: "This will provide access to Bastion Servers for SecOps in Production environments."
     catalog_name: "Bastion Servers"
-    policy: "SC-No-Question"
+    policies:
+      - "SC-No-Question"
     resource_roles:
       - "DTS Production Bastion Access for Users (SecOps)"
 
   - name: "Databases - Fact Read Access"
     description: "Grants read access to fact database"
     catalog_name: "Databases"
-    policy: "Database" 
+    policies:
+      - "Database"
     resource_roles:
       - "DTS JIT Access fact DB Reader SC"
 
   - name: "Database - DM read access"
     description: "Grants read access to Evidence (DM) Database"
     catalog_name: "Databases"
-    policy: Database-Question
+    policies:
+      - "Database-Question"
     resource_roles:
       - "DTS JIT Access dm-store DB Reader SC"
 
   - name: "Database - em read access"
     description: "Grants read access to em databases (emhrs, annotation, stitching & npa)"
     catalog_name: "Databases"
-    policy: "Database" 
+    policies:
+      - "Database"
     resource_roles:
       - "DTS JIT Access em DB Reader SC"
 
   - name: "Administrative Access - Production Bastion Server"
     description: "This role should only be used to complete data migrations This will provide administrative access to Bastion Servers in Production environments."
     catalog_name: "Bastion Servers"
-    policy: "SC-Question"
+    policies:
+      - "SC-Question"
     resource_roles:
       - "DTS Production Bastion Access for Administrators (DevOps)"
 
   - name: "Administrative Access - Non-Production Bastion Server"
     description: "This role should only be used to complete data migrations This will provide administrative access to Bastion Servers in Non-Production environments."
     catalog_name: "Bastion Servers"
-    policy: "SC-Question"
+    policies:
+      - "SC-Question"
     resource_roles:
       - "DTS Non-Production Bastion Access for Administrators"
 
   - name: "Database - ccpay read access"
     description: "Grants read access to ccpay databases"
     catalog_name: "Databases"
-    policy: "Database" 
+    policies:
+      - "Database"
     resource_roles:
       - "DTS JIT Access ccpay DB Reader SC"
       - "DTS JIT Access payment DB Reader SC"
@@ -139,7 +158,8 @@ packages:
   - name: "Database - AM read access"
     description: "Grants read access to AM databases"
     catalog_name: "Databases"
-    policy: "Database" 
+    policies:
+      - "Database"
     resource_roles:
       - "DTS JIT Access am DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
@@ -147,7 +167,8 @@ packages:
   - name: "SharedServices Subscriptions Non-Production Access (Write)"
     description: "This will provide write access to the SharedServices subscriptions classified as non-production."
     catalog_name: "SharedServices Subscriptions"
-    policy: "SC-No-Question-25"
+    policies:
+      - "SC-No-Question-25"
     resource_roles:
       - "DTS Contributors (sub:dts-sharedservices-ithc)"
       - "DTS Contributors (sub:dts-sharedservices-test)"
@@ -158,14 +179,16 @@ packages:
   - name: "SharedServices Subscriptions Production Access (Write)"
     description: "Contributor access to shared services prod"
     catalog_name: "SharedServices Subscriptions"
-    policy: "SC-Question"
+    policies:
+      - "SC-Question"
     resource_roles:
       - "DTS JIT Access Contributors (sub:dts-sharedservices-prod)"
 
   - name: "SharedServices Storage Blob Data Reader (Production)"
     description: "This will provide Storage Blob Data Reader access to SharedServices subscriptions classified as production."
     catalog_name: "Storage Blob Data Reader (Production)"
-    policy: "SC-Question-25"
+    policies:
+      - "SC-Question-25"
     resource_roles:
       - "DTS Blob Readers (sub:dts-sharedservices-prod)"
       - "DTS Readers (sub:dts-sharedservices-prod)"
@@ -173,14 +196,15 @@ packages:
   - name: "Non-Production Bastion Server Access"
     description: "This will provide access to Bastion Servers in Non-Production environments."
     catalog_name: "Bastion Servers"
-    policy: "SC-Question"
+    policies:
+      - "SC-Question"
     resource_roles:
       - "DTS Non-Production Bastion Access for Users"
 
   - name: "Production Bastion Server Access"
     description: "This will provide access to Bastion Servers in Production environments."
     catalog_name: "Bastion Servers"
-    policy:
+    policies:
       - "SC-No-Question-8"
       - "SC-No-Question"
     resource_roles:
@@ -189,7 +213,8 @@ packages:
   - name: "Database - draft-store read access"
     description: "Grants read access to draft store databases"
     catalog_name: "Databases"
-    policy: "Database"
+    policies:
+      - "Database"
     resource_roles:
       - "DTS Production Bastion Access for Users (DevOps)"
       - "DTS JIT Access draft-store DB Reader SC"
@@ -197,7 +222,8 @@ packages:
   - name: "Database - RD read access"
     description: "Grants read access to RD databases"
     catalog_name: "Databases"
-    policy: "Database"
+    policies:
+      - "Database"
     resource_roles:
       - "DTS JIT Access rd DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
@@ -205,7 +231,8 @@ packages:
   - name: "Database - CCD read access"
     description: "Grants read access to CCD databases"
     catalog_name: "Databases"
-    policy: "Database"
+    policies:
+      - "Database"
     resource_roles:
       - "DTS Production Bastion Access for Users (DevOps)"
       - "DTS JIT Access ccd DB Reader SC"
@@ -213,7 +240,8 @@ packages:
   - name: "Database - send-letter read access"
     description: "Grants read access to send-letter databases"
     catalog_name: "Databases"
-    policy: "Database"
+    policies:
+      - "Database"
     resource_roles:
       - "DTS JIT Access send-letter DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
@@ -221,7 +249,8 @@ packages:
   - name: "Database - reform-scan read access"
     description: "Grants read access to reform-scan databases"
     catalog_name: "Databases"
-    policy: "Database"
+    policies:
+      - "Database"
     resource_roles:
       - "DTS Production Bastion Access for Users (DevOps)"
       - "DTS JIT Access reform-scan DB Reader SC"
@@ -229,7 +258,8 @@ packages:
   - name: "Database - bulk-scan read access"
     description: "Grants read access to bulk-scan databases"
     catalog_name: "Databases"
-    policy: "Database"
+    policies:
+      - "Database"
     resource_roles:
       - "DTS JIT Access bulk-scan DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
@@ -237,7 +267,8 @@ packages:
   - name: "SC Access"
     description: "Grants access to SC restricted resources and additional access packages"
     catalog_name: "SC"
-    policy: "SC"
+    policies:
+      - "SC"
     resource_roles:
       - "DTS CFT SC"
 
@@ -248,21 +279,24 @@ packages:
   - name: "CFT DB Sandbox Demo"
     description: "Grants read access to CFT DBs in sandbox"
     catalog_name: "CFT DB Sandbox - Test"
-    policy: Database-Approver
+    policies:
+      - "Database-Approver"
     resource_roles:
       - "DTS JIT Access DB Reader SC CFT"
 
   - name: "CFT sandbox DB read - test"
     description: "Testing access package for CFT db sandbox"
     catalog_name: "CFT DB Sandbox - Test"
-    policy: "Database"
+    policies:
+      - "Database"
     resource_roles:
       - "dcd_reform_dev_logs"
 
   - name: "SharedServices Subscriptions Non-Production Access (Reader)"
     description: "This will provide Read Only access to the SharedServices subscriptions classified as non-production."
     catalog_name: "SharedServices Subscriptions"
-    policy: "SC-No-Question"
+    policies:
+      - "SC-No-Question"
     resource_roles:
       - "DTS AKS Users (sub:dts-sharedservices-test)"
       - "DTS AKS Users (sub:dts-sharedservices-dev)"
@@ -278,7 +312,8 @@ packages:
   - name: "Hub Subscriptions Access (Reader)"
     description: "Initial Policy"
     catalog_name: "Hub"
-    policy: "General"
+    policies:
+      - "General"
     resource_roles:
       - "DTS Readers (sub: hmcts-hub-nonprod-intsvc)"
       - "DTS Readers (sub: hmcts-hub-sbox-intsvc)"
@@ -290,21 +325,24 @@ packages:
   - name: "Management Subscription Non-Production Access (Write)"
     description: "This will provide write access to the management subscriptions classified as non-production"
     catalog_name: "General"
-    policy: "SC-No-Question"
+    policies:
+      - "SC-No-Question"
     resource_roles:
       - "DTS Contributors (sub:dts-management-test)"
 
   - name: "Management Subscription Non-Production Access (Reader)"
     description: "This will provide read-only access to the management subscriptions classified as non-production"
     catalog_name: "General"
-    policy: "SC-No-Question"
+    policies:
+      - "SC-No-Question"
     resource_roles:
       - "DTS Readers (sub:dts-management-test)"
 
   - name: "Management Subscription Production Access (Write)"
     description: "This will provide write access to the management subscriptions classified as production."
     catalog_name: "General"
-    policy: "SC-No-Question"
+    policies:
+      - "SC-No-Question"
     resource_roles:
       - "DTS Contributors (sub:dts-management-nonprod-intsvc)"
       - "DTS Contributors (sub:dts-management-stg)"
@@ -314,7 +352,8 @@ packages:
   - name: "Management Subscription Production Access (Reader)"
     description: "This will provide read-only access to the management subscriptions classified as production."
     catalog_name: "General"
-    policy: "SC-No-Question"
+    policies:
+     - "SC-No-Question"
     resource_roles:
       - "DTS Readers (sub:dts-management-stg)"
       - "DTS Readers (sub:dts-management-prod-intsvc)"
