@@ -55,7 +55,7 @@ data "azuread_group" "this" {
 # as there was always an active assignment on these catalogs
 # Exempting so pipeline can complete
 variable "difficult_list" {
-  type = list(string)
+  type    = list(string)
   default = ["General", "SharedServices Subscriptions", "SC", "Databases", "Bastion Servers"]
 }
 
