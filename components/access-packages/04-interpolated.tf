@@ -31,7 +31,7 @@ locals {
 
   package_assignment_policy = flatten([
     for package in local.packages : [
-      for package_policy in local.package_policies : {
+      for package_policy in local.policy_definitions : {
         access_package = package.name
         policy_name    = package_policy.name
         policy         = package_policy.policy
