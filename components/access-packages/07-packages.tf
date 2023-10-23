@@ -12,9 +12,6 @@ resource "azuread_access_package" "package" {
   description  = each.value.description
   catalog_id   = azuread_access_package_catalog.catalog[each.value.catalog_name].id
   hidden       = try(each.value.hidden, null)
-  depends_on = [
-    azuread_access_package_catalog.catalog
-  ]
 }
 
 # ------------------------ RESOURCES ROLES -------------------------------
@@ -28,9 +25,6 @@ resource "azuread_access_package_resource_package_association" "this" {
   }
   access_package_id               = azuread_access_package.package[each.value.name].id
   catalog_resource_association_id = azuread_access_package_resource_catalog_association.this[each.value.resource_association].id
-  depends_on = [
-    azuread_access_package_resource_catalog_association.this
-  ]
 }
 
 # ------------------------ PACKAGE POLICIES -------------------------------
@@ -160,8 +154,4 @@ resource "azuread_access_package_assignment_policy" "this" {
       }
     }
   }
-
-  depends_on = [
-    azuread_access_package.package
-  ]
 }
