@@ -90,12 +90,6 @@ packages:
     resource_roles:
       - "DTS SDP JIT Production PlatOps and PET"
 
-  - name: "SecOps Sandbox Bastion Server Access)"
-    description: "This will provide access to Bastion Servers for SevOps in Sandbox (SBOX) environments."
-    catalog_name: "Bastion Servers"
-    policies:
-      - "General"
-
   - name: "SecOps Production Bastion Server Access"
     description: "This will provide access to Bastion Servers for SecOps in Production environments."
     catalog_name: "Bastion Servers"
