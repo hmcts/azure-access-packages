@@ -50,10 +50,20 @@ data "azuread_group" "this" {
   security_enabled = true
 }
 
+# TODO: Revisit
+# Could not import to state file and could not delete to recreate
+# as there was always an active assignment on these catalogs
+# Exempting so pipeline can complete
+variable "difficult_list" {
+  type    = list(string)
+  default = ["General", "SharedServices Subscriptions", "SC", "Databases", "Bastion Servers"]
+}
+
 # ------- Resources roles and administrators: Groups ------- #
 resource "azuread_access_package_catalog_role_assignment" "groups" {
   for_each = {
     for catalog in local.catalogs : catalog.name => catalog
+    if !contains(var.difficult_list, catalog.name)
   }
   role_id             = data.azuread_access_package_catalog_role.this.object_id
   principal_object_id = data.azuread_group.this.object_id
