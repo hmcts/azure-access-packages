@@ -18,7 +18,7 @@ locals {
         for resource in try(catalog.resources, []) : {
           name                 = package.name
           resource_association = "${catalog.name}:${resource}"
-        } if contains(try(package.resource_roles, []),resource)
+        } if contains(try(package.resource_roles, []), resource)
       ] if package.catalog_name == catalog.name
     ]
   ])
