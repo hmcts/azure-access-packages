@@ -11,10 +11,12 @@ Existing policies that cover most use cases are
   This is a default policy to be used if no specific requirements in setting
 - Database<br>
   Used for packages that grant access to DB related resources
+- Others (WIP)<br>
+  Add list here (WIP)
 
 ## Setting a Policy
 To associate a policy with an access package simple
-- Define the policy if no already exisiting. The policy definition looks like
+- Define the policy if no already existing. The policy definition looks like
   
 ```yaml
 name: "General"
