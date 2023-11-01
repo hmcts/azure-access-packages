@@ -18,27 +18,24 @@ locals {
         for resource in try(catalog.resources, []) : {
           name                 = package.name
           resource_association = "${catalog.name}:${resource}"
-        } if contains(try(package.resource_roles, []), resource)
+        } if contains(try(package.resource_roles, []),resource)
       ] if package.catalog_name == catalog.name
     ]
   ])
 
-  policy_definitions = flatten([
+  package_policies = flatten([
     for policy_file in fileset(path.module, "../../package-policies/*.yml") : [
       yamldecode(file(policy_file))
     ]
   ])
 
   package_assignment_policy = flatten([
-    for package in local.packages : [
-      for policy in package.policies : [
-        for policy_definition in local.policy_definitions : {
-          access_package = package.name
-          policy_name    = policy_definition.name
-          policy         = policy_definition.policy
-        } if policy == policy_definition.name
-      ]
-    ] if try(package.policies, null) != null
+    for package_policy in local.package_policies : [
+      for policy in try(package_policy.policies, []) : {
+        access_package = package_policy.access_package
+        policy         = policy
+      }
+    ]
   ])
 
   common_tags = module.ctags.common_tags
