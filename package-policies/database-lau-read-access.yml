@@ -1,58 +1,23 @@
-access_package: "Database - lau read access"
-policies:
-  - display_name: "xxx"
-    description: "yyy"
-    duration_in_days: 2
-    expiration_date: "sd" #YYYY-MM-DDTHH:MM:SSZ
-    approval_settings:
-      approval_required_for_extension: true
-      approval_required: true
-      approval_stage:
-        alternative_approval_enabled: true
-        alternative_approver:
-          backup: true
-          object_id: object_id
-          subject_type: groupMembers
-        approval_timeout_in_days: 10
-        approver_justification_required: true
-        enable_alternative_approval_in_days: 5
-        primary_approver:
-          backup: true
-          object_id: object_id
-          subject_type: groupMembers
-      requestor_justification_required: true
-    assignment_review_settings:
-      access_recommendation_enabled:
-      access_review_timeout_behavior:
-      approver_justification_required:
-      duration_in_days:
-      enabled:
-      review_frequency:
-      review_type:
-      reviewer:
-        backup:
-        object_id:
-        subject_type:
-      starting_on:
-    extension_enabled:
-    question:
-      choice:
-        actual_value:
-        display_value:
-          default_text:
-          localized_text:
-            content:
-            language_code:
-      required:
-      sequence:
-      text:
-        default_text:
-        localized_text:
-          content:
-          language_code:
-    requestor_settings:
-      requestor:
-        object_id:
-        subject_type:
-      requests_accepted:
-      scope_type:
+name: "Database - lau read access"
+policy:
+  display_name: "xxx"
+  description: "yyy"
+  duration_in_days: 2
+  expiration_date: "sd" #YYYY-MM-DDTHH:MM:SSZ
+  approval_settings:
+    approval_required_for_extension: true
+    approval_required: true
+    approval_stage:
+      alternative_approval_enabled: true
+      alternative_approver:
+        backup: true
+        object_id: object_id
+        subject_type: groupMembers
+      approval_timeout_in_days: 10
+      approver_justification_required: true
+      enable_alternative_approval_in_days: 5
+      primary_approver:
+        backup: true
+        object_id: object_id
+        subject_type: groupMembers
+    requestor_justification_required: true
