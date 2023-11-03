@@ -43,7 +43,7 @@ policies:
   - display_name: 
     description: 
     duration_in_days: 
-    expiration_date: 
+    expiration_date: # Format YYYY-MM-DDTHH:MM:SSZ
     approval_settings:
       approval_required_for_extension:
       approval_required:
@@ -51,14 +51,14 @@ policies:
         alternative_approval_enabled:
         alternative_approver:
           backup:
-          object_id:
+          object_id: # DTS Platform Operations group ID if not specified
           subject_type:
         approval_timeout_in_days:
         approver_justification_required:
         enable_alternative_approval_in_days:
         primary_approver:
           backup:
-          object_id:
+          object_id: # DTS Platform Operations group ID if not specified
           subject_type:
       requestor_justification_required:
     assignment_review_settings:
@@ -71,7 +71,7 @@ policies:
       review_type:
       reviewer:
         backup:
-        object_id:
+        object_id: # DTS Platform Operations group ID if not specified
         subject_type:
       starting_on:
     extension_enabled:
@@ -92,7 +92,7 @@ policies:
           language_code:
     requestor_settings:
       requestor:
-        object_id:
+        object_id: # DTS Platform Operations group ID if not specified
         subject_type:
       requests_accepted:
       scope_type:

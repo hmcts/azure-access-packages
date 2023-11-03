@@ -70,7 +70,7 @@ resource "azuread_access_package_assignment_policy" "this" {
             for_each = try(each.value.policy.approval_settings.approval_stage.alternative_approver, null) != null ? var.placeholder : {}
             content {
               backup       = try(each.value.policy.approval_settings.approval_stage.alternative_approver.backup, null)
-              object_id    = try(each.value.policy.approval_settings.approval_stage.alternative_approver.object_id, null)
+              object_id    = try(each.value.policy.approval_settings.approval_stage.alternative_approver.object_id, data.azuread_group.this.id)
               subject_type = each.value.policy.approval_settings.approval_stage.alternative_approver.subject_type
             }
           }
@@ -94,7 +94,7 @@ resource "azuread_access_package_assignment_policy" "this" {
         for_each = try(each.value.policy.assignment_review_settings.reviewer, null) != null ? var.placeholder : {}
         content {
           backup       = try(each.value.policy.assignment_review_settings.reviewer.backup, null)
-          object_id    = try(each.value.policy.assignment_review_settings.reviewer.object_id, null)
+          object_id    = try(each.value.policy.assignment_review_settings.reviewer.object_id, data.azuread_group.this.id)
           subject_type = each.value.policy.assignment_review_settings.reviewer.subject_type
         }
       }
@@ -148,7 +148,7 @@ resource "azuread_access_package_assignment_policy" "this" {
       dynamic "requestor" {
         for_each = try(each.value.policy.requestor_settings.requestor, null) != null ? var.placeholder : {}
         content {
-          object_id    = try(each.value.policy.requestor_settings.requestor.object_id, null)
+          object_id    = try(each.value.policy.requestor_settings.requestor.object_id, data.azuread_group.this.id)
           subject_type = each.value.policy.requestor_settings.requestor.subject_type
         }
       }

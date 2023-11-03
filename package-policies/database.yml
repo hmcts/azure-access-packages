@@ -4,7 +4,6 @@ policy:
   display_name: "Initial Policy"
   description: "Initial Policy"
   duration_in_days: 1
-  expiration_date: "sd" #YYYY-MM-DDTHH:MM:SSZ
   approval_settings:
     approval_required_for_extension: true
     approval_required: true
@@ -14,7 +13,6 @@ policy:
       enable_alternative_approval_in_days: 0
       primary_approver:
         backup: true
-        object_id: object_id
         subject_type: "groupMembers"
     requestor_justification_required: true
   assignment_review_settings:
