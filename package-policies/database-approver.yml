@@ -25,9 +25,7 @@ policy:
     review_type: "Reviewers"
     reviewer:
       backup: true
-      object_id: "object_id"
       subject_type: "groupMembers"
-    starting_on: "2018-01-01T01:02:03Z"
   extension_enabled: true
   question:
     choice:
@@ -46,7 +44,6 @@ policy:
         language_code: "language_code"
   requestor_settings:
     requestor:
-      object_id: "object_id"
       subject_type: "groupMembers"
     requests_accepted: true
     scope_type: "AllExistingDirectoryMemberUsers"
