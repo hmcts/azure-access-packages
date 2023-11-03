@@ -61,7 +61,7 @@ resource "azuread_access_package_assignment_policy" "this" {
             for_each = try(each.value.policy.approval_settings.approval_stage.primary_approver, null) != null ? var.placeholder : {}
             content {
               backup       = try(each.value.policy.approval_settings.approval_stage.primary_approver.backup, null)
-              object_id    = try(each.value.policy.approval_settings.approval_stage.primary_approver.object_id, null)
+              object_id    = try(each.value.policy.approval_settings.approval_stage.primary_approver.object_id, data.azuread_group.this.id)
               subject_type = each.value.policy.approval_settings.approval_stage.primary_approver.subject_type
             }
           }

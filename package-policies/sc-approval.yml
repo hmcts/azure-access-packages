@@ -56,11 +56,6 @@ policy:
   approval_settings:
     approval_required: true
     approval_stage:
-      alternative_approval_enabled: false
-      alternative_approver:
-        backup: false
-        object_id: object_id
-        subject_type: "groupMembers"
       approval_timeout_in_days: 10
       approver_justification_required: true
       enable_alternative_approval_in_days: 5
