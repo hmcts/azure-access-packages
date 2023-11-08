@@ -19,7 +19,7 @@ policy:
     access_recommendation_enabled: true
     access_review_timeout_behavior: "keepAccess"
     approver_justification_required: true
-    duration_in_days: 14
+    duration_in_days: 3
     enabled: true
     review_frequency: "weekly"
     review_type: "Self"
