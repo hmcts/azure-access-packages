@@ -24,6 +24,14 @@ packages:
     resource_roles:
       - "DTS JIT Access pcq DB Reader SC"
 
+  - name: "Database - Probate read access"
+    description: "Grants read access to probate database"
+    catalog_name: "Databases"
+    policies:
+      - "Database"
+    resource_roles:
+      - "DTS JIT Access probate DB Reader SC"
+
   - name: "Database - hmc-cft-hearing read access"
     description: "Grants read access to hmc databases"
     catalog_name: "Databases"
