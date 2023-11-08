@@ -1,0 +1,27 @@
+#no approval, no question, duration for 365 day and reviewed - ideal for sandbox
+name: "General"
+policy:
+  display_name: "Initial Policy"
+  description: "Initial Policy"
+  duration_in_days: 365
+  extension_enabled: true
+  approval_settings:
+    approval_required: false
+    approval_stage:
+      approval_timeout_in_days: 14
+      approver_justification_required: false
+      enable_alternative_approval_in_days: 14
+    requestor_justification_required: true
+  assignment_review_settings:
+    access_recommendation_enabled: true
+    access_review_timeout_behavior: "acceptAccessRecommendation"
+    approver_justification_required: false
+    duration_in_days: 25
+    enabled: true
+    review_frequency: "annual"
+    review_type: "Self"
+  requestor_settings:
+    requestor:
+      subject_type: "groupMembers"
+    requests_accepted: true
+    scope_type: "AllExistingDirectoryMemberUsers"

@@ -1,0 +1,43 @@
+#self approval no question 1 day and review access 14 days no alternative approver
+name: "SC-Question"
+policy:
+  display_name: "Initial Policy"
+  description: "Initial Policy"
+  duration_in_days: 1
+  extension_enabled: false
+  question:
+    choice:
+      actual_value: actual_value
+      display_value:
+        default_text: default_text
+        localized_text:
+          content: content
+          language_code: language_code
+    required: true
+    sequence: 1
+    text:
+      default_text: "default_text"
+      localized_text:
+        content: "Include JIRA link in business justification expiration"
+        language_code: "language_code"
+  approval_settings:
+    approval_required: true
+    approval_stage:
+      approval_timeout_in_days: 10
+      approver_justification_required: true
+      enable_alternative_approval_in_days: 5
+    requestor_justification_required: true
+  assignment_review_settings:
+    access_recommendation_enabled: true
+    access_review_timeout_behavior: "acceptAccessRecommendation"
+    approver_justification_required: false
+    duration_in_days: 14
+    enabled: true
+    review_frequency: "quarterly"
+    review_type: "Self"
+  requestor_settings:
+    requestor:
+      subject_type: "groupMembers"
+    requests_accepted: true
+    scope_type: "AllExistingDirectoryMemberUsers"
+  
