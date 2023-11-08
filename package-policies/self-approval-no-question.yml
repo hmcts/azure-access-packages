@@ -6,7 +6,7 @@ policy:
   duration_in_days: 1
   extension_enabled: false
   approval_settings:
-    approval_required: true
+    approval_required: false
     approval_stage:
       approval_timeout_in_days: 10
       approver_justification_required: true
