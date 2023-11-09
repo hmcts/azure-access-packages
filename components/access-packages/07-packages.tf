@@ -4,7 +4,7 @@
 # --------------------------------------------------------------------
 
 data "azuread_group" "requestors" {
-  for_each = toset(local.policy_requestor_groups)
+  for_each         = toset(local.policy_requestor_groups)
   display_name     = each.value
   security_enabled = true
 }
