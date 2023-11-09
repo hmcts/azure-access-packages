@@ -98,14 +98,6 @@ packages:
     resource_roles:
       - "DTS SDP JIT Production PlatOps and PET"
 
-  - name: "SecOps Production Bastion Server Access"
-    description: "This will provide access to Bastion Servers for SecOps in Production environments."
-    catalog_name: "Bastion Servers"
-    policies:
-      - "SC-No-Question"
-    resource_roles:
-      - "DTS Production Bastion Access for Users (SecOps)"
-
   - name: "Databases - Fact Read Access"
     description: "Grants read access to fact database"
     catalog_name: "Databases"
@@ -130,9 +122,22 @@ packages:
     resource_roles:
       - "DTS JIT Access em DB Reader SC"
 
+  - name: "SecOps Production Bastion Server Access"
+    description: "This will provide access to Bastion Servers for SecOps in Production environments."
+    catalog_name: "Bastion Servers"
+    requestor_groups:
+      - "DTS JIT Access (SecOps Access for Production Bastion Servers)"
+      - "dcd_team_secops_v2"
+    policies:
+      - "SC-No-Question"
+    resource_roles:
+      - "DTS Production Bastion Access for Users (SecOps)"
+
   - name: "Administrative Access - Production Bastion Server"
     description: "This role should only be used to complete data migrations This will provide administrative access to Bastion Servers in Production environments."
     catalog_name: "Bastion Servers"
+    requestor_groups:
+      - "DTS Platform Operations"
     policies:
       - "SC-Question"
     resource_roles:

@@ -3,7 +3,7 @@ name: "Database-Question"
 policy:
   display_name: "Initial Policy"
   description: "Initial Policy"
-  duration_in_days: 1000
+  duration_in_days: 1
   approval_settings:
     approval_required_for_extension: true
     approval_required: true
@@ -12,8 +12,8 @@ policy:
       alternative_approver:
         backup: true
         subject_type: "groupMembers"
-      approval_timeout_in_days: 30
-      approver_justification_required: true
+      approval_timeout_in_days: 14
+      approver_justification_required: false
       enable_alternative_approval_in_days: 0
       primary_approver:
         backup: true
@@ -22,8 +22,8 @@ policy:
   assignment_review_settings:
     access_recommendation_enabled: true
     access_review_timeout_behavior: "keepAccess"
-    approver_justification_required: true
-    duration_in_days: 14
+    approver_justification_required: false
+    duration_in_days: 1
     enabled: true
     review_frequency: "annual"
     review_type: "Reviewers"
@@ -32,20 +32,10 @@ policy:
       subject_type: "groupMembers"
   extension_enabled: true
   question:
-    choice:
-      actual_value: actual_value
-      display_value:
-        default_text: "default_text" 
-        localized_text:
-          content: "Include JIRA link in business justification expiration"
-          language_code: language_code
     required: true
     sequence: 1
     text:
-      default_text: "default_text"
-      localized_text:
-        content: "content"
-        language_code: "language_code"
+      default_text: "Include JIRA link in business justification expiration"
   requestor_settings:
     requestor:
       subject_type: "groupMembers"

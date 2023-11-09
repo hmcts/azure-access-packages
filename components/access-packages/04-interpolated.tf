@@ -32,12 +32,18 @@ locals {
   package_assignment_policy = flatten([
     for package in local.packages : [
       for package_policy in local.package_policies : {
-        access_package = package.name
-        policy_name    = package_policy.name
-        policy         = package_policy.policy
+        access_package   = package.name
+        policy_name      = package_policy.name
+        policy           = package_policy.policy
+        requestor_groups = try(package.requestor_groups, null)
       } if contains(package.policies, package_policy.name)
     ] if try(package.policies, null) != null
   ])
+
+  policy_requestor_groups = [
+    for group in flatten([for item in local.package_assignment_policy : item.requestor_groups]) : group
+    if group != null
+  ]
 
   common_tags = module.ctags.common_tags
 }

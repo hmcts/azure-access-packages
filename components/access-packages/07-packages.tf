@@ -3,6 +3,12 @@
 # No need to make any updates here for new entries
 # --------------------------------------------------------------------
 
+data "azuread_group" "requestors" {
+  for_each = toset(local.policy_requestor_groups)
+  display_name     = each.value
+  security_enabled = true
+}
+
 # ------- Packages --------- #
 resource "azuread_access_package" "package" {
   for_each = {
@@ -33,7 +39,7 @@ resource "azuread_access_package_resource_package_association" "this" {
 
 resource "azuread_access_package_assignment_policy" "this" {
   for_each = {
-    for idx, policy in local.package_assignment_policy : format("%02s:%s", idx, policy.access_package) => policy
+    for idx, policy in local.package_assignment_policy : format("%s:%s", policy.policy_name, policy.access_package) => policy
   }
   access_package_id = azuread_access_package.package[each.value.access_package].id
   display_name      = each.value.policy.display_name
@@ -146,10 +152,10 @@ resource "azuread_access_package_assignment_policy" "this" {
       scope_type        = try(each.value.policy.requestor_settings.scope_type, null)
 
       dynamic "requestor" {
-        for_each = try(each.value.policy.requestor_settings.requestor, null) != null ? var.placeholder : {}
+        for_each = try(each.value.requestor_groups, null) != null ? each.value.requestor_groups : []
         content {
-          object_id    = try(each.value.policy.requestor_settings.requestor.object_id, data.azuread_group.this.id)
-          subject_type = each.value.policy.requestor_settings.requestor.subject_type
+          object_id    = try(data.azuread_group.requestors[requestor.value].id, null)
+          subject_type = try(each.value.policy.requestor_settings.requestor.subject_type, null)
         }
       }
     }
