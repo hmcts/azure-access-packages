@@ -250,6 +250,8 @@ packages:
   - name: "Production Bastion Server Access"
     description: "This will provide access to Bastion Servers in Production environments."
     catalog_name: "Bastion Servers"
+    requestor_groups:
+      - "DTS Platform Operations"
     policies:
       - "SC-No-Question-8"
       - "SC-No-Question"
