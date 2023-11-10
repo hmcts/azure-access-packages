@@ -123,7 +123,6 @@ packages:
     catalog_name: "Bastion Servers"
     requestor_groups:
       - "DTS JIT Access (SecOps Access for Production Bastion Servers)"
-      - "dcd_team_secops_v2"
     policies:
       - "SC-No-Question"
     resource_roles:
