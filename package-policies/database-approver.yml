@@ -27,21 +27,11 @@ policy:
       backup: true
       subject_type: "groupMembers"
   extension_enabled: true
-  question:
-    choice:
-      actual_value: actual_value
-      display_value:
-        default_text: "default_text" 
-        localized_text:
-          content: "Include JIRA link in business justification expiration"
-          language_code: language_code
-    required: true
+  questions:
+  - required: true
     sequence: 1
     text:
-      default_text: "default_text"
-      localized_text:
-        content: "content"
-        language_code: "language_code"
+      default_text: "Include JIRA link in business justification expiration"
   requestor_settings:
     requestor:
       subject_type: "groupMembers"

@@ -31,8 +31,8 @@ policy:
       backup: true
       subject_type: "groupMembers"
   extension_enabled: true
-  question:
-    required: true
+  questions:
+  - required: true
     sequence: 1
     text:
       default_text: "Include JIRA link in business justification expiration"

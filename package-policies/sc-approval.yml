@@ -5,54 +5,27 @@ policy:
   description: "Initial Policy"
   duration_in_days: 180
   extension_enabled: false
-  question:
-    choice:
-      actual_value: actual_value
-      display_value:
-        default_text: default_text
-        localized_text:
-          content: content
-          language_code: language_code
-    required: true
+  questions:
+  - required: true
     sequence: 1
     text:
-      default_text: "default_text" 
-      localized_text:
-        content: "SC Reference Number"
-        sequence: 2
-        text:
-          default_text: "default_text" 
-          localized_text:
-            content:  "Clearance Start Date"
-            language_code: "language_code"
-              
-          sequence: 3
-          text:
-            default_text: "default_text" 
-            localized_text:
-              content:  "Clearance Expiry"
-              language_code: "language_code"
-              
-            sequence: 4
-            text:
-              default_text: "default_text" 
-              localized_text:
-                content:  "Have you worked outside of government for a period of 3 months or more since the clearance was issued?"
-                language_code: "language_code"
-
-                sequence: 5
-                text:
-                  default_text: "default_text" 
-                  localized_text:
-                    content: "How long have you been a UK resident for?"
-                    language_code: "language_code"
-
-                    sequence: 6
-                    text:
-                      default_text: "default_text" 
-                      localized_text:
-                        content: "Other supporting information?"
-                        language_code: "language_code"
+      default_text: "SC Reference Number"
+  - required: true
+    sequence: 2
+    text:
+      default_text: "Clearance Start Date"
+  - sequence: 3
+    text:
+      default_text: "Clearance Expiry"
+  - sequence: 4
+    text:
+      default_text: "Have you worked outside of government for a period of 3 months or more since the clearance was issued?"
+  - sequence: 5
+    text:
+      default_text: "How long have you been a UK resident for?"
+  - sequence: 6
+    text:
+      default_text: "Other supporting information?"
   approval_settings:
     approval_required: true
     approval_stage:

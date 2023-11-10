@@ -5,21 +5,11 @@ policy:
   description: "Initial Policy"
   duration_in_days: 1
   extension_enabled: false
-  question:
-    choice:
-      actual_value: actual_value
-      display_value:
-        default_text: default_text
-        localized_text:
-          content: content
-          language_code: language_code
-    required: true
+  questions:
+  - required: true
     sequence: 1
     text:
-      default_text: "default_text"
-      localized_text:
-        content: "Include JIRA link in business justification expiration"
-        language_code: "language_code"
+      default_text: "Include JIRA link in business justification expiration"
   approval_settings:
     approval_required: true
     approval_stage:
