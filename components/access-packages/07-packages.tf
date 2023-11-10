@@ -67,7 +67,7 @@ resource "azuread_access_package_assignment_policy" "this" {
             for_each = try(each.value.policy.approval_settings.approval_stage.primary_approver, null) != null ? var.placeholder : {}
             content {
               backup       = try(each.value.policy.approval_settings.approval_stage.primary_approver.backup, null)
-              object_id    = try(each.value.policy.approval_settings.approval_stage.primary_approver.object_id, data.azuread_group.this.id)
+              object_id    = try(each.value.policy.approval_settings.approval_stage.primary_approver.object_id, data.azuread_group.requestors["DTS Platform Operations"].id)
               subject_type = try(each.value.policy.approval_settings.approval_stage.primary_approver.subject_type, null)
             }
           }
@@ -76,7 +76,7 @@ resource "azuread_access_package_assignment_policy" "this" {
             for_each = try(each.value.policy.approval_settings.approval_stage.alternative_approver, null) != null ? var.placeholder : {}
             content {
               backup       = try(each.value.policy.approval_settings.approval_stage.alternative_approver.backup, null)
-              object_id    = try(each.value.policy.approval_settings.approval_stage.alternative_approver.object_id, data.azuread_group.this.id)
+              object_id    = try(each.value.policy.approval_settings.approval_stage.alternative_approver.object_id, null)
               subject_type = try(each.value.policy.approval_settings.approval_stage.alternative_approver.subject_type, null)
             }
           }
@@ -100,7 +100,7 @@ resource "azuread_access_package_assignment_policy" "this" {
         for_each = try(each.value.policy.assignment_review_settings.reviewer, null) != null ? var.placeholder : {}
         content {
           backup       = try(each.value.policy.assignment_review_settings.reviewer.backup, null)
-          object_id    = try(each.value.policy.assignment_review_settings.reviewer.object_id, data.azuread_group.this.id)
+          object_id    = try(each.value.policy.assignment_review_settings.reviewer.object_id, null)
           subject_type = try(each.value.policy.assignment_review_settings.reviewer.subject_type, null)
         }
       }
