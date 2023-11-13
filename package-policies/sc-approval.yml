@@ -9,7 +9,7 @@ policy:
   - required: true
     sequence: 1
     text:
-      default_text: "SC Reference Number"
+      default_text: "SC Reference Number (if known)"
   - required: true
     sequence: 2
     text:

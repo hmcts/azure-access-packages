@@ -1,4 +1,4 @@
-#self approval no question 1 day access duration to review 25 days
+#self approval no question 1 day access duration
 name: "SC-No-Question"
 policy:
   display_name: "Initial Policy"
@@ -10,7 +10,7 @@ policy:
     access_review_timeout_behavior: "acceptAccessRecommendation"
     approver_justification_required: false
     duration_in_days: 1
-    enabled: false
+    enabled: true
     review_frequency: "quarterly"
     review_type: "Self"
   requestor_settings:
