@@ -36,6 +36,14 @@ packages:
     resource_roles:
       - "DTS JIT Access probate DB Reader SC"
 
+  - name: "Database - SSCS read access"
+    description: "Grants read access to SSCS databases"
+    catalog_name: "Databases"
+    policies:
+      - "Database"
+    resource_roles:
+      - "DTS JIT Access sscs DB Reader SC"
+
   - name: "Database - hmc-cft-hearing read access"
     description: "Grants read access to hmc databases"
     catalog_name: "Databases"
