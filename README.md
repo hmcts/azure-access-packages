@@ -78,8 +78,8 @@ policies:
         subject_type:
       starting_on:
     extension_enabled:
-    question:
-      choice:
+    questions: 
+    - choice:
         actual_value:
         display_value:
           default_text:

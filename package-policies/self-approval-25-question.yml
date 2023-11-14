@@ -6,26 +6,13 @@ policy:
   duration_in_days: 1
   extension_enabled: false
   question:
-    choice:
-      actual_value: actual_value
-      display_value:
-        default_text: default_text
-        localized_text:
-          content: content
-          language_code: language_code
-    required: true
-    sequence: 1
-    text:
-      default_text: "default_text"
-      localized_text:
-        content: "Include JIRA link in business justification expiration"
-        language_code: "language_code"
+  - question:
+      required: true
+      sequence: 1
+      text:
+        default_text: "Include JIRA link in business justification expiration"
   approval_settings:
-    approval_required: true
-    approval_stage:
-      approval_timeout_in_days: 10
-      approver_justification_required: true
-      enable_alternative_approval_in_days: 5
+    approval_required: false
     requestor_justification_required: true
   assignment_review_settings:
     access_recommendation_enabled: true

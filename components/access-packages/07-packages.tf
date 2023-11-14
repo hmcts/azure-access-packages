@@ -3,6 +3,12 @@
 # No need to make any updates here for new entries
 # --------------------------------------------------------------------
 
+data "azuread_group" "requestors" {
+  for_each         = toset(local.policy_requestor_groups)
+  display_name     = each.value
+  security_enabled = true
+}
+
 # ------- Packages --------- #
 resource "azuread_access_package" "package" {
   for_each = {
@@ -33,14 +39,14 @@ resource "azuread_access_package_resource_package_association" "this" {
 
 resource "azuread_access_package_assignment_policy" "this" {
   for_each = {
-    for idx, policy in local.package_assignment_policy : format("%02s:%s", idx, policy.access_package) => policy
+    for idx, policy in local.package_assignment_policy : format("%s:%s", policy.policy_name, policy.access_package) => policy
   }
   access_package_id = azuread_access_package.package[each.value.access_package].id
   display_name      = each.value.policy.display_name
   description       = each.value.policy.description
-  duration_in_days  = try(each.value.duration_in_days, null)
-  expiration_date   = try(each.value.expiration_date, null)
-  extension_enabled = try(each.value.extension_enabled, null)
+  duration_in_days  = try(each.value.policy.duration_in_days, null)
+  expiration_date   = try(each.value.policy.expiration_date, null)
+  extension_enabled = try(each.value.policy.extension_enabled, null)
 
   dynamic "approval_settings" {
     for_each = try(each.value.policy.approval_settings, null) != null ? var.placeholder : {}
@@ -62,7 +68,7 @@ resource "azuread_access_package_assignment_policy" "this" {
             content {
               backup       = try(each.value.policy.approval_settings.approval_stage.primary_approver.backup, null)
               object_id    = try(each.value.policy.approval_settings.approval_stage.primary_approver.object_id, data.azuread_group.this.id)
-              subject_type = each.value.policy.approval_settings.approval_stage.primary_approver.subject_type
+              subject_type = try(each.value.policy.approval_settings.approval_stage.primary_approver.subject_type, null)
             }
           }
 
@@ -70,8 +76,8 @@ resource "azuread_access_package_assignment_policy" "this" {
             for_each = try(each.value.policy.approval_settings.approval_stage.alternative_approver, null) != null ? var.placeholder : {}
             content {
               backup       = try(each.value.policy.approval_settings.approval_stage.alternative_approver.backup, null)
-              object_id    = try(each.value.policy.approval_settings.approval_stage.alternative_approver.object_id, data.azuread_group.this.id)
-              subject_type = each.value.policy.approval_settings.approval_stage.alternative_approver.subject_type
+              object_id    = try(each.value.policy.approval_settings.approval_stage.alternative_approver.object_id, null)
+              subject_type = try(each.value.policy.approval_settings.approval_stage.alternative_approver.subject_type, null)
             }
           }
         }
@@ -94,31 +100,31 @@ resource "azuread_access_package_assignment_policy" "this" {
         for_each = try(each.value.policy.assignment_review_settings.reviewer, null) != null ? var.placeholder : {}
         content {
           backup       = try(each.value.policy.assignment_review_settings.reviewer.backup, null)
-          object_id    = try(each.value.policy.assignment_review_settings.reviewer.object_id, data.azuread_group.this.id)
-          subject_type = each.value.policy.assignment_review_settings.reviewer.subject_type
+          object_id    = try(each.value.policy.assignment_review_settings.reviewer.object_id, null)
+          subject_type = try(each.value.policy.assignment_review_settings.reviewer.subject_type, null)
         }
       }
     }
   }
 
   dynamic "question" {
-    for_each = try(each.value.policy.question, null) != null ? var.placeholder : {}
+    for_each = try(each.value.policy.questions, [])
     content {
-      required = try(each.value.policy.question.required, null)
-      sequence = try(each.value.policy.question.sequence, null)
+      required = try(question.value.required, null)
+      sequence = try(question.value.sequence, null)
 
       dynamic "choice" {
-        for_each = try(each.value.policy.question.choice, null) != null ? var.placeholder : {}
+        for_each = try(question.value.choice, null) != null ? var.placeholder : {}
         content {
-          actual_value = each.value.policy.question.choice.actual_value
+          actual_value = try(choice.value.actual_value, null)
           display_value {
-            default_text = each.value.policy.question.choice.display_value.default_text
+            default_text = try(choice.value.display_value.default_text, null)
 
             dynamic "localized_text" {
-              for_each = try(each.value.policy.question.choice.display_value.default_text.localized_text, null) != null ? var.placeholder : {}
+              for_each = try(choice.value.display_value.default_text.localized_text, null) != null ? var.placeholder : {}
               content {
-                content       = each.value.policy.question.choice.display_value.default_text.localized_text.content
-                language_code = each.value.policy.question.choice.display_value.default_text.localized_text.language_code
+                content       = try(localized_text.value.content, null)
+                language_code = try(localized_text.value.language_code, null)
               }
             }
           }
@@ -126,13 +132,13 @@ resource "azuread_access_package_assignment_policy" "this" {
       }
 
       text {
-        default_text = each.value.policy.question.text.default_text
+        default_text = try(question.value.text.default_text, "")
 
         dynamic "localized_text" {
-          for_each = try(each.value.policy.question.text.default_text.localized_text, null) != null ? var.placeholder : {}
+          for_each = try(question.value.text.default_text.localized_text, null) != null ? var.placeholder : {}
           content {
-            content       = try(each.value.policy.question.text.default_text.localized_text.content, null)
-            language_code = try(each.value.policy.question.text.default_text.localized_text.language_code, null)
+            content       = try(localized_text.value.content, null)
+            language_code = try(localized_text.value.language_code, null)
           }
         }
       }
@@ -146,10 +152,10 @@ resource "azuread_access_package_assignment_policy" "this" {
       scope_type        = try(each.value.policy.requestor_settings.scope_type, null)
 
       dynamic "requestor" {
-        for_each = try(each.value.policy.requestor_settings.requestor, null) != null ? var.placeholder : {}
+        for_each = try(each.value.requestor_groups, null) != null ? each.value.requestor_groups : []
         content {
-          object_id    = try(each.value.policy.requestor_settings.requestor.object_id, data.azuread_group.this.id)
-          subject_type = each.value.policy.requestor_settings.requestor.subject_type
+          object_id    = try(data.azuread_group.requestors[requestor.value].id, null)
+          subject_type = try(each.value.policy.requestor_settings.requestor.subject_type, null)
         }
       }
     }
