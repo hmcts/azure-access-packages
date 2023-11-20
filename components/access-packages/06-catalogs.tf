@@ -54,10 +54,10 @@ data "azuread_group" "this" {
 # Could not import to state file and could not delete to recreate
 # as there was always an active assignment on these catalogs
 # Exempting so pipeline can complete
-variable "difficult_list" {
-  type    = list(string)
-  default = ["General", "SharedServices Subscriptions", "SC", "Databases", "Bastion Servers"]
-}
+#variable "difficult_list" {
+#  type    = list(string)
+#  default = ["General", "SharedServices Subscriptions", "SC", "Databases", "Bastion Servers"]
+#}
 
 # ------- Resources roles and administrators: Groups ------- #
 resource "azuread_access_package_catalog_role_assignment" "groups" {
