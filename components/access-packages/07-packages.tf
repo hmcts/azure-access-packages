@@ -51,9 +51,9 @@ resource "azuread_access_package_assignment_policy" "this" {
   dynamic "approval_settings" {
     for_each = try(each.value.policy.approval_settings, null) != null ? var.placeholder : {}
     content {
-      approval_required_for_extension  = try(each.value.policy.approval_required_for_extension, null)
-      approval_required                = try(each.value.policy.approval_required, null)
-      requestor_justification_required = try(each.value.policy.requestor_justification_required, null)
+      approval_required_for_extension  = try(each.value.policy.approval_settings.approval_required_for_extension, null)
+      approval_required                = try(each.value.policy.approval_settings.approval_required, null)
+      requestor_justification_required = try(each.value.policy.approval_settings.requestor_justification_required, null)
 
       dynamic "approval_stage" {
         for_each = try(each.value.policy.approval_settings.approval_stage, null) != null ? var.placeholder : {}
