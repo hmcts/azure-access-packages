@@ -63,7 +63,7 @@ data "azuread_group" "this" {
 resource "azuread_access_package_catalog_role_assignment" "groups" {
   for_each = {
     for catalog in local.catalogs : catalog.name => catalog
-    if !contains(var.difficult_list, catalog.name)
+    #    if !contains(var.difficult_list, catalog.name)
   }
   role_id             = data.azuread_access_package_catalog_role.this.object_id
   principal_object_id = data.azuread_group.this.object_id
