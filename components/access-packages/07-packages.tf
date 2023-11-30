@@ -73,7 +73,7 @@ resource "azuread_access_package_assignment_policy" "this" {
           }
 
           dynamic "alternative_approver" {
-            for_each = try(each.value.policy.approval_settings.approval_stage.alternative_approver, null) != null ? var.placeholder : {}
+            for_each = try(each.value.policy.approval_settings.approval_stage.alternative_approval_enabled, null) == true ? var.placeholder : {}
             content {
               backup       = try(each.value.policy.approval_settings.approval_stage.alternative_approver.backup, null)
               object_id    = try(each.value.policy.approval_settings.approval_stage.alternative_approver.object_id, null)
