@@ -36,12 +36,18 @@ locals {
         policy_name      = package_policy.name
         policy           = package_policy.policy
         requestor_groups = try(package.requestor_groups, null)
+        approver_groups  = try(package.approver_groups, null)
       } if contains(package.policies, package_policy.name)
     ] if try(package.policies, null) != null
   ])
 
   policy_requestor_groups = [
     for group in flatten([for item in local.package_assignment_policy : item.requestor_groups]) : group
+    if group != null
+  ]
+
+  policy_approver_groups = [
+    for group in flatten([for item in local.package_assignment_policy : item.approver_groups]) : group
     if group != null
   ]
 

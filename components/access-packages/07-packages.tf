@@ -3,11 +3,21 @@
 # No need to make any updates here for new entries
 # --------------------------------------------------------------------
 
+
+# All declared Requestor AD group object ids
 data "azuread_group" "requestors" {
   for_each         = toset(local.policy_requestor_groups)
   display_name     = each.value
   security_enabled = true
 }
+
+# All declared Approvers AD group  object ids
+data "azuread_group" "approvers" {
+  for_each         = toset(concat(local.policy_approver_groups, [var.default_approver]))
+  display_name     = each.value
+  security_enabled = true
+}
+
 
 # ------- Packages --------- #
 resource "azuread_access_package" "package" {
@@ -48,38 +58,33 @@ resource "azuread_access_package_assignment_policy" "this" {
   expiration_date   = try(each.value.policy.expiration_date, null)
   extension_enabled = try(each.value.policy.extension_enabled, null)
 
-  dynamic "approval_settings" {
-    for_each = try(each.value.policy.approval_settings, null) != null ? var.placeholder : {}
-    content {
-      approval_required_for_extension  = try(each.value.policy.approval_settings.approval_required_for_extension, null)
-      approval_required                = try(each.value.policy.approval_settings.approval_required, null)
-      requestor_justification_required = try(each.value.policy.approval_settings.requestor_justification_required, null)
+  approval_settings {
+    approval_required_for_extension  = try(each.value.policy.approval_settings.approval_required_for_extension, null)
+    approval_required                = try(each.value.policy.approval_settings.approval_required, null)
+    requestor_justification_required = try(each.value.policy.approval_settings.requestor_justification_required, null)
 
-      dynamic "approval_stage" {
-        for_each = try(each.value.policy.approval_settings.approval_required, null) == true ? var.placeholder : {}
+    approval_stage {
+      approval_timeout_in_days            = try(each.value.policy.approval_settings.approval_stage.approval_timeout_in_days, 3)
+      alternative_approval_enabled        = try(each.value.policy.approval_settings.approval_stage.alternative_approval_enabled, null)
+      approver_justification_required     = try(each.value.policy.approval_settings.approval_stage.approver_justification_required, null)
+      enable_alternative_approval_in_days = try(each.value.policy.approval_settings.approval_stage.enable_alternative_approval_in_days, null)
+
+      dynamic "primary_approver" {
+        # change [] to  [var.default_approver] to make Platform operations group the default approver desired
+        for_each = try(each.value.approver_groups, null) != null ? each.value.approver_groups : []
         content {
-          approval_timeout_in_days            = try(each.value.policy.approval_settings.approval_stage.approval_timeout_in_days, null)
-          alternative_approval_enabled        = try(each.value.policy.approval_settings.approval_stage.alternative_approval_enabled, null)
-          approver_justification_required     = try(each.value.policy.approval_settings.approval_stage.approver_justification_required, null)
-          enable_alternative_approval_in_days = try(each.value.policy.approval_settings.approval_stage.enable_alternative_approval_in_days, null)
+          object_id    = try(data.azuread_group.approvers[primary_approver.value].id, null)
+          backup       = try(each.value.policy.approval_settings.approval_stage.primary_approver.backup, null)
+          subject_type = try(each.value.policy.approval_settings.approval_stage.primary_approver.subject_type, null)
+        }
+      }
 
-          dynamic "primary_approver" {
-            for_each = try(each.value.policy.approval_settings.approval_stage.primary_approver, null) != null ? var.placeholder : {}
-            content {
-              backup       = try(each.value.policy.approval_settings.approval_stage.primary_approver.backup, null)
-              object_id    = try(each.value.policy.approval_settings.approval_stage.primary_approver.object_id, data.azuread_group.this.id)
-              subject_type = try(each.value.policy.approval_settings.approval_stage.primary_approver.subject_type, null)
-            }
-          }
-
-          dynamic "alternative_approver" {
-            for_each = try(each.value.policy.approval_settings.approval_stage.alternative_approval_enabled, null) == true ? var.placeholder : {}
-            content {
-              backup       = try(each.value.policy.approval_settings.approval_stage.alternative_approver.backup, null)
-              object_id    = try(each.value.policy.approval_settings.approval_stage.alternative_approver.object_id, null)
-              subject_type = try(each.value.policy.approval_settings.approval_stage.alternative_approver.subject_type, null)
-            }
-          }
+      dynamic "alternative_approver" {
+        for_each = try(each.value.policy.approval_settings.approval_stage.alternative_approval_enabled, null) == true ? var.placeholder : {}
+        content {
+          backup       = try(each.value.policy.approval_settings.approval_stage.alternative_approver.backup, null)
+          object_id    = try(each.value.policy.approval_settings.approval_stage.alternative_approver.object_id, data.azuread_group.this.id)
+          subject_type = try(each.value.policy.approval_settings.approval_stage.alternative_approver.subject_type, null)
         }
       }
     }

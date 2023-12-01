@@ -12,7 +12,6 @@ policy:
       approver_justification_required: true
       enable_alternative_approval_in_days: 0
       primary_approver:
-        backup: true
         subject_type: "groupMembers"
     requestor_justification_required: true
   assignment_review_settings:
