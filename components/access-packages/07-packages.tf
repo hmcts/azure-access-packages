@@ -13,7 +13,7 @@ data "azuread_group" "requestors" {
 
 # All declared Approvers AD group  object ids
 data "azuread_group" "approvers" {
-  for_each         = toset(local.policy_approver_groups)
+  for_each         = toset(concat(local.policy_approver_groups, [var.default_approver]))
   display_name     = each.value
   security_enabled = true
 }
@@ -64,16 +64,16 @@ resource "azuread_access_package_assignment_policy" "this" {
     requestor_justification_required = try(each.value.policy.approval_settings.requestor_justification_required, null)
 
     approval_stage {
-      approval_timeout_in_days            = try(each.value.policy.approval_settings.approval_stage.approval_timeout_in_days, 14)
+      approval_timeout_in_days            = try(each.value.policy.approval_settings.approval_stage.approval_timeout_in_days,3)
       alternative_approval_enabled        = try(each.value.policy.approval_settings.approval_stage.alternative_approval_enabled, null)
       approver_justification_required     = try(each.value.policy.approval_settings.approval_stage.approver_justification_required, null)
       enable_alternative_approval_in_days = try(each.value.policy.approval_settings.approval_stage.enable_alternative_approval_in_days, null)
 
       dynamic "primary_approver" {
-        # change [] to  [var.default_approver] to make Platform operation is default approver for all if required
+        # change [] to  [var.default_approver] to make Platform operations group the default approver desired
         for_each = try(each.value.approver_groups, null) != null ? each.value.approver_groups : []
         content {
-          object_id    = try(data.azuread_group.approvers[primary_approver.value].id, data.azuread_group.this.id)
+          object_id    = try(data.azuread_group.approvers[primary_approver.value].id, null)
           backup       = try(each.value.policy.approval_settings.approval_stage.primary_approver.backup, null)
           subject_type = try(each.value.policy.approval_settings.approval_stage.primary_approver.subject_type, null)
         }
