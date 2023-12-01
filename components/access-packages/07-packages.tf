@@ -64,7 +64,7 @@ resource "azuread_access_package_assignment_policy" "this" {
     requestor_justification_required = try(each.value.policy.approval_settings.requestor_justification_required, null)
 
     approval_stage {
-      approval_timeout_in_days            = try(each.value.policy.approval_settings.approval_stage.approval_timeout_in_days,3)
+      approval_timeout_in_days            = try(each.value.policy.approval_settings.approval_stage.approval_timeout_in_days, 3)
       alternative_approval_enabled        = try(each.value.policy.approval_settings.approval_stage.alternative_approval_enabled, null)
       approver_justification_required     = try(each.value.policy.approval_settings.approval_stage.approver_justification_required, null)
       enable_alternative_approval_in_days = try(each.value.policy.approval_settings.approval_stage.enable_alternative_approval_in_days, null)

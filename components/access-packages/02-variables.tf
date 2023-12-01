@@ -52,6 +52,6 @@ variable "placeholder" {
 }
 
 variable "default_approver" {
-  type = string
+  type    = string
   default = "DTS Platform Operations"
 }
