@@ -50,3 +50,8 @@ variable "placeholder" {
   type    = map(bool)
   default = { dynamic_block = true }
 }
+
+variable "default_approver" {
+  type = string
+  default = "DTS Platform Operations"
+}

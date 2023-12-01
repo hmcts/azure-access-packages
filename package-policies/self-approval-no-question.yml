@@ -5,6 +5,13 @@ policy:
   description: "Initial Policy"
   duration_in_days: 1
   extension_enabled: false
+  approval_settings:
+    approval_required: false
+    approval_stage:
+      alternative_approval_enabled: false
+      approval_timeout_in_days: 3
+      primary_approver:
+        subject_type: "groupMembers"
   assignment_review_settings:
     access_recommendation_enabled: true
     access_review_timeout_behavior: "acceptAccessRecommendation"

@@ -9,6 +9,8 @@ policy:
     approval_required: true
     approval_stage:
       alternative_approval_enabled: true
+      primary_approver:
+        subject_type: "groupMembers"
       alternative_approver:
         backup: false
         subject_type: "groupMembers"

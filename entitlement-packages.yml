@@ -328,10 +328,12 @@ packages:
   - name: "SC Access"
     description: "Grants access to SC restricted resources and additional access packages"
     catalog_name: "SC"
-    requestor_groups:
-      - "DTS CFT Developers"
     policies:
       - "SC"
+    requestor_groups:
+      - "DTS CFT Developers"
+    approver_groups:
+      - "DTS SC Access Approvers"
     resource_roles:
       - "DTS CFT SC"
 

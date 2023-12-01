@@ -16,6 +16,9 @@ policy:
       approval_timeout_in_days: 10
       approver_justification_required: true
       enable_alternative_approval_in_days: 5
+      alternative_approval_enabled: false
+      primary_approver:
+        subject_type: "groupMembers"
     requestor_justification_required: true
   assignment_review_settings:
     access_recommendation_enabled: true
