@@ -7,24 +7,34 @@ packages:
     catalog_name: "CFT DB Sandbox - Test"
     policies:
       - "Database-Approver"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
+    alternative_approver_groups:
+      - "DTS Platform Operations"
 
   - name: "Database - lau read access"
     description: "Grants read access to lau databases"
     catalog_name: "Databases"
-    requestor_groups:
-      - "DTS CFT SC"
-    resource_roles:
-      - "DTS JIT Access lau DB Reader SC"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
+    resource_roles:
+      - "DTS JIT Access lau DB Reader SC"
 
   - name: "Database - PCQ read access"
     description: "Grants read access to PCQ database"
     catalog_name: "Databases"
-    requestor_groups:
-      - "DTS CFT SC"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access pcq DB Reader SC"
 
@@ -33,26 +43,32 @@ packages:
     catalog_name: "Databases"
     policies:
       - "Database"
+    approver_groups:
+      - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access probate DB Reader SC"
 
   - name: "Database - hmc-cft-hearing read access"
     description: "Grants read access to hmc databases"
     catalog_name: "Databases"
-    requestor_groups:
-      - "DTS CFT SC"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access hmc DB Reader SC"
 
   - name: "Database - libragob read access"
     description: "Grants read access to libragob production databases"
     catalog_name: "Databases"
-    requestor_groups:
-      - "DTS CFT SC"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access libragob DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
@@ -60,10 +76,12 @@ packages:
   - name: "Database - PIP read access"
     description: "Grants read access to PIP databases"
     catalog_name: "Databases"
-    requestor_groups:
-      - "DTS CFT SC"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access pip DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
@@ -81,30 +99,36 @@ packages:
   - name: "Databases - Translation Service Read Access"
     description: "Grants read access to Translation Service (ts) database"
     catalog_name: "Databases"
-    requestor_groups:
-      - "DTS CFT SC"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access ts DB Reader SC"
 
   - name: "Databases - Work Allocation Read Access"
     description: "Grants read access to Work Allocation (wa) databases [wa_workflow, wa_case_event & cft_task_db]"
     catalog_name: "Databases"
-    requestor_groups:
-      - "DTS CFT SC"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access wa DB Reader SC"
 
   - name: "Database - ethos read access"
     description: "Grants read access to Ethos database"
     catalog_name: "Databases"
-    requestor_groups:
-      - "DTS CFT SC"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access ethos DB Reader SC"
 
@@ -131,10 +155,12 @@ packages:
   - name: "Databases - Fact Read Access"
     description: "Grants read access to fact database"
     catalog_name: "Databases"
-    requestor_groups:
-      - "DTS CFT SC"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access fact DB Reader SC"
 
@@ -151,10 +177,12 @@ packages:
   - name: "Database - em read access"
     description: "Grants read access to em databases (emhrs, annotation, stitching & npa)"
     catalog_name: "Databases"
-    requestor_groups:
-      - "DTS CFT SC"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access em DB Reader SC"
 
@@ -181,10 +209,12 @@ packages:
   - name: "Database - ccpay read access"
     description: "Grants read access to ccpay databases"
     catalog_name: "Databases"
-    requestor_groups:
-      - "DTS CFT SC"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access ccpay DB Reader SC"
       - "DTS JIT Access payment DB Reader SC"
@@ -195,10 +225,12 @@ packages:
   - name: "Database - AM read access"
     description: "Grants read access to AM databases"
     catalog_name: "Databases"
-    requestor_groups:
-      - "DTS CFT SC"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access am DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
@@ -262,10 +294,12 @@ packages:
   - name: "Database - draft-store read access"
     description: "Grants read access to draft store databases"
     catalog_name: "Databases"
-    requestor_groups:
-      - "DTS CFT SC"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
     resource_roles:
       - "DTS Production Bastion Access for Users (DevOps)"
       - "DTS JIT Access draft-store DB Reader SC"
@@ -273,10 +307,12 @@ packages:
   - name: "Database - RD read access"
     description: "Grants read access to RD databases"
     catalog_name: "Databases"
-    requestor_groups:
-      - "DTS CFT SC"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access rd DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
@@ -284,10 +320,12 @@ packages:
   - name: "Database - CCD read access"
     description: "Grants read access to CCD databases"
     catalog_name: "Databases"
-    requestor_groups:
-      - "DTS CFT SC"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
     resource_roles:
       - "DTS Production Bastion Access for Users (DevOps)"
       - "DTS JIT Access ccd DB Reader SC"
@@ -295,10 +333,12 @@ packages:
   - name: "Database - send-letter read access"
     description: "Grants read access to send-letter databases"
     catalog_name: "Databases"
-    requestor_groups:
-      - "DTS CFT SC"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access send-letter DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
@@ -306,10 +346,12 @@ packages:
   - name: "Database - reform-scan read access"
     description: "Grants read access to reform-scan databases"
     catalog_name: "Databases"
-    requestor_groups:
-      - "DTS CFT SC"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
     resource_roles:
       - "DTS Production Bastion Access for Users (DevOps)"
       - "DTS JIT Access reform-scan DB Reader SC"
@@ -317,10 +359,12 @@ packages:
   - name: "Database - bulk-scan read access"
     description: "Grants read access to bulk-scan databases"
     catalog_name: "Databases"
-    requestor_groups:
-      - "DTS CFT SC"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access bulk-scan DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
