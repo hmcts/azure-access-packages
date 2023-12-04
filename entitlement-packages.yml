@@ -435,7 +435,7 @@ packages:
 
   - name: "Management Subscription Non-Production Access (Write)"
     description: "This will provide write access to the management subscriptions classified as non-production"
-    catalog_name: "General"
+    catalog_name: "General CT"
     policies:
       - "SC-No-Question"
     resource_roles:
@@ -443,7 +443,7 @@ packages:
 
   - name: "Management Subscription Non-Production Access (Reader)"
     description: "This will provide read-only access to the management subscriptions classified as non-production"
-    catalog_name: "General"
+    catalog_name: "General CT"
     policies:
       - "SC-No-Question"
     resource_roles:
@@ -451,7 +451,7 @@ packages:
 
   - name: "Management Subscription Production Access (Write)"
     description: "This will provide write access to the management subscriptions classified as production."
-    catalog_name: "General"
+    catalog_name: "General CT"
     policies:
       - "SC-No-Question"
     resource_roles:
@@ -462,7 +462,7 @@ packages:
 
   - name: "Management Subscription Production Access (Reader)"
     description: "This will provide read-only access to the management subscriptions classified as production."
-    catalog_name: "General"
+    catalog_name: "General CT"
     policies:
      - "SC-No-Question"
     resource_roles:
