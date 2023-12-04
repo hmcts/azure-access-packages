@@ -32,11 +32,12 @@ locals {
   package_assignment_policy = flatten([
     for package in local.packages : [
       for package_policy in local.package_policies : {
-        access_package   = package.name
-        policy_name      = package_policy.name
-        policy           = package_policy.policy
-        requestor_groups = try(package.requestor_groups, null)
-        approver_groups  = try(package.approver_groups, null)
+        access_package              = package.name
+        policy_name                 = package_policy.name
+        policy                      = package_policy.policy
+        requestor_groups            = try(package.requestor_groups, null)
+        approver_groups             = try(package.approver_groups, null)
+        alternative_approver_groups = try(package.alternative_approver_groups, null)
       } if contains(package.policies, package_policy.name)
     ] if try(package.policies, null) != null
   ])
@@ -48,6 +49,11 @@ locals {
 
   policy_approver_groups = [
     for group in flatten([for item in local.package_assignment_policy : item.approver_groups]) : group
+    if group != null
+  ]
+
+  policy_alternative_approver_groups = [
+    for group in flatten([for item in local.package_assignment_policy : item.alternative_approver_groups]) : group
     if group != null
   ]
 
