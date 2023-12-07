@@ -30,7 +30,7 @@ catalogs:
       - "DTS CFT Developers"
       - "DTS Readers (sub:dts-sharedservices-prod)"
 
-  - name: "SC CT"
+  - name: "SC"
     description: "Grants access to the SC groups"
     published: true
     externally_visible: true
@@ -56,7 +56,7 @@ catalogs:
       - "DTS Readers (sub:hmcts-hub-sbox-intsvc)"
       - "DTS Readers (sub:hmcts-hub-test)"
 
-  - name: "Bastion Servers CT"
+  - name: "Bastion Servers"
     description: "Bastion Server Access Catalog"
     published: true
     externally_visible: false
@@ -75,7 +75,7 @@ catalogs:
     published: true
     externally_visible: false
 
-  - name: "General CT"
+  - name: "General"
     description: "Built-in catalog."
     published: true
     externally_visible: true
@@ -96,7 +96,7 @@ catalogs:
       - "DTS Readers (sub:dts-management-test)"
       - "DTS Readers (sub:dts-sharedservices-dev)"
 
-  - name: "Databases CT"
+  - name: "Databases"
     description: "Grants access to databases"
     published: true
     externally_visible: true
