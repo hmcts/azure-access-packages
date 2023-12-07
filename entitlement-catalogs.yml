@@ -135,7 +135,7 @@ catalogs:
       - "DTS JIT Access xui DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
 
-  - name: "SharedServices Subscriptions"
+  - name: "SharedServices Subscriptions CT"
     description: "DTS-SharedServices Subscriptions"
     published: true
     externally_visible: false

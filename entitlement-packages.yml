@@ -237,7 +237,7 @@ packages:
 
   - name: "SharedServices Subscriptions Non-Production Access (Write)"
     description: "This will provide write access to the SharedServices subscriptions classified as non-production."
-    catalog_name: "SharedServices Subscriptions"
+    catalog_name: "SharedServices Subscriptions CT"
     requestor_groups:
       - "DTS SDS Developers"
     policies:
@@ -251,7 +251,7 @@ packages:
 
   - name: "SharedServices Subscriptions Production Access (Write)"
     description: "Contributor access to shared services prod"
-    catalog_name: "SharedServices Subscriptions"
+    catalog_name: "SharedServices Subscriptions CT"
     policies:
       - "SC-Question"
     resource_roles:
@@ -403,7 +403,7 @@ packages:
 
   - name: "SharedServices Subscriptions Non-Production Access (Reader)"
     description: "This will provide Read Only access to the SharedServices subscriptions classified as non-production."
-    catalog_name: "SharedServices Subscriptions"
+    catalog_name: "SharedServices Subscriptions CT"
     requestor_groups:
       - "DTS JIT Access (Developers for SharedServices Subscriptions)"
     policies:
