@@ -266,16 +266,6 @@ packages:
     resource_roles:
       - "DTS Non-Production Bastion Access for Users"
 
-  - name: "Production Bastion Server Access"
-    description: "This will provide access to Bastion Servers in Production environments."
-    catalog_name: "Bastion Servers CT"
-    requestor_groups:
-      - "DTS Platform Operations"
-    policies:
-      - "SC-No-Question-8"
-      - "SC-No-Question"
-    resource_roles:
-
   - name: "Database - draft-store read access"
     description: "Grants read access to draft store databases"
     catalog_name: "Databases CT"
