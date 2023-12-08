@@ -291,7 +291,6 @@ packages:
     approver_groups:
       - "DTS Platform Operations"
     resource_roles:
-      
       - "DTS JIT Access draft-store DB Reader SC"
 
   - name: "Database - RD read access"
