@@ -71,7 +71,6 @@ packages:
       - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access libragob DB Reader SC"
-      
 
   - name: "Database - PIP read access"
     description: "Grants read access to PIP databases"
@@ -84,7 +83,6 @@ packages:
       - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access pip DB Reader SC"
-      
 
   - name: "Strategic Data Platform - Production (Engineers)"
     description: "Access to SDP Production"
@@ -208,7 +206,6 @@ packages:
     resource_roles:
       - "DTS JIT Access ccpay DB Reader SC"
       - "DTS JIT Access payment DB Reader SC"
-      
       - "DTS JIT Access bar DB Reader SC"
       - "DTS JIT Access fees-register DB Reader SC"
 
@@ -302,7 +299,6 @@ packages:
       - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access rd DB Reader SC"
-      
 
   - name: "Database - CCD read access"
     description: "Grants read access to CCD databases"
@@ -314,7 +310,6 @@ packages:
     approver_groups:
       - "DTS Platform Operations"
     resource_roles:
-      
       - "DTS JIT Access ccd DB Reader SC"
 
   - name: "Database - send-letter read access"
@@ -328,7 +323,6 @@ packages:
       - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access send-letter DB Reader SC"
-      
 
   - name: "Database - reform-scan read access"
     description: "Grants read access to reform-scan databases"
@@ -340,7 +334,6 @@ packages:
     approver_groups:
       - "DTS Platform Operations"
     resource_roles:
-      
       - "DTS JIT Access reform-scan DB Reader SC"
 
   - name: "Database - bulk-scan read access"
@@ -354,7 +347,6 @@ packages:
       - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access bulk-scan DB Reader SC"
-      
 
   - name: "SC Access"
     description: "Grants access to SC restricted resources and additional access packages"
