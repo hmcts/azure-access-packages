@@ -79,11 +79,11 @@ resource "azuread_access_package_assignment_policy" "this" {
 
         dynamic "primary_approver" {
           # change [] to  [var.default_approver] to make Platform operations group the default approver desired
-          for_each = try(each.value.approver_groups, null) != null ? each.value.approver_groups : []
+          for_each = each.value.approver_groups
           content {
-            object_id    = try(data.azuread_group.approvers[primary_approver.value].id, null)
-            backup       = try(each.value.policy.approval_settings.approval_stage.primary_approver.backup, null)
-            subject_type = try(each.value.policy.approval_settings.approval_stage.primary_approver.subject_type, null)
+            object_id    = data.azuread_group.approvers[primary_approver.value].id
+#            backup       = try(each.value.policy.approval_settings.approval_stage.primary_approver.backup, null)
+            subject_type = each.value.policy.approval_settings.approval_stage.primary_approver.subject_type
           }
         }
 

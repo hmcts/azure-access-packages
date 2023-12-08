@@ -31,6 +31,8 @@ packages:
     catalog_name: "Databases"
     policies:
       - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
     approver_groups:
       - "DTS Platform Operations"
     resource_roles:
@@ -145,8 +147,10 @@ packages:
     catalog_name: "Databases"
     requestor_groups:
       - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
     policies:
-      - "Database-Question"
+      - "Database"
     resource_roles:
       - "DTS JIT Access dm-store DB Reader SC"
 
@@ -222,14 +226,6 @@ packages:
       - "DTS Contributors (sub:dts-sharedservices-dev)"
       - "DTS Contributors (sub:dts-sharedservices-stg)"
       - "DTS Contributors (sub:dts-sharedservices-demo)"
-
-  - name: "SharedServices Subscriptions Production Access (Write)"
-    description: "Contributor access to shared services prod"
-    catalog_name: "SharedServices Subscriptions CT"
-    policies:
-      - "SC-Question"
-    resource_roles:
-      - "DTS JIT Access Contributors (sub:dts-sharedservices-prod)"
 
   - name: "SharedServices Storage Blob Data Reader (Production)"
     description: "This will provide Storage Blob Data Reader access to SharedServices subscriptions classified as production."
@@ -337,94 +333,3 @@ packages:
       - "DTS SC Access Approvers"
     resource_roles:
       - "DTS CFT SC"
-
-  - name: "DB Access - API test"
-    description: "Provides access to sandbox DBs"
-    catalog_name: "CFT DB Sandbox - Test"
-
-  - name: "CFT DB Sandbox Demo"
-    description: "Grants read access to CFT DBs in sandbox"
-    catalog_name: "CFT DB Sandbox - Test"
-    policies:
-      - "Database-Approver"
-    resource_roles:
-      - "DTS JIT Access DB Reader SC CFT"
-
-  - name: "CFT sandbox DB read - test"
-    description: "Testing access package for CFT db sandbox"
-    catalog_name: "CFT DB Sandbox - Test"
-    policies:
-      - "Database"
-    resource_roles:
-      - "dcd_reform_dev_logs"
-
-  - name: "SharedServices Subscriptions Non-Production Access (Reader)"
-    description: "This will provide Read Only access to the SharedServices subscriptions classified as non-production."
-    catalog_name: "SharedServices Subscriptions CT"
-    requestor_groups:
-      - "DTS JIT Access (Developers for SharedServices Subscriptions)"
-    policies:
-      - "SC-No-Question"
-    resource_roles:
-      - "DTS AKS Users (sub:dts-sharedservices-test)"
-      - "DTS AKS Users (sub:dts-sharedservices-dev)"
-      - "DTS Readers (sub:dts-sharedservices-demo)"
-      - "DTS AKS Users (sub:dts-sharedservices-stg)"
-      - "DTS Readers (sub:dts-sharedservices-ithc)"
-      - "DTS Readers (sub:dts-sharedservices-dev)"
-      - "DTS Readers (sub:dts-sharedservices-test)"
-      - "DTS AKS Users (sub:dts-sharedservices-ithc)"
-      - "DTS AKS Users (sub:dts-sharedservices-demo)"
-      - "DTS Readers (sub:dts-sharedservices-stg)"
-
-  - name: "Hub Subscriptions Access (Reader)"
-    description: "Initial Policy"
-    catalog_name: "Hub"
-    policies:
-      - "General"
-    resource_roles:
-      - "DTS Readers (sub: hmcts-hub-nonprod-intsvc)"
-      - "DTS Readers (sub: hmcts-hub-sbox-intsvc)"
-      - "DTS Readers (sub: hmcts-hub-dev)"
-      - "DTS Readers (sub: hmcts-hub-prod-intsvc)"
-      - "DTS Readers (sub: hmcts-hub-test)"
-      - "DTS Readers (sub: hmcts-hub-sbox)"
-
-  - name: "Management Subscription Non-Production Access (Write)"
-    description: "This will provide write access to the management subscriptions classified as non-production"
-    catalog_name: "General"
-    policies:
-      - "SC-No-Question"
-    resource_roles:
-      - "DTS Contributors (sub:dts-management-test)"
-
-  - name: "Management Subscription Non-Production Access (Reader)"
-    description: "This will provide read-only access to the management subscriptions classified as non-production"
-    catalog_name: "General"
-    policies:
-      - "SC-No-Question"
-    resource_roles:
-      - "DTS Readers (sub:dts-management-test)"
-
-  - name: "Management Subscription Production Access (Write)"
-    description: "This will provide write access to the management subscriptions classified as production."
-    catalog_name: "General"
-    policies:
-      - "SC-No-Question"
-    resource_roles:
-      - "DTS Contributors (sub:dts-management-nonprod-intsvc)"
-      - "DTS Contributors (sub:dts-management-stg)"
-      - "DTS Contributors (sub:dts-management-sbox-intsvc)"
-      - "DTS Contributors (sub:dts-management-prod-intsvc)"
-
-  - name: "Management Subscription Production Access (Reader)"
-    description: "This will provide read-only access to the management subscriptions classified as production."
-    catalog_name: "General"
-    policies:
-     - "SC-No-Question"
-    resource_roles:
-      - "DTS Readers (sub:dts-management-stg)"
-      - "DTS Readers (sub:dts-management-prod-intsvc)"
-      - "DTS Readers (sub:dts-management-nonprod-intsvc)"
-      - "DTS Readers (sub:dts-management-sbox-intsvc)"
-      

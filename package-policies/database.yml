@@ -9,7 +9,7 @@ policy:
     approval_required: true
     approval_stage:
       approval_timeout_in_days: 14
-      approver_justification_required: true
+      approver_justification_required: false
       enable_alternative_approval_in_days: 0
       primary_approver:
         subject_type: "groupMembers"
@@ -19,7 +19,7 @@ policy:
     access_review_timeout_behavior: "keepAccess"
     approver_justification_required: true
     duration_in_days: 3
-    enabled: true
+    enabled: false
     review_frequency: "weekly"
     review_type: "Self"
     reviewer:
@@ -35,4 +35,4 @@ policy:
     requestor:
       subject_type: "groupMembers"
     requests_accepted: true
-    scope_type: "AllExistingDirectoryMemberUsers"
+    scope_type: "SpecificDirectorySubjects"

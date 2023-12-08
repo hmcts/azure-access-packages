@@ -21,7 +21,7 @@ policy:
     access_review_timeout_behavior: "keepAccess"
     approver_justification_required: true
     duration_in_days: 14
-    enabled: true
+    enabled: false
     review_frequency: "annual"
     review_type: "Reviewers"
     reviewer:
