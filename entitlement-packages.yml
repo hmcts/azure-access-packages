@@ -223,7 +223,6 @@ packages:
       - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access am DB Reader SC"
-      
 
   - name: "SharedServices Subscriptions Non-Production Access (Write)"
     description: "This will provide write access to the SharedServices subscriptions classified as non-production."
@@ -279,7 +278,6 @@ packages:
       - "SC-No-Question-8"
       - "SC-No-Question"
     resource_roles:
-      
 
   - name: "Database - draft-store read access"
     description: "Grants read access to draft store databases"
