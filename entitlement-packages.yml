@@ -71,7 +71,6 @@ packages:
       - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access libragob DB Reader SC"
-      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - PIP read access"
     description: "Grants read access to PIP databases"
@@ -84,7 +83,6 @@ packages:
       - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access pip DB Reader SC"
-      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Strategic Data Platform - Production (Engineers)"
     description: "Access to SDP Production"
@@ -141,16 +139,6 @@ packages:
       - "SC-No-Question"
     resource_roles:
       - "DTS SDP JIT Production PlatOps and PET"
-
-  - name: "SecOps Production Bastion Server Access"
-    description: "This will provide access to Bastion Servers for SecOps in Production environments."
-    catalog_name: "Bastion Servers CT"
-    requestor_groups:
-      - "DTS JIT Access (SecOps Access for Production Bastion Servers)"
-    policies:
-      - "SC-No-Question"
-    resource_roles:
-      - "DTS Production Bastion Access for Users (SecOps)"
 
   - name: "Databases - Fact Read Access"
     description: "Grants read access to fact database"
@@ -218,7 +206,6 @@ packages:
     resource_roles:
       - "DTS JIT Access ccpay DB Reader SC"
       - "DTS JIT Access payment DB Reader SC"
-      - "DTS Production Bastion Access for Users (DevOps)"
       - "DTS JIT Access bar DB Reader SC"
       - "DTS JIT Access fees-register DB Reader SC"
 
@@ -233,7 +220,6 @@ packages:
       - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access am DB Reader SC"
-      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "SharedServices Subscriptions Non-Production Access (Write)"
     description: "This will provide write access to the SharedServices subscriptions classified as non-production."
@@ -280,17 +266,6 @@ packages:
     resource_roles:
       - "DTS Non-Production Bastion Access for Users"
 
-  - name: "Production Bastion Server Access"
-    description: "This will provide access to Bastion Servers in Production environments."
-    catalog_name: "Bastion Servers CT"
-    requestor_groups:
-      - "DTS Platform Operations"
-    policies:
-      - "SC-No-Question-8"
-      - "SC-No-Question"
-    resource_roles:
-      - "DTS Production Bastion Access for Users (DevOps)"
-
   - name: "Database - draft-store read access"
     description: "Grants read access to draft store databases"
     catalog_name: "Databases CT"
@@ -301,7 +276,6 @@ packages:
     approver_groups:
       - "DTS Platform Operations"
     resource_roles:
-      - "DTS Production Bastion Access for Users (DevOps)"
       - "DTS JIT Access draft-store DB Reader SC"
 
   - name: "Database - RD read access"
@@ -315,7 +289,6 @@ packages:
       - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access rd DB Reader SC"
-      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - CCD read access"
     description: "Grants read access to CCD databases"
@@ -327,7 +300,6 @@ packages:
     approver_groups:
       - "DTS Platform Operations"
     resource_roles:
-      - "DTS Production Bastion Access for Users (DevOps)"
       - "DTS JIT Access ccd DB Reader SC"
 
   - name: "Database - send-letter read access"
@@ -341,7 +313,6 @@ packages:
       - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access send-letter DB Reader SC"
-      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - reform-scan read access"
     description: "Grants read access to reform-scan databases"
@@ -353,7 +324,6 @@ packages:
     approver_groups:
       - "DTS Platform Operations"
     resource_roles:
-      - "DTS Production Bastion Access for Users (DevOps)"
       - "DTS JIT Access reform-scan DB Reader SC"
 
   - name: "Database - bulk-scan read access"
@@ -367,7 +337,6 @@ packages:
       - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access bulk-scan DB Reader SC"
-      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "SC Access"
     description: "Grants access to SC restricted resources and additional access packages"
