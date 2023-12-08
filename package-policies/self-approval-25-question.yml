@@ -10,7 +10,7 @@ policy:
       required: true
       sequence: 1
       text:
-        default_text: "Include JIRA link in business justification expiration"
+        default_text: "Include JIRA link in business justification"
   approval_settings:
     approval_required: false
     approval_stage:
@@ -25,12 +25,12 @@ policy:
     access_review_timeout_behavior: "acceptAccessRecommendation"
     approver_justification_required: false
     duration_in_days: 25
-    enabled: true
+    enabled: false
     review_frequency: "quarterly"
     review_type: "Self"
   requestor_settings:
     requestor:
       subject_type: "groupMembers"
     requests_accepted: true
-    scope_type: "AllExistingDirectoryMemberUsers"
+    scope_type: "SpecificDirectorySubjects"
   

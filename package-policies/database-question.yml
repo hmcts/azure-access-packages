@@ -22,7 +22,7 @@ policy:
     access_review_timeout_behavior: "keepAccess"
     approver_justification_required: false
     duration_in_days: 1
-    enabled: true
+    enabled: false
     review_frequency: "annual"
     review_type: "Reviewers"
     reviewer:
@@ -33,9 +33,9 @@ policy:
   - required: true
     sequence: 1
     text:
-      default_text: "Include JIRA link in business justification expiration"
+      default_text: "Include JIRA link in business justification"
   requestor_settings:
     requestor:
       subject_type: "groupMembers"
     requests_accepted: true
-    scope_type: "AllExistingDirectoryMemberUsers"
+    scope_type: "SpecificDirectorySubjects"
