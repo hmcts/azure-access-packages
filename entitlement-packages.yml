@@ -2,21 +2,9 @@
 # List of Entitlement management for Packages
 # ------------------------------------------------
 packages:
-  - name: "DB Sandbox Demo"
-    description: "Grants access to all sandbox databases"
-    catalog_name: "CFT DB Sandbox - Test"
-    policies:
-      - "Database-Approver"
-    requestor_groups:
-      - "DTS CFT SC"
-    approver_groups:
-      - "DTS Platform Operations"
-    alternative_approver_groups:
-      - "DTS Platform Operations"
-
   - name: "Database - lau read access"
     description: "Grants read access to lau databases"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     requestor_groups:
@@ -28,7 +16,7 @@ packages:
 
   - name: "Database - PCQ read access"
     description: "Grants read access to PCQ database"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     requestor_groups:
@@ -40,7 +28,7 @@ packages:
 
   - name: "Database - Probate read access"
     description: "Grants read access to probate database"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     approver_groups:
@@ -50,7 +38,7 @@ packages:
 
   - name: "Database - hmc-cft-hearing read access"
     description: "Grants read access to hmc databases"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     requestor_groups:
@@ -62,7 +50,7 @@ packages:
 
   - name: "Database - libragob read access"
     description: "Grants read access to libragob production databases"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     requestor_groups:
@@ -74,7 +62,7 @@ packages:
 
   - name: "Database - PIP read access"
     description: "Grants read access to PIP databases"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     requestor_groups:
@@ -86,7 +74,7 @@ packages:
 
   - name: "Strategic Data Platform - Production (Engineers)"
     description: "Access to SDP Production"
-    catalog_name: "SC CT"
+    catalog_name: "SC"
     requestor_groups:
       - "DTS SDP Production Data Engineers"
     policies:
@@ -96,7 +84,7 @@ packages:
 
   - name: "Databases - Translation Service Read Access"
     description: "Grants read access to Translation Service (ts) database"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     requestor_groups:
@@ -108,7 +96,7 @@ packages:
 
   - name: "Databases - Work Allocation Read Access"
     description: "Grants read access to Work Allocation (wa) databases [wa_workflow, wa_case_event & cft_task_db]"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     requestor_groups:
@@ -120,7 +108,7 @@ packages:
 
   - name: "Database - ethos read access"
     description: "Grants read access to Ethos database"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     requestor_groups:
@@ -132,7 +120,7 @@ packages:
 
   - name: "Strategic Data Platform - Production (PlatOps and PET)"
     description: "Access to SDP Production"
-    catalog_name: "SC CT"
+    catalog_name: "SC"
     requestor_groups:
       - "DTS SDP Production PlatOps and PET"
     policies:
@@ -142,7 +130,7 @@ packages:
 
   - name: "Databases - Fact Read Access"
     description: "Grants read access to fact database"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     requestor_groups:
@@ -154,7 +142,7 @@ packages:
 
   - name: "Database - DM read access"
     description: "Grants read access to Evidence (DM) Database"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     requestor_groups:
       - "DTS CFT SC"
     policies:
@@ -164,7 +152,7 @@ packages:
 
   - name: "Database - em read access"
     description: "Grants read access to em databases (emhrs, annotation, stitching & npa)"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     requestor_groups:
@@ -176,7 +164,7 @@ packages:
 
   - name: "Administrative Access - Production Bastion Server"
     description: "This role should only be used to complete data migrations This will provide administrative access to Bastion Servers in Production environments."
-    catalog_name: "Bastion Servers CT"
+    catalog_name: "Bastion Servers"
     requestor_groups:
       - "DTS Platform Operations"
     policies:
@@ -186,7 +174,7 @@ packages:
 
   - name: "Administrative Access - Non-Production Bastion Server"
     description: "This role should only be used to complete data migrations This will provide administrative access to Bastion Servers in Non-Production environments."
-    catalog_name: "Bastion Servers CT"
+    catalog_name: "Bastion Servers"
     requestor_groups:
       - "DTS Platform Operations"
     policies:
@@ -196,7 +184,7 @@ packages:
 
   - name: "Database - ccpay read access"
     description: "Grants read access to ccpay databases"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     requestor_groups:
@@ -211,7 +199,7 @@ packages:
 
   - name: "Database - AM read access"
     description: "Grants read access to AM databases"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     requestor_groups:
@@ -227,7 +215,7 @@ packages:
     requestor_groups:
       - "DTS SDS Developers"
     policies:
-      - "SC-No-Question-25"
+      - "SC-Question-25"
     resource_roles:
       - "DTS Contributors (sub:dts-sharedservices-ithc)"
       - "DTS Contributors (sub:dts-sharedservices-test)"
@@ -256,7 +244,7 @@ packages:
 
   - name: "Non-Production Bastion Server Access"
     description: "This will provide access to Bastion Servers in Non-Production environments."
-    catalog_name: "Bastion Servers CT"
+    catalog_name: "Bastion Servers"
     requestor_groups:
       - "DTS JIT Access (Non-Production Bastion Servers)"
       - "DTS CFT Developers"
@@ -268,7 +256,7 @@ packages:
 
   - name: "Database - draft-store read access"
     description: "Grants read access to draft store databases"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     requestor_groups:
@@ -280,7 +268,7 @@ packages:
 
   - name: "Database - RD read access"
     description: "Grants read access to RD databases"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     requestor_groups:
@@ -292,7 +280,7 @@ packages:
 
   - name: "Database - CCD read access"
     description: "Grants read access to CCD databases"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     requestor_groups:
@@ -304,7 +292,7 @@ packages:
 
   - name: "Database - send-letter read access"
     description: "Grants read access to send-letter databases"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     requestor_groups:
@@ -316,7 +304,7 @@ packages:
 
   - name: "Database - reform-scan read access"
     description: "Grants read access to reform-scan databases"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     requestor_groups:
@@ -328,7 +316,7 @@ packages:
 
   - name: "Database - bulk-scan read access"
     description: "Grants read access to bulk-scan databases"
-    catalog_name: "Databases CT"
+    catalog_name: "Databases"
     policies:
       - "Database"
     requestor_groups:
@@ -340,7 +328,7 @@ packages:
 
   - name: "SC Access"
     description: "Grants access to SC restricted resources and additional access packages"
-    catalog_name: "SC CT"
+    catalog_name: "SC"
     policies:
       - "SC"
     requestor_groups:

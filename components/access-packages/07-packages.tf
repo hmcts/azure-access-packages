@@ -99,29 +99,6 @@ resource "azuread_access_package_assignment_policy" "this" {
     }
   }
 
-  dynamic "assignment_review_settings" {
-    for_each = try(each.value.policy.assignment_review_settings.enabled, null) == true ? var.placeholder : {}
-    content {
-      access_recommendation_enabled   = try(each.value.policy.assignment_review_settings.access_recommendation_enabled, null)
-      access_review_timeout_behavior  = try(each.value.policy.assignment_review_settings.access_review_timeout_behavior, null)
-      approver_justification_required = try(each.value.policy.assignment_review_settings.approver_justification_required, null)
-      duration_in_days                = try(each.value.policy.assignment_review_settings.duration_in_days, null)
-      enabled                         = try(each.value.policy.assignment_review_settings.enabled, null)
-      review_frequency                = try(each.value.policy.assignment_review_settings.review_frequency, null)
-      review_type                     = try(each.value.policy.assignment_review_settings.review_type, "Reviewers")
-      starting_on                     = try(each.value.policy.assignment_review_settings.starting_on, null)
-
-      dynamic "reviewer" {
-        for_each = try(each.value.policy.assignment_review_settings.reviewer, null) != null ? var.placeholder : {}
-        content {
-          backup       = try(each.value.policy.assignment_review_settings.reviewer.backup, null)
-          object_id    = try(each.value.policy.assignment_review_settings.reviewer.object_id, data.azuread_group.this.id)
-          subject_type = try(each.value.policy.assignment_review_settings.reviewer.subject_type, null)
-        }
-      }
-    }
-  }
-
   dynamic "question" {
     for_each = try(each.value.policy.questions, [])
     content {
@@ -169,8 +146,8 @@ resource "azuread_access_package_assignment_policy" "this" {
       dynamic "requestor" {
         for_each = try(each.value.requestor_groups, null) != null ? each.value.requestor_groups : []
         content {
-          object_id    = try(data.azuread_group.requestors[requestor.value].id, null)
-          subject_type = try(each.value.policy.requestor_settings.requestor.subject_type, null)
+          object_id    = data.azuread_group.requestors[requestor.value].id
+          subject_type = each.value.policy.requestor_settings.requestor.subject_type
         }
       }
     }

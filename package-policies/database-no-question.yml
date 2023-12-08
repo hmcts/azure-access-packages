@@ -30,4 +30,4 @@ policy:
     requestor:
       subject_type: "groupMembers"
     requests_accepted: true
-    scope_type: "AllExistingDirectoryMemberUsers"
+    scope_type: "SpecificDirectorySubjects"

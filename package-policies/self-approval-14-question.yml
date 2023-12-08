@@ -6,10 +6,10 @@ policy:
   duration_in_days: 1
   extension_enabled: false
   questions:
-  - required: true
+  - required: false
     sequence: 1
     text:
-      default_text: "Include JIRA link in business justification expiration"
+      default_text: "Include JIRA link in business justification"
   approval_settings:
     approval_required: false
     approval_stage:
@@ -32,5 +32,5 @@ policy:
     requestor:
       subject_type: "groupMembers"
     requests_accepted: true
-    scope_type: "AllExistingDirectoryMemberUsers"
+    scope_type: "SpecificDirectorySubjects"
   
