@@ -67,8 +67,6 @@ catalogs:
       - "DTS Non-Production Bastion Access for Users (SecOps)"
       - "DTS Production Bastion Access for Administrators (DevOps)"
       - "DTS Production Bastion Access for Administrators (SecOps)"
-      - "DTS Production Bastion Access for Users (DevOps)"
-      - "DTS Production Bastion Access for Users (SecOps)"
 
   - name: "Management Subscriptions"
     description: "A catalog for JIT access to management subscriptions"
@@ -133,7 +131,7 @@ catalogs:
       - "DTS JIT Access ts DB Reader SC"
       - "DTS JIT Access wa DB Reader SC"
       - "DTS JIT Access xui DB Reader SC"
-      - "DTS Production Bastion Access for Users (DevOps)"
+      
 
   - name: "SharedServices Subscriptions CT"
     description: "DTS-SharedServices Subscriptions"
