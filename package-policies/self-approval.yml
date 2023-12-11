@@ -1,14 +1,13 @@
-# Used for bastion which has multiple policies so it isn't called 'initial policy'
-name: "default-access"
+name: "self-approval"
 policy:
-  display_name: "Default access"
-  description: "Max 1 day"
+  display_name: "Initial Policy"
+  description: "Initial Policy"
   duration_in_days: 1
-  extension_enabled: false
+  extension_enabled: true
   approval_settings:
     approval_required: false
   assignment_review_settings:
-    access_recommendation_enabled: false
+    enabled: false
   requestor_settings:
     requestor:
       subject_type: "groupMembers"

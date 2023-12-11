@@ -1,0 +1,23 @@
+#self approval no question 1 day and review access 14 days no alternative approver
+name: "self-approval-with-justification"
+policy:
+  display_name: "Initial Policy"
+  description: "Initial Policy"
+  duration_in_days: 1
+  extension_enabled: false
+  questions:
+  - required: false
+    sequence: 1
+    text:
+      default_text: "Include Jira link in business justification"
+  approval_settings:
+    approval_required: false
+    requestor_justification_required: true
+  assignment_review_settings:
+    enabled: false
+  requestor_settings:
+    requestor:
+      subject_type: "groupMembers"
+    requests_accepted: true
+    scope_type: "SpecificDirectorySubjects"
+  
