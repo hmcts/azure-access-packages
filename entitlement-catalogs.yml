@@ -67,6 +67,8 @@ catalogs:
       - "DTS Non-Production Bastion Access for Users (SecOps)"
       - "DTS Production Bastion Access for Administrators (DevOps)"
       - "DTS Production Bastion Access for Administrators (SecOps)"
+      - "DTS Production Bastion Access for Users (DevOps)"
+      - "DTS Production Bastion Access for Users (SecOps)"
 
   - name: "Management Subscriptions"
     description: "A catalog for JIT access to management subscriptions"

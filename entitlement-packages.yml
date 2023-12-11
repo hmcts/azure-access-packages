@@ -238,6 +238,17 @@ packages:
       - "DTS Blob Readers (sub:dts-sharedservices-prod)"
       - "DTS Readers (sub:dts-sharedservices-prod)"
 
+  - name: "SecOps Production Bastion Server Access"
+    description: "This will provide access to Bastion Servers for SecOps in the Production environments."
+    catalog_name: "Bastion Servers"
+    requestor_groups:
+      - "dcd_team_secops_v2"
+      - "DTS Platform Operations SC"
+    policies:
+      - "SC-No-Question"
+    resource_roles:
+      - "DTS Production Bastion Access for Users (SecOps)"
+
   - name: "Non-Production Bastion Server Access"
     description: "This will provide access to Bastion Servers in Non-Production environments."
     catalog_name: "Bastion Servers"
