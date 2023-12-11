@@ -20,6 +20,8 @@ catalogs:
       - "DTS Contributors Data Platform (sub - DTS-SHAREDSERVICES-PROD)"
       - "DTS MI Data Platform"
       - "DTS Readers Data Platform (sub - DTS-SHAREDSERVICES-PROD)"
+      - "DTS SDP JIT Production PlatOps and PET"
+      - "DTS SDP JIT Production Data Engineers"
 
   - name: "Storage Blob Data Reader (Production)"
     description: "Storage Blob Data Reader Production Access"
