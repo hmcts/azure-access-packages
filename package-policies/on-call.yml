@@ -1,0 +1,15 @@
+name: "On-Call"
+policy:
+  display_name: "On-Call"
+  description: "Policy to provide on-call engineers with required production access for the duration of their support window (Max 8 days)."
+  duration_in_days: 8
+  extension_enabled: false
+  approval_settings:
+    approval_required: false
+  assignment_review_settings:
+    access_recommendation_enabled: false
+  requestor_settings:
+    requestor:
+      subject_type: "groupMembers"
+    requests_accepted: true
+    scope_type: "SpecificDirectorySubjects"
