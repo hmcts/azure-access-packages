@@ -80,7 +80,7 @@ packages:
     requestor_groups:
       - "DTS SDP Production Data Engineers"
     policies:
-      - "SC-No-Question"
+      - "self-approval"
     resource_roles:
       - "DTS SDP JIT Production Data Engineers"
 
@@ -126,7 +126,7 @@ packages:
     requestor_groups:
       - "DTS SDP Production PlatOps and PET"
     policies:
-      - "SC-No-Question"
+      - "self-approval"
     resource_roles:
       - "DTS SDP JIT Production PlatOps and PET"
 
@@ -172,7 +172,7 @@ packages:
     requestor_groups:
       - "DTS Platform Operations"
     policies:
-      - "SC-Question"
+      - "self-approval-with-justification"
     resource_roles:
       - "DTS Production Bastion Access for Administrators (DevOps)"
 
@@ -182,7 +182,7 @@ packages:
     requestor_groups:
       - "DTS Platform Operations"
     policies:
-      - "SC-Question"
+      - "self-approval-with-justification"
     resource_roles:
       - "DTS Non-Production Bastion Access for Administrators"
 
@@ -232,7 +232,7 @@ packages:
     requestor_groups:
       - "DTS SDS Developers"
     policies:
-      - "SC-Question-25"
+      - "self-approval-with-justification"
     resource_roles:
       - "DTS Contributors (sub:dts-sharedservices-ithc)"
       - "DTS Contributors (sub:dts-sharedservices-test)"
@@ -244,9 +244,9 @@ packages:
     description: "This will provide Storage Blob Data Reader access to SharedServices subscriptions classified as production."
     catalog_name: "Storage Blob Data Reader (Production)"
     requestor_groups:
-      - "DTS CFT Developers"
+      - "DTS CFT SC"
     policies:
-      - "SC-Question-25"
+      - "self-approval-with-justification"
     resource_roles:
       - "DTS Blob Readers (sub:dts-sharedservices-prod)"
       - "DTS Readers (sub:dts-sharedservices-prod)"
@@ -258,7 +258,7 @@ packages:
       - "dcd_team_secops_v2"
       - "DTS Platform Operations SC"
     policies:
-      - "SC-No-Question"
+      - "self-approval"
     resource_roles:
       - "DTS Production Bastion Access for Users (SecOps)"
 
@@ -270,7 +270,7 @@ packages:
       - "DTS SDS Developers"
       - "DTS JIT Access (Non-Production Bastion Servers)"
     policies:
-      - "SC-Question"
+      - "self-approval"
     resource_roles:
       - "DTS Non-Production Bastion Access for Users"
 
@@ -362,7 +362,7 @@ packages:
     description: "Grants access to SC restricted resources and additional access packages"
     catalog_name: "SC"
     policies:
-      - "SC"
+      - "security-clearance-form"
     requestor_groups:
       - "DTS CFT Developers"
     approver_groups:

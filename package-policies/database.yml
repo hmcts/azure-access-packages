@@ -1,11 +1,10 @@
-#database access self approval & no alternate approver 1 day with jira question Database - lau read access
 name: "Database"
 policy:
   display_name: "Initial Policy"
   description: "Initial Policy"
   duration_in_days: 1
   approval_settings:
-    approval_required_for_extension: true
+    approval_required_for_extension: false
     approval_required: true
     approval_stage:
       approval_timeout_in_days: 14
@@ -15,22 +14,13 @@ policy:
         subject_type: "groupMembers"
     requestor_justification_required: true
   assignment_review_settings:
-    access_recommendation_enabled: true
-    access_review_timeout_behavior: "keepAccess"
-    approver_justification_required: true
-    duration_in_days: 3
     enabled: false
-    review_frequency: "weekly"
-    review_type: "Self"
-    reviewer:
-      backup: true
-      subject_type: "groupMembers"
   extension_enabled: true
   questions:
   - required: true
     sequence: 1
     text:
-      default_text: "Include JIRA link in business justification"
+      default_text: "Include Jira link in business justification"
   requestor_settings:
     requestor:
       subject_type: "groupMembers"
