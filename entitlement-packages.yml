@@ -76,7 +76,7 @@ packages:
 
   - name: "Strategic Data Platform - Production (Engineers)"
     description: "Access to SDP Production"
-    catalog_name: "SC"
+    catalog_name: "MI Data Platform"
     requestor_groups:
       - "DTS SDP Production Data Engineers"
     policies:
@@ -122,7 +122,7 @@ packages:
 
   - name: "Strategic Data Platform - Production (PlatOps and PET)"
     description: "Access to SDP Production"
-    catalog_name: "SC"
+    catalog_name: "MI Data Platform"
     requestor_groups:
       - "DTS SDP Production PlatOps and PET"
     policies:
