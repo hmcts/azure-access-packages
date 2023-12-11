@@ -152,7 +152,7 @@ packages:
     policies:
       - "Database"
     resource_roles:
-      - "DTS JIT Access dm-store DB Reader SC"
+      - "DTS JIT Access dm DB Reader SC"
 
   - name: "Database - em read access"
     description: "Grants read access to em databases (emhrs, annotation, stitching & npa)"
@@ -185,6 +185,19 @@ packages:
       - "SC-Question"
     resource_roles:
       - "DTS Non-Production Bastion Access for Administrators"
+
+  - name: "Production Bastion Server Access"
+    description: "This will provide access to Bastion Servers in Production environments."
+    catalog_name: "Bastion Servers"
+    requestor_groups:
+      - "DTS CFT SC"
+      - "DTS Platform Operations SC"
+      - "DTS CFT Developers"
+      - "DTS SDS Developers"
+    policies:
+      - "default-access"
+    resource_roles:
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - ccpay read access"
     description: "Grants read access to ccpay databases"
@@ -253,9 +266,9 @@ packages:
     description: "This will provide access to Bastion Servers in Non-Production environments."
     catalog_name: "Bastion Servers"
     requestor_groups:
-      - "DTS JIT Access (Non-Production Bastion Servers)"
       - "DTS CFT Developers"
       - "DTS SDS Developers"
+      - "DTS JIT Access (Non-Production Bastion Servers)"
     policies:
       - "SC-Question"
     resource_roles:

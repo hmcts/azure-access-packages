@@ -103,6 +103,7 @@ catalogs:
     published: true
     externally_visible: true
     resources:
+      - "DTS JIT Access dm DB Reader SC"
       - "DTS JIT Access am DB Reader SC"
       - "DTS JIT Access bar DB Reader SC"
       - "DTS JIT Access bulk-scan DB Reader SC"

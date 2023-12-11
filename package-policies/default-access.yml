@@ -1,0 +1,16 @@
+# self approval no question 1 day access duration
+name: "default-access"
+policy:
+  display_name: "Default access"
+  description: "Max 1 day"
+  duration_in_days: 1
+  extension_enabled: false
+  approval_settings:
+    approval_required: false
+  assignment_review_settings:
+    access_recommendation_enabled: false
+  requestor_settings:
+    requestor:
+      subject_type: "groupMembers"
+    requests_accepted: true
+    scope_type: "SpecificDirectorySubjects"

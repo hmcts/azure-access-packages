@@ -38,5 +38,6 @@ override.tf.json
 *.out
 
 tfplan-**-configuration
+tfplan
 
 __pycache__

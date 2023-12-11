@@ -14,11 +14,6 @@ resource "azuread_access_package_catalog" "catalog" {
   externally_visible = try(each.value.externally_visible, null)
 }
 
-import {
-  to = azuread_access_package_resource_catalog_association.this["SC:DTS CFT SC"]
-  id = "ea033c19-770d-4492-bc58-d49a229df80e/6029ab89-9151-4566-bea0-b89a6249a6f3"
-}
-
 # ------------------------- RESOURCES ------------------------------------
 # Resources that are part of a catalog
 # Either a Group and Teams, Application or Sharepoint site type resource
