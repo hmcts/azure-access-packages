@@ -346,6 +346,18 @@ packages:
     resource_roles:
       - "DTS JIT Access bulk-scan DB Reader SC"
 
+  - name: "Database - IDAM read access"
+    description: "Grants read access to IDAM databases"
+    catalog_name: "Databases"
+    policies:
+      - "Database"
+    requestor_groups:
+      - "DTS CFT SC"
+    approver_groups:
+      - "DTS Platform Operations"
+    resource_roles:
+      - "DTS JIT Access idam DB Reader SC"
+
   - name: "SC Access"
     description: "Grants access to SC restricted resources and additional access packages"
     catalog_name: "SC"
