@@ -152,7 +152,7 @@ packages:
     policies:
       - "Database"
     resource_roles:
-      - "DTS JIT Access dm-store DB Reader SC"
+      - "DTS JIT Access dm DB Reader SC"
 
   - name: "Database - em read access"
     description: "Grants read access to em databases (emhrs, annotation, stitching & npa)"
