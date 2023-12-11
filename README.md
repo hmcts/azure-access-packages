@@ -2,21 +2,29 @@
 Access policies are defined and reused within the `azuread_access_package_assignment_policy` resource
 to assign policies to packages.
 
-## Defining a policy
-Additional access policy can be added by creating a new file in this folder and
+## Adding a new access package
+
+Update the [`entitlement-packages.yml`](entitlement-packages.yml) file with your new package by copying another similar one.
+If you are adding a new group that wasn't previously used before you will need to add it to the catalog in [`entitlement-catalogs.yml`](entitlement-catalogs.yml).
+
+## Policies
+
+Existing policies that cover most use cases are:
+
+- `self-approval`
+  - One day access, no approval required.
+- `self-approval-with-justification`
+  - One day access, no approval required, must provide justification on the request.
+- `Database`
+  - Standard database policy, 1 day access, can extend once for an additional 24 hours, requires approval and justification.
+
+Additional access policy can be added by creating a new file in the `package-policies` folder and
 defining the properties for you specific policy.
 
-Existing policies that cover most use cases are
-- General <br>
-  This is a default policy to be used if no specific requirements in setting
-- Database<br>
-  Used for packages that grant access to DB related resources
-- Others (WIP)<br>
-  Add list here (WIP)
-
 ## Setting a Policy
-To associate a policy with an access package simple
-- Define the policy if no already existing. The policy definition looks like
+To associate a policy with an access package it's easy.
+
+- Define the policy if it doesn't already exist. The policy definition looks like:
   
 ```yaml
 name: "General"
@@ -24,7 +32,7 @@ policies:
  ...
 ```
 
-- Specify the name of the policy to be used by the access package definition in the [entitlement-packages](../entitlement-packages.yml) definition file
+- Specify the name of the policy to be used by the access package definition in the [entitlement-packages](entitlement-packages.yml) definition file
 
 ```yaml
     ...
@@ -32,7 +40,7 @@ policies:
       - "General"
 ```
 
-When terraform processes the access packages if would associate your access package with the policy.
+When terraform processes the access packages it will associate your access package with the policy.
 
 ## Skeleton Template
 A full list of all possible attributes, the police does not need to have all of it. Full detail
