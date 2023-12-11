@@ -14,4 +14,3 @@ policy:
       subject_type: "groupMembers"
     requests_accepted: true
     scope_type: "SpecificDirectorySubjects"
-  
