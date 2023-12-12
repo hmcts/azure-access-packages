@@ -1,4 +1,4 @@
-name: "On-Call"
+name: "Unlimited"
 policy:
   display_name: "Unlimited"
   description: "This won't remove users, should only be used when access is needed every day."
