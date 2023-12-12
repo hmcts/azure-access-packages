@@ -196,6 +196,9 @@ packages:
           - "DTS Platform Operations SC"
           - "DTS CFT Developers"
           - "DTS SDS Developers"
+      - name: "On-Call"
+        requestor_groups:
+          - "DTS Platform Operations SC"
     resource_roles:
       - "DTS Production Bastion Access for Users (DevOps)"
 
@@ -223,6 +226,9 @@ packages:
           - "DTS CFT SC"
         approver_groups:
           - "DTS Platform Operations"
+      - name: "Unlimited"
+        requestor_groups:
+          - "DTS AM DB Support"
     resource_roles:
       - "DTS JIT Access am DB Reader SC"
 
