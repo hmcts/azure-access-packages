@@ -217,6 +217,19 @@ packages:
       - "DTS JIT Access bar DB Reader SC"
       - "DTS JIT Access fees-register DB Reader SC"
 
+  - name: "Database - civil read access"
+    description: "Grants read access to civil databases"
+    catalog_name: "Databases"
+    policies:
+      - name: "Database"
+        requestor_groups:
+          - "DTS CFT SC"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS Production Bastion Access for Users (DevOps)"
+      - "DTS JIT Access civil DB Reader SC"
+
   - name: "Database - AM read access"
     description: "Grants read access to AM databases"
     catalog_name: "Databases"
@@ -267,6 +280,17 @@ packages:
           - "DTS Platform Operations SC"
     resource_roles:
       - "DTS Production Bastion Access for Users (SecOps)"
+
+  - name: "SecOps Sandbox Bastion Server Access"
+    description: "This will provide access to Bastion Servers for SecOps in Sandbox (SBOX) environments."
+    catalog_name: "Bastion Servers"
+    policies:
+      - name: "self-approval"
+        requestor_groups:
+          - "dcd_team_secops_v2"
+          - "DTS Platform Operations SC"
+    resource_roles:
+      - "DTS Non-Production Bastion Access for Users (SecOps)"
 
   - name: "Non-Production Bastion Server Access"
     description: "This will provide access to Bastion Servers in Non-Production environments."
