@@ -17,8 +17,8 @@ policy:
     enabled: false
   extension_enabled: true
   questions:
-  - required: true
-    sequence: 1
+  - required: false
+    sequence: 0
     text:
       default_text: "Include Jira link in business justification"
   requestor_settings:
