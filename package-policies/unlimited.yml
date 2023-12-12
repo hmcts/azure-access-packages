@@ -1,0 +1,14 @@
+name: "Unlimited"
+policy:
+  display_name: "Unlimited"
+  description: "This won't remove users, should only be used when access is needed every day."
+  extension_enabled: false
+  approval_settings:
+    approval_required: false
+  assignment_review_settings:
+    access_recommendation_enabled: false
+  requestor_settings:
+    requestor:
+      subject_type: "groupMembers"
+    requests_accepted: true
+    scope_type: "SpecificDirectorySubjects"
