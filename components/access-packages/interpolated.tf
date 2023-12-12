@@ -31,14 +31,17 @@ locals {
 
   package_assignment_policy = flatten([
     for package in local.packages : [
-      for package_policy in local.package_policies : {
-        access_package              = package.name
-        policy_name                 = package_policy.name
-        policy                      = package_policy.policy
-        requestor_groups            = try(package.requestor_groups, null)
-        approver_groups             = try(package.approver_groups, null)
-        alternative_approver_groups = try(package.alternative_approver_groups, null)
-      } if contains(package.policies, package_policy.name)
+      for policy in package.policies : [
+        for package_policy in local.package_policies : {
+          access_package              = package.name
+          policy_name                 = package_policy.name
+          policy                      = package_policy.policy
+          requestor_groups            = try(policy.requestor_groups, null)
+          approver_groups             = try(policy.approver_groups, null)
+          alternative_approver_groups = try(policy.alternative_approver_groups, null)
+        } if policy.name == package_policy.name
+      ]
+
     ] if try(package.policies, null) != null
   ])
 
