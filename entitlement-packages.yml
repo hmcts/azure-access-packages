@@ -13,6 +13,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access lau DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - PCQ read access"
     description: "Grants read access to PCQ database"
@@ -25,6 +26,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access pcq DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - Probate read access"
     description: "Grants read access to probate database"
@@ -37,6 +39,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access probate DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - hmc-cft-hearing read access"
     description: "Grants read access to hmc databases"
@@ -49,6 +52,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access hmc DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - libragob read access"
     description: "Grants read access to libragob production databases"
@@ -61,6 +65,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access libragob DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - PIP read access"
     description: "Grants read access to PIP databases"
@@ -73,6 +78,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access pip DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Strategic Data Platform - Production (Engineers)"
     description: "Access to SDP Production"
@@ -95,6 +101,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access ts DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Databases - Work Allocation Read Access"
     description: "Grants read access to Work Allocation (wa) databases [wa_workflow, wa_case_event & cft_task_db]"
@@ -119,6 +126,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access ethos DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Strategic Data Platform - Production (PlatOps and PET)"
     description: "Access to SDP Production"
@@ -130,7 +138,7 @@ packages:
     resource_roles:
       - "DTS SDP JIT Production PlatOps and PET"
 
-  - name: "Databases - Fact Read Access"
+  - name: "Database - Fact Read Access"
     description: "Grants read access to fact database"
     catalog_name: "Databases"
     policies:
@@ -141,6 +149,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access fact DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - DM read access"
     description: "Grants read access to Evidence (DM) Database"
@@ -153,6 +162,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access dm DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - em read access"
     description: "Grants read access to em databases (emhrs, annotation, stitching & npa)"
@@ -165,6 +175,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access em DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Administrative Access - Production Bastion Server"
     description: "This role should only be used to complete data migrations This will provide administrative access to Bastion Servers in Production environments."
@@ -216,6 +227,7 @@ packages:
       - "DTS JIT Access payment DB Reader SC"
       - "DTS JIT Access bar DB Reader SC"
       - "DTS JIT Access fees-register DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - civil read access"
     description: "Grants read access to civil databases"
@@ -244,6 +256,7 @@ packages:
           - "DTS AM DB Support"
     resource_roles:
       - "DTS JIT Access am DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "SharedServices Subscriptions Non-Production Access (Write)"
     description: "This will provide write access to the SharedServices subscriptions classified as non-production."
@@ -276,8 +289,8 @@ packages:
     policies:
       - name: "self-approval"
         requestor_groups:
-          - "dcd_team_secops_v2"
           - "DTS Platform Operations SC"
+          - "dcd_team_secops_v2"
     resource_roles:
       - "DTS Production Bastion Access for Users (SecOps)"
 
@@ -287,8 +300,8 @@ packages:
     policies:
       - name: "self-approval"
         requestor_groups:
-          - "dcd_team_secops_v2"
           - "DTS Platform Operations SC"
+          - "dcd_team_secops_v2"
     resource_roles:
       - "DTS Non-Production Bastion Access for Users (SecOps)"
 
@@ -315,6 +328,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access draft-store DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - RD read access"
     description: "Grants read access to RD databases"
@@ -327,6 +341,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access rd DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - CCD read access"
     description: "Grants read access to CCD databases"
@@ -339,6 +354,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access ccd DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - send-letter read access"
     description: "Grants read access to send-letter databases"
@@ -351,6 +367,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access send-letter DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - reform-scan read access"
     description: "Grants read access to reform-scan databases"
@@ -363,6 +380,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access reform-scan DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - bulk-scan read access"
     description: "Grants read access to bulk-scan databases"
@@ -375,6 +393,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access bulk-scan DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - IDAM read access"
     description: "Grants read access to IDAM databases"
@@ -387,6 +406,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access idam DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "SC Access"
     description: "Grants access to SC restricted resources and additional access packages"
