@@ -4,7 +4,7 @@ policy:
   display_name: "Default access"
   description: "Max 1 day"
   duration_in_days: 1
-  extension_enabled: false
+  extension_enabled: true
   approval_settings:
     approval_required: false
   assignment_review_settings:
