@@ -340,6 +340,18 @@ packages:
     resource_roles:
       - "DTS JIT Access ccd DB Reader SC"
 
+  - name: "Database - CMC read access"
+    description: "Grants read access to CMC databases"
+    catalog_name: "Databases"
+    policies:
+      - name: "Database"
+        requestor_groups:
+          - "DTS CFT SC"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS JIT Access cmc DB Reader SC"
+
   - name: "Database - send-letter read access"
     description: "Grants read access to send-letter databases"
     catalog_name: "Databases"
