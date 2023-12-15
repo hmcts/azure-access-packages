@@ -366,8 +366,7 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS JIT Access cmc DB Reader SC"
-      - "DTS Production Bastion Access for Users (DevOps)"
+      []
 
   - name: "Database - IA read access"
     description: "Grants read access to IA databases"
