@@ -366,7 +366,7 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Production Bastion Access for Users (DevOps)"
+      []
 
   - name: "Database - IA read access"
     description: "Grants read access to IA databases"
