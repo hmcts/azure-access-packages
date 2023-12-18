@@ -289,8 +289,8 @@ packages:
     policies:
       - name: "self-approval"
         requestor_groups:
-          - "DTS Platform Operations SC"
           - "dcd_team_secops_v2"
+          - "DTS Platform Operations SC"
     resource_roles:
       - "DTS Production Bastion Access for Users (SecOps)"
 
@@ -300,8 +300,8 @@ packages:
     policies:
       - name: "self-approval"
         requestor_groups:
-          - "DTS Platform Operations SC"
           - "dcd_team_secops_v2"
+          - "DTS Platform Operations SC"
     resource_roles:
       - "DTS Non-Production Bastion Access for Users (SecOps)"
 
