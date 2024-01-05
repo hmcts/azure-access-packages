@@ -233,11 +233,9 @@ packages:
     description: "Grants read access to civil databases"
     catalog_name: "Databases"
     policies:
-      - name: "Database"
+      - name: "self-approval-with-justification"
         requestor_groups:
           - "DTS CFT SC"
-        approver_groups:
-          - "DTS Platform Operations"
     resource_roles:
       - "DTS Production Bastion Access for Users (DevOps)"
       - "DTS JIT Access civil DB Reader SC"
