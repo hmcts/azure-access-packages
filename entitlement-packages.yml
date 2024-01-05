@@ -446,36 +446,6 @@ packages:
     resource_roles:
       - "DTS CFT SC"
 
-  - name: "Strategic Data Platform Data catalogue - Data Analyst"
-    description: "Users with read access for the SDP Data Catalogue"
-    catalog_name: "SDP Data Catalogue"
-    policies:
-      - name: "self-approval"
-        requestor_groups:
-          - "DTS DC Data Analyst"
-    resource_roles:
-      - "DTS DC JIT Data Analyst"
-
-  - name: "Strategic Data Platform Data catalogue - Data Steward"
-    description: "Users with read/write access for the SDP Data Catalogue data assets"
-    catalog_name: "SDP Data Catalogue"
-    policies:
-      - name: "self-approval-with-justification"
-        requestor_groups:
-          - "DTS DC Data Steward"
-    resource_roles:
-      - "DTS DC JIT Data Steward"
-
-  - name: "Strategic Data Platform Data catalogue - DTS DC Requester"
-    description: "Users who want to request information from the SDP Data Catalogue"
-    catalog_name: "SDP Data Catalogue"
-    policies:
-      - name: "self-approval"
-        requestor_groups:
-          - " DTS DC Requester"
-    resource_roles:
-      - "DTS DC JIT Requester"
-
   - name: "Strategic Data Platform Data catalogue - Data Custodian"
     description: "Users with write access for the SDP Data Catalogue who manage data sets"
     catalog_name: "SDP Data Catalogue"
@@ -497,7 +467,7 @@ packages:
       - "DTS DC JIT Catalogue Custodian"
 
   - name: "Strategic Data Platform Data catalogue - Glossary Custodian"
-    description: "Users with read/write access for glossaries in the SDP Data Catalogue"
+    description: "Users with write access for glossaries in the SDP Data Catalogue"
     catalog_name: "SDP Data Catalogue"
     policies:
       - name: "self-approval-with-justification"
