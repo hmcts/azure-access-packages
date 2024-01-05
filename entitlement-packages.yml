@@ -443,3 +443,33 @@ packages:
           - "DTS SC Access Approvers"
     resource_roles:
       - "DTS CFT SC"
+
+  - name: "Strategic Data Platform Data catalogue - Data Custodian"
+    description: "Users with write access for the SDP Data Catalogue who manage data sets"
+    catalog_name: "SDP Data Catalogue"
+    policies:
+      - name: "self-approval"
+        requestor_groups:
+          - "DTS DC Data Custodian"
+    resource_roles:
+      - "DTS DC JIT Data Custodian"
+
+  - name: "Strategic Data Platform Data catalogue - Catalogue Custodian"
+    description: "Users with admin access for the SDP Catalogue collections and metadata policies"
+    catalog_name: "SDP Data Catalogue"
+    policies:
+      - name: "self-approval"
+        requestor_groups:
+          - "DTS DC Catalogue Custodian"
+    resource_roles:
+      - "DTS DC JIT Catalogue Custodian"
+
+  - name: "Strategic Data Platform Data catalogue - Glossary Custodian"
+    description: "Users with write access for glossaries in the SDP Data Catalogue"
+    catalog_name: "SDP Data Catalogue"
+    policies:
+      - name: "self-approval"
+        requestor_groups:
+          - "DTS DC Glossary Custodian"
+    resource_roles:
+      - "DTS DC JIT Glossary Custodian"
