@@ -174,3 +174,21 @@ catalogs:
       - "DTS Readers (sub:dts-sharedservices-sbox)"
       - "DTS Readers (sub:dts-sharedservices-stg)"
       - "DTS Readers (sub:dts-sharedservices-test)"
+
+  - name: "SDP Data Catalogue"
+    description: "Data Catalogue or the Strategic Data Platform"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS DC Data Analyst"
+      - "DTS DC Data Steward"
+      - "DTS DC Requester"
+      - "DTS DC Data Custodian"
+      - "DTS DC Catalogue Custodian"
+      - "DTS DC Glossary Custodian"
+      - "DTS DC JIT Data Analyst"
+      - "DTS DC JIT Data Steward"
+      - "DTS DC JIT Requester"
+      - "DTS DC JIT Data Custodian"
+      - "DTS DC JIT Catalogue Custodian"
+      - "DTS DC JIT Glossary Custodian"
