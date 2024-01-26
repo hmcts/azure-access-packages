@@ -140,6 +140,7 @@ catalogs:
       - "DTS JIT Access ts DB Reader SC"
       - "DTS JIT Access wa DB Reader SC"
       - "DTS JIT Access xui DB Reader SC"
+      - "DTS JIT Access sscs DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "SharedServices Subscriptions CT"
