@@ -217,16 +217,11 @@ packages:
     description: "This will provide access to Bastion Servers in Production environments."
     catalog_name: "Bastion Servers"
     policies:
-      - name: "default-access"
-        duration_in_days: 180
+      - name: "Database-six-months-access"
         requestor_groups:
-          - "DTS CFT SC"
-          - "DTS Platform Operations SC"
-          - "DTS CFT Developers"
-          - "DTS SDS Developers"
-      - name: "On-Call"
-        requestor_groups:
-          - "DTS Platform Operations SC"
+          - "DTS Civil"
+        approver_groups:
+          - "DTS Platform Operations"
     resource_roles:
       - "DTS Production Bastion Access for Users (DevOps)"
 
@@ -250,10 +245,9 @@ packages:
     description: "Grants read access to ccpay databases"
     catalog_name: "Databases"
     policies:
-      - name: "Database"
-        duration_in_days: 180
+      - name: "Database-six-months-access"
         requestor_groups:
-          - "DTS CFT SC"
+          - "DTS Civil"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -392,10 +386,9 @@ packages:
     description: "Grants read access to CCD databases"
     catalog_name: "Databases"
     policies:
-      - name: "Database"
-        duration_in_days: 180
+      - name: "Database-six-months-access"
         requestor_groups:
-          - "DTS CFT SC"
+          - "DTS Civil"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:

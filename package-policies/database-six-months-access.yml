@@ -1,0 +1,28 @@
+name: "Database-six-months-access"
+policy:
+  display_name: "Initial Policy"
+  description: "Initial Policy"
+  duration_in_days: 180
+  approval_settings:
+    approval_required_for_extension: false
+    approval_required: true
+    approval_stage:
+      approval_timeout_in_days: 14
+      approver_justification_required: false
+      enable_alternative_approval_in_days: 0
+      primary_approver:
+        subject_type: "groupMembers"
+    requestor_justification_required: true
+  assignment_review_settings:
+    enabled: false
+  extension_enabled: true
+  questions:
+  - required: false
+    sequence: 0
+    text:
+      default_text: "Include Jira link in business justification"
+  requestor_settings:
+    requestor:
+      subject_type: "groupMembers"
+    requests_accepted: true
+    scope_type: "SpecificDirectorySubjects"
