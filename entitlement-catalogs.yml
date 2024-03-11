@@ -192,7 +192,7 @@ catalogs:
     published: true
     externally_visible: false
     resources:
-      - "Administrative Access - Production Dynatrace ActiveGate"
-      - "Production Dynatrace ActiveGate Access"
-      - "Administrative Access - Non-Production Dynatrace ActiveGate"
-      - "Non-Production Dynatrace ActiveGate Access"
+      - "DTS Production Dynatrace ActiveGate Access for Administrators"
+      - "DTS Production Dynatrace ActiveGate Access for Users"
+      - "DTS Non-Production Dynatrace ActiveGate Access for Administrators"
+      - "DTS Non-Production Dynatrace ActiveGate Access for Users"
