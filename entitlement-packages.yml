@@ -527,3 +527,43 @@ packages:
     resource_roles:
       - "DTS JIT Access sscs DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
+
+  - name: "Administrative Access - Production Dynatrace ActiveGate"
+    description: "This role grants administrative access to Dynatrace ActiveGate VMs in prod environment"
+    catalog_name: "Dynatrace ActiveGates"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS Production Dynatrace ActiveGate Access for Administrators"
+
+  - name: "Production Dynatrace ActiveGate Access"
+    description: "This will provide access to Dynatrace ActiveGate VMs in Production environments."
+    catalog_name: "Dynatrace ActiveGates"
+    policies:
+      - name: "default-access"
+        requestor_groups:
+          - "DTS Platform Operations SC"
+    resource_roles:
+      - "DTS Production Dynatrace ActiveGate Access for Users"
+
+  - name: "Administrative Access - Non-Production Dynatrace ActiveGate"
+    description: "This role grants administrative access to Dynatrace ActiveGate VMs in nonprod environment"
+    catalog_name: "Dynatrace ActiveGates"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS Non-Production Dynatrace ActiveGate Access for Administrators"
+
+  - name: "Non-Production Dynatrace ActiveGate Access"
+    description: "This will provide access to Dynatrace ActiveGate VMs in Non-Production environments."
+    catalog_name: "Dynatrace ActiveGates"
+    policies:
+      - name: "default-access"
+        requestor_groups:
+          - "DTS Platform Operations SC"
+    resource_roles:
+      - "DTS Non-Production Dynatrace ActiveGate Access for Users"
