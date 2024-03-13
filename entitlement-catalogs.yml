@@ -186,3 +186,13 @@ catalogs:
       - "DTS DC JIT Data Custodian"
       - "DTS DC JIT Catalogue Custodian"
       - "DTS DC JIT Glossary Custodian"
+
+  - name: "Dynatrace ActiveGates"
+    description: "Dynatrace ActiveGates Access Catalog"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS Production Dynatrace ActiveGate Access for Administrators"
+      - "DTS Production Dynatrace ActiveGate Access for Users"
+      - "DTS Non-Production Dynatrace ActiveGate Access for Administrators"
+      - "DTS Non-Production Dynatrace ActiveGate Access for Users"
