@@ -114,6 +114,7 @@ catalogs:
       - "DTS JIT Access ccd DB Reader SC"
       - "DTS JIT Access ccpay DB Reader SC"
       - "DTS JIT Access cmc DB Reader SC"
+      - "DTS JIT Access cpo DB Reader SC"
       - "DTS JIT Access ctsc DB Reader SC"
       - "DTS JIT Access div DB Reader SC"
       - "DTS JIT Access draft-store DB Reader SC"
