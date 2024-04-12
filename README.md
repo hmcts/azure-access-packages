@@ -43,7 +43,7 @@ policies:
 When terraform processes the access packages it will associate your access package with the policy.
 
 ### NOTE
-No users or groups are created in thie repo. It assumes they already exist and would error out on `apply` if thats the case.
+No `users` or `groups` are created in this repo. It assumes they already exist and would error out on `apply` not found.
 To create users and groups please have a look at the `devops-azure-ad` repo in GitHub
 
 ## Skeleton Template
