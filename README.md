@@ -42,6 +42,10 @@ policies:
 
 When terraform processes the access packages it will associate your access package with the policy.
 
+### NOTE
+No users or groups are created in thie repo. It assumes they already exist and would error out on `apply` if thats the case.
+To create users and groups please have a look at the `devops-azure-ad` repo in GitHub
+
 ## Skeleton Template
 A full list of all possible attributes, the police does not need to have all of it. Full detail
 can be found in the [provider](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/access_package_assignment_policy) documentation
