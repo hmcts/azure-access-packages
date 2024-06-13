@@ -56,7 +56,6 @@ catalogs:
       - "DTS Readers (sub:hmcts-hub-dev)"
       - "DTS Readers (sub:hmcts-hub-nonprod-intsvc)"
       - "DTS Readers (sub:hmcts-hub-prod-intsvc)"
-      - "DTS Readers (sub:hmcts-hub-sbox)"
       - "DTS Readers (sub:hmcts-hub-sbox-intsvc)"
       - "DTS Readers (sub:hmcts-hub-test)"
 
