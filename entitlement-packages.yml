@@ -493,6 +493,7 @@ packages:
       - name: "security-clearance-form"
         requestor_groups:
           - "DTS CFT Developers"
+          - "DTS SDS Developers"
         approver_groups:
           - "DTS SC Access Approvers"
     resource_roles:
