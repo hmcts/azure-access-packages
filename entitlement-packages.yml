@@ -270,6 +270,22 @@ packages:
       - "DTS JIT Access fees-register DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
 
+  - name: "Database - ccpay read access - self approval"
+    description: "Grants read access to ccpay databases"
+    catalog_name: "Databases"
+    policies:
+      - name: "Database-self-approval-with-justification"
+        requestor_groups:
+          - "DTS Civil"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS JIT Access ccpay DB Reader SC"
+      - "DTS JIT Access payment DB Reader SC"
+      - "DTS JIT Access bar DB Reader SC"
+      - "DTS JIT Access fees-register DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
+  
   - name: "Database - civil read access"
     description: "Grants read access to civil databases"
     catalog_name: "Databases"
