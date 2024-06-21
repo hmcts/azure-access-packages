@@ -2,7 +2,7 @@ name: "Database-self-approval-with-justification"
 policy:
   display_name: "Initial Policy"
   description: "Initial Policy"
-  duration_in_days: 0.5
+  duration_in_days: 1
   approval_settings:
     approval_required_for_extension: false
     approval_required: false
