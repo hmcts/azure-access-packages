@@ -276,7 +276,7 @@ packages:
     policies:
       - name: "Database-self-approval-with-justification"
         requestor_groups:
-          - "DTS Civil"
+          - "DTS CFT SC"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
