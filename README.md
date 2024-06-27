@@ -15,8 +15,8 @@ Existing policies that cover most use cases are:
   - One day access, no approval required.
 - `self-approval-with-justification`
   - One day access, no approval required, must provide justification on the request.
-- `Database`
-  - Standard database policy, 1 day access, can extend once for an additional 24 hours, requires approval and justification.
+- `Database-self-approval-with-justification`
+  - Standard database policy, 1 day access, can extend once for an additional 24 hours, requires justification and jira / ticket reference.  Approval not required.
 
 Additional access policy can be added by creating a new file in the `package-policies` folder and
 defining the properties for you specific policy.
