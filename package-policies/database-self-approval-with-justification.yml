@@ -14,7 +14,7 @@ policy:
   - required: true
     sequence: 0
     text:
-      default_text: "Include Jira link in business justification"
+      default_text: "Jira link"
   requestor_settings:
     requestor:
       subject_type: "groupMembers"
