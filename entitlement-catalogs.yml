@@ -196,11 +196,11 @@ catalogs:
       - "DTS Production Dynatrace ActiveGate Access for Users"
       - "DTS Non-Production Dynatrace ActiveGate Access for Administrators"
       - "DTS Non-Production Dynatrace ActiveGate Access for Users"
-  
+
   - name: "Juror Database Access"
     description: "Juror Database Access Catalog"
     published: true
     externally_visible: false
     resources:
-      - "DTS JIT Access Juror DB Reader"
+      - "DTS JIT Access juror DB Reader SC"
       - "DTS JIT Access Juror DB Admin"

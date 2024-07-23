@@ -590,7 +590,7 @@ packages:
         requestor_groups:
           - "DTS Juror"
     resource_roles:
-      - "DTS JIT Access Juror DB Reader"
+      - "DTS JIT Access juror DB Reader SC"
 
   - name: "Database - Juror DB admin access"
     description: "This will provide admin access to Juror production Database"
