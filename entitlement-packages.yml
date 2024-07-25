@@ -494,6 +494,7 @@ packages:
         requestor_groups:
           - "DTS CFT Developers"
           - "DTS SDS Developers"
+          - "Cpp DevOps"
         approver_groups:
           - "DTS SC Access Approvers"
     resource_roles:
