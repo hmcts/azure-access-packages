@@ -55,7 +55,6 @@ catalogs:
     resources:
       - "DTS Readers (sub:hmcts-hub-nonprod-intsvc)"
       - "DTS Readers (sub:hmcts-hub-prod-intsvc)"
-      - "DTS Readers (sub:hmcts-hub-sbox)"
       - "DTS Readers (sub:hmcts-hub-sbox-intsvc)"
 
   - name: "Bastion Servers"
@@ -108,6 +107,7 @@ catalogs:
       - "DTS JIT Access ccd DB Reader SC"
       - "DTS JIT Access ccpay DB Reader SC"
       - "DTS JIT Access cmc DB Reader SC"
+      - "DTS JIT Access cpo DB Reader SC"
       - "DTS JIT Access ctsc DB Reader SC"
       - "DTS JIT Access div DB Reader SC"
       - "DTS JIT Access draft-store DB Reader SC"
@@ -179,3 +179,21 @@ catalogs:
       - "DTS DC JIT Data Custodian"
       - "DTS DC JIT Catalogue Custodian"
       - "DTS DC JIT Glossary Custodian"
+
+  - name: "Dynatrace ActiveGates"
+    description: "Dynatrace ActiveGates Access Catalog"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS Production Dynatrace ActiveGate Access for Administrators"
+      - "DTS Production Dynatrace ActiveGate Access for Users"
+      - "DTS Non-Production Dynatrace ActiveGate Access for Administrators"
+      - "DTS Non-Production Dynatrace ActiveGate Access for Users"
+
+  - name: "Juror Database Access"
+    description: "Juror Database Access Catalog"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS JIT Access juror DB Reader SC"
+      - "DTS JIT Access Juror DB Admin"

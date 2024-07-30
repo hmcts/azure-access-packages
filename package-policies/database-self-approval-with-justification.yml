@@ -1,26 +1,20 @@
-name: "Database"
+name: "Database-self-approval-with-justification"
 policy:
   display_name: "Initial Policy"
   description: "Initial Policy"
   duration_in_days: 1
   approval_settings:
     approval_required_for_extension: false
-    approval_required: true
-    approval_stage:
-      approval_timeout_in_days: 14
-      approver_justification_required: false
-      enable_alternative_approval_in_days: 0
-      primary_approver:
-        subject_type: "groupMembers"
+    approval_required: false
     requestor_justification_required: true
   assignment_review_settings:
     enabled: false
   extension_enabled: true
   questions:
-  - required: false
+  - required: true
     sequence: 0
     text:
-      default_text: "Include Jira link in business justification"
+      default_text: "Jira link"
   requestor_settings:
     requestor:
       subject_type: "groupMembers"
