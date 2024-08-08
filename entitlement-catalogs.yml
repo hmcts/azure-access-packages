@@ -53,11 +53,9 @@ catalogs:
     published: true
     externally_visible: true
     resources:
-      - "DTS Readers (sub:hmcts-hub-dev)"
       - "DTS Readers (sub:hmcts-hub-nonprod-intsvc)"
       - "DTS Readers (sub:hmcts-hub-prod-intsvc)"
       - "DTS Readers (sub:hmcts-hub-sbox-intsvc)"
-      - "DTS Readers (sub:hmcts-hub-test)"
 
   - name: "Bastion Servers"
     description: "Bastion Server Access Catalog"
@@ -86,18 +84,14 @@ catalogs:
     resources:
       - "DTS Contributors (sub:dts-management-nonprod-intsvc)"
       - "DTS Contributors (sub:dts-management-prod-intsvc)"
-      - "DTS Contributors (sub:dts-management-sbox)"
       - "DTS Contributors (sub:dts-management-sbox-intsvc)"
       - "DTS Contributors (sub:dts-management-stg)"
-      - "DTS Contributors (sub:dts-management-test)"
       - "DTS Contributors (sub:dts-sharedservices-dev)"
       - "DTS Readers (sub:dts-docmosis-sbox)"
       - "DTS Readers (sub:dts-management-nonprod-intsvc)"
       - "DTS Readers (sub:dts-management-prod-intsvc)"
-      - "DTS Readers (sub:dts-management-sbox)"
       - "DTS Readers (sub:dts-management-sbox-intsvc)"
       - "DTS Readers (sub:dts-management-stg)"
-      - "DTS Readers (sub:dts-management-test)"
       - "DTS Readers (sub:dts-sharedservices-dev)"
 
   - name: "Databases"
@@ -147,7 +141,6 @@ catalogs:
     published: true
     externally_visible: false
     resources:
-      - "DTS AKS Administrators (sub:dts-management-test)"
       - "DTS AKS Administrators (sub:dts-sharedservices-demo)"
       - "DTS AKS Administrators (sub:dts-sharedservices-dev)"
       - "DTS AKS Administrators (sub:dts-sharedservices-ithc)"
