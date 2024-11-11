@@ -328,7 +328,6 @@ packages:
     policies:
       - name: "self-approval"
         requestor_groups:
-          - "dcd_team_secops_v2"
           - "DTS Platform Operations SC"
           - "DTS MIP MOJ"
     resource_roles:
@@ -340,7 +339,6 @@ packages:
     policies:
       - name: "self-approval"
         requestor_groups:
-          - "dcd_team_secops_v2"
           - "DTS Platform Operations SC"
           - "DTS MIP MOJ"
     resource_roles:
