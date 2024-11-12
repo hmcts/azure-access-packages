@@ -414,7 +414,7 @@ packages:
     policies:
       - name: "Database-self-approval-with-justification"
         requestor_groups:
-          - "DTS CFT SC"
+          - "DTS CCD DB Writer"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
