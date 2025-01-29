@@ -615,3 +615,13 @@ packages:
           - "DTS Juror Admin (env:production)"
     resource_roles:
       - "DTS JIT Access Juror DB Admin"
+
+  - name: "Database - Darts DB read access"
+    description: "This will provide read access to Juror production Database"
+    catalog_name: "Juror Database Access"
+    policies:
+      - name: "self-approval"
+        requestor_groups:
+          - "DTS Darts Modernisation"
+    resource_roles:
+      - "DTS JIT Access darts DB Reader SC"
