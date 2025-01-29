@@ -198,3 +198,10 @@ catalogs:
     resources:
       - "DTS JIT Access juror DB Reader SC"
       - "DTS JIT Access Juror DB Admin"
+
+  - name: "Darts Database Access"
+    description: "Darts Database Access Catalog"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS JIT Access darts DB Reader SC"
