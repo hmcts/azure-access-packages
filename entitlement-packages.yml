@@ -627,7 +627,7 @@ packages:
       - "DTS JIT Access darts DB Reader SC"
 
   - name: "Database - ET read access - self approval"
-    description: "Grants read access to CCD databases"
+    description: "Grants read access to ET databases"
     catalog_name: "Databases"
     policies:
       - name: "Database-self-approval-with-justification"
