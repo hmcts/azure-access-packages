@@ -113,6 +113,7 @@ catalogs:
       - "DTS JIT Access draft-store DB Reader SC"
       - "DTS JIT Access em DB Reader SC"
       - "DTS JIT Access ethos DB Reader SC"
+      - "DTS JIT Access et DB Reader SC"
       - "DTS JIT Access fact DB Reader SC"
       - "DTS JIT Access fees-register DB Reader SC"
       - "DTS JIT Access fpl DB Reader SC"
