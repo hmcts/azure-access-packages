@@ -617,7 +617,7 @@ packages:
       - "DTS JIT Access Juror DB Admin"
 
   - name: "Database - Darts DB read access"
-    description: "This will provide read access to Juror production Database"
+    description: "This will provide read access to Darts Modernisation production Database"
     catalog_name: "Juror Database Access"
     policies:
       - name: "self-approval"
