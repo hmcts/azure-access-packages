@@ -639,7 +639,7 @@ packages:
       - "DTS JIT Access et DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
 
-  - name: "Administrative Access - PostgreSQL"
+  - name: "PlatOps PostgreSQL Administrative Access"
     description: "Grants admin access to PostgreSQL databases"
     catalog_name: "Databases"
     policies:
@@ -649,7 +649,7 @@ packages:
     resource_roles:
       - "PlatOps PostgreSQL Admin Access"
 
-  - name: "Administrative Access - PostgreSQL SC"
+  - name: "PlatOps PostgreSQL Administrative Access SC"
     description: "Grants admin access to PostgreSQL databases SC"
     catalog_name: "Databases"
     policies:
