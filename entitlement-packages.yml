@@ -427,7 +427,7 @@ packages:
     policies:
       - name: "Database-self-approval-with-justification"
         requestor_groups:
-          - "DTS CFT SC"
+          - "DTS Pre-Recorded Evidence BAU Developers"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -440,11 +440,12 @@ packages:
     policies:
       - name: "Database-self-approval-with-justification"
         requestor_groups:
-          - "DTS CFT SC"
+          - "DTS Pre-Recorded Evidence BAU Developers"
         approver_groups:
-          - "DTS Platform Operations"
+          - "DTS Pre-Recorded Evidence BAU Admin"
     resource_roles:
       - "DTS JIT Access pre DB Writer SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
 
   - name: "Database - CMC read access - self approval"
     description: "Grants read access to CMC databases"
