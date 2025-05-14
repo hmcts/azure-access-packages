@@ -434,19 +434,6 @@ packages:
       - "DTS JIT Access pre DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
 
-  - name: "Database - PRE write access - self approval"
-    description: "Grants write access to Pre-Recorded Evidence databases"
-    catalog_name: "Databases"
-    policies:
-      - name: "Database-self-approval-with-justification"
-        requestor_groups:
-          - "DTS Pre-Recorded Evidence BAU Developers"
-        approver_groups:
-          - "DTS Pre-Recorded Evidence BAU Admin"
-    resource_roles:
-      - "DTS JIT Access pre DB Writer SC"
-      - "DTS Production Bastion Access for Users (DevOps)"
-
   - name: "Database - CMC read access - self approval"
     description: "Grants read access to CMC databases"
     catalog_name: "Databases"

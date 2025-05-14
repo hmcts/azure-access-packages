@@ -128,7 +128,6 @@ catalogs:
       - "DTS JIT Access pcq DB Reader SC"
       - "DTS JIT Access pip DB Reader SC"
       - "DTS JIT Access pre DB Reader SC"
-      - "DTS JIT Access pre DB Writer SC"
       - "DTS JIT Access probate DB Reader SC"
       - "DTS JIT Access rd DB Reader SC"
       - "DTS JIT Access reform-scan DB Reader SC"
