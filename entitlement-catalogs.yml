@@ -138,6 +138,7 @@ catalogs:
       - "DTS JIT Access xui DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
       - "DTS JIT Access ccd DB Writer SC"
+      - "DTS JIT Access pre DB Writer SC"
       - "PlatOps PostgreSQL Admin Access"
       - "PlatOps PostgreSQL Admin Access SC"
 
