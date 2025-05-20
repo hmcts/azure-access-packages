@@ -671,3 +671,13 @@ packages:
           - "DTS Platform Operations SC"
     resource_roles:
       - "PlatOps PostgreSQL Admin Access SC"
+
+  - name: "Security Administrators Access"
+    description: "Grants the Security Administrator assigned role" 
+    catalog_name: "Security Administrator access"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "Security Administrators"
+    resource_roles:
+      - "Security Administrator"
