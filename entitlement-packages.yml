@@ -678,6 +678,6 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Security Administrators"
+          - "DTS JIT Security Administrators"
     resource_roles:
-      - "Security Administrator"
+      - "DTS Security Administrators"
