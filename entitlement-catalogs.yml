@@ -209,3 +209,11 @@ catalogs:
     externally_visible: false
     resources:
       - "DTS JIT Access darts DB Reader SC"
+
+  - name: "Security Administrator access"
+    description: "Access for security administrators"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS Security Administrators"
+
