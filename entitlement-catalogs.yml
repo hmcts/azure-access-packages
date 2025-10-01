@@ -138,7 +138,8 @@ catalogs:
       - "DTS JIT Access xui DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
       - "DTS JIT Access ccd DB Writer SC"
-
+      - "DTS Platform Operations PostgreSQL Admin Access"
+      - "DTS Platform Operations PostgreSQL Admin Access SC"
 
   - name: "SharedServices Subscriptions CT"
     description: "DTS-SharedServices Subscriptions"
