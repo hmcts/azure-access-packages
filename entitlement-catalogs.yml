@@ -140,6 +140,8 @@ catalogs:
       - "DTS JIT Access ccd DB Writer SC"
       - "DTS Platform Operations PostgreSQL Admin Access"
       - "DTS Platform Operations PostgreSQL Admin Access SC"
+      - "DTS ServiceNow MySQL DB Access for Administrators"
+      - "DTS ServiceNow MySQL DB Access for Uers"
 
   - name: "SharedServices Subscriptions CT"
     description: "DTS-SharedServices Subscriptions"
