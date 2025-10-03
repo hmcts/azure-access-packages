@@ -671,3 +671,23 @@ packages:
           - "DTS Platform Operations SC"
     resource_roles:
       - "DTS Platform Operations PostgreSQL Admin Access SC"
+
+  - name: "Production MySQL Administrative Access SC"
+    description: "Grants admin access to MySQL SeviceNow Flexible Server"
+    catalog_name: "Databases"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS Platform Operations SC"
+    resource_roles:
+      - "DTS ServiceNow MySQL DB Access for Administrators"
+
+  - name: "Production MySQL User Access SC"
+    description: "Grants user access to MySQL SeviceNow Flexible Server"
+    catalog_name: "Databases"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS Platform Operations SC"
+    resource_roles:
+      - "DTS ServiceNow MySQL DB Access for Users"
