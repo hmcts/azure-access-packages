@@ -690,4 +690,4 @@ packages:
         requestor_groups:
           - "DTS Platform Operations SC"
     resource_roles:
-      - "DTS ServiceNow MySQL DB Access for Uers"
+      - "DTS ServiceNow MySQL DB Access for Users"
