@@ -692,17 +692,6 @@ packages:
     resource_roles:
       - "DTS ServiceNow MySQL DB Access for Users"
 
-  - name: "SharedServices Storage Blob Data Reader (Production)"
-    description: "This will provide Storage Blob Data Reader access to SharedServices subscriptions classified as production."
-    catalog_name: "Storage Blob Data Reader (Production)"
-    policies:
-      - name: "self-approval-with-justification"
-        requestor_groups:
-          - "DTS CFT SC"
-    resource_roles:
-      - "DTS Blob Readers (sub:dts-sharedservices-prod)"
-      - "DTS Readers (sub:dts-sharedservices-prod)"
-
   - name: "Redis Cache Contributor Access (Production)"
     description: "This will provide contributor access to Redis Cache resources in production environments and enable zone redundant features."
     catalog_name: "Redis Cache Access"
