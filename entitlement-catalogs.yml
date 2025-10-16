@@ -211,3 +211,11 @@ catalogs:
     externally_visible: false
     resources:
       - "DTS JIT Access darts DB Reader SC"
+
+  - name: "Redis Cache Access"
+    description: "Redis Cache Resources Production Access"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS Redis Cache Contributors (sub:DCD-CNP-Prod)"
+      - "DTS Redis Cache Contributors (sub:DTS-SHAREDSERVICES-PROD)"
