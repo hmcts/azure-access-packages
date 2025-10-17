@@ -699,6 +699,7 @@ packages:
       - name: "self-approval-with-justification"
         requestor_groups:
           - "DTS Readers (mg:CFT-Prod)"
+          - "DTS Readers (sub:dcd-cnp-prod)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
