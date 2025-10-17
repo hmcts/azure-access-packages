@@ -696,12 +696,10 @@ packages:
     description: "This will provide contributor access to Redis Cache resources in production environments and enable zone redundant features."
     catalog_name: "Redis Cache Access"
     policies:
-      - name: "self-approval-with-justification"
+      - name: "self-approval"
         requestor_groups:
           - "DTS Readers (mg:CFT-Prod)"
           - "DTS Readers (sub:dcd-cnp-prod)"
-        approver_groups:
-          - "DTS Platform Operations"
     resource_roles:
       - "DTS Redis Cache Contributors (sub:DCD-CNP-Prod)"
       - "DTS Redis Cache Contributors (sub:DTS-SHAREDSERVICES-PROD)"
