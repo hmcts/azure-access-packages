@@ -691,3 +691,14 @@ packages:
           - "DTS Platform Operations SC"
     resource_roles:
       - "DTS ServiceNow MySQL DB Access for Users"
+
+  - name: "Redis Cache Contributor Access (Production)"
+    description: "This will provide contributor access to Redis Cache resources in production environments and enable zone redundant features."
+    catalog_name: "Redis Cache Access"
+    policies:
+      - name: "self-approval"
+        requestor_groups:
+          - "DTS Readers (mg:CFT-Prod)"
+          - "DTS Readers (sub:dcd-cnp-prod)"
+    resource_roles:
+      - "DTS Redis Cache Contributors"
