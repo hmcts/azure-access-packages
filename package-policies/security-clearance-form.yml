@@ -4,30 +4,31 @@ policy:
   display_name: "Initial Policy"
   description: "Initial Policy"
   duration_in_days: 365
-  extension_enabled: false
+  extension_enabled: true
   questions:
-  - required: true
-    sequence: 1
-    text:
-      default_text: "SC Reference Number (if known)"
-  - required: true
-    sequence: 2
-    text:
-      default_text: "Clearance Start Date"
-  - sequence: 3
-    text:
-      default_text: "Clearance Expiry"
-  - sequence: 4
-    text:
-      default_text: "Have you worked outside of government for a period of 3 months or more since the clearance was issued?"
-  - sequence: 5
-    text:
-      default_text: "How long have you been a UK resident for?"
-  - sequence: 6
-    text:
-      default_text: "Other supporting information?"
+    - required: true
+      sequence: 1
+      text:
+        default_text: "SC Reference Number (if known)"
+    - required: true
+      sequence: 2
+      text:
+        default_text: "Clearance Start Date"
+    - sequence: 3
+      text:
+        default_text: "Clearance Expiry"
+    - sequence: 4
+      text:
+        default_text: "Have you worked outside of government for a period of 3 months or more since the clearance was issued?"
+    - sequence: 5
+      text:
+        default_text: "How long have you been a UK resident for?"
+    - sequence: 6
+      text:
+        default_text: "Other supporting information?"
   approval_settings:
     approval_required: true
+    approval_required_for_extension: true
     approval_stage:
       approval_timeout_in_days: 10
       approver_justification_required: true
@@ -48,4 +49,3 @@ policy:
       subject_type: "groupMembers"
     requests_accepted: true
     scope_type: "SpecificDirectorySubjects"
-  
