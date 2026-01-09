@@ -26,6 +26,7 @@ policy:
   - sequence: 6
     text:
       default_text: "Date of Birth"
+  - required: true
   - sequence: 7
     text:
       default_text: "NI Number"
