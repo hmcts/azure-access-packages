@@ -24,7 +24,7 @@ policy:
     text:
       default_text: "How long have you been a UK resident for?"
   - required: true
-  - sequence: 6
+    sequence: 6
     text:
       default_text: "Date of Birth"
   - sequence: 7
