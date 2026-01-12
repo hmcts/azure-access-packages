@@ -768,3 +768,4 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access dtsse DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
