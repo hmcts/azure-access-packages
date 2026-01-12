@@ -756,3 +756,16 @@ packages:
           - "DTS Readers (sub:dcd-cnp-prod)"
     resource_roles:
       - "DTS Redis Cache Contributors"
+
+  - name: "Database - dtsse read access - self approval"
+    description: "Grants read access to dtsse databases"
+    catalog_name: "Databases"
+    policies:
+      - name: "Database-self-approval-with-justification"
+        requestor_groups:
+          - "DTS CFT SC"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS JIT Access dtsse DB Reader SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
