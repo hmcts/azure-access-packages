@@ -854,7 +854,6 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS Global Admin RBAC"
-=======
 
   - name: "Contributors - dts-cftptl-intsvc"
     description: "Grants contributors access to dts-cftptl-intsvc subscription"
