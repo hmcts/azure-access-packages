@@ -227,13 +227,6 @@ catalogs:
     externally_visible: false
     resources:
       - "DTS Contributors (sub:dts-sharedservices-demo)"
-  
-  - name: "Privileged Identity Management"
-    description: "Privileged Identity Management - Global Administrator access"
-    published: true
-    externally_visible: false
-    resources:
-      - "DTS Global Admin RBAC"
 
   - name: "Contributors"
     description: "Access packages for Azure subscriptions managed by this directory"
@@ -286,3 +279,10 @@ catalogs:
       - "DTS Contributors (sub:hmcts-hub-nonprod-intsvc)"
       - "DTS Contributors (sub:dcd-cftapps-demo)"
       - "DTS Contributors (sub:moj common platform non-live management)"
+
+  - name: "Global Admins"
+    description: "Privileged Identity Management - Global Administrator access"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS Global Admin RBAC"
