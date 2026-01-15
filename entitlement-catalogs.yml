@@ -226,13 +226,6 @@ catalogs:
     published: true
     externally_visible: false
     resources:
-      - "DTS Contributors (sub:dts-sharedservices-demo)"
-
-  - name: "Contributors"
-    description: "Access packages for Azure subscriptions managed by this directory"
-    published: true
-    externally_visible: false
-    resources:
       - "DTS Contributors (sub:dts-management-nonprod-intsvc)"
       - "DTS Contributors (sub:moj dcd atlassian lve)"
       - "DTS Contributors (sub:dts-sharedservices-stg)"
