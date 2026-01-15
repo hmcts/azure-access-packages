@@ -842,7 +842,7 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS Contributors (sub:dts-sharedservices-demo)"
-  
+
   - name: "Contributors - dts-cftptl-intsvc"
     description: "Grants contributors access to dts-cftptl-intsvc subscription"
     catalog_name: "Contributors"
