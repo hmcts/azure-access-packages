@@ -226,4 +226,4 @@ catalogs:
     published: true
     externally_visible: false
     resources:
-      - "DTS Redis Cache Contributors"
+      - "DTS Contributors (sub:dts-sharedservices-demo)"
