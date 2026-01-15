@@ -12,15 +12,9 @@ policy:
   approval_settings:
     approval_required: true
     requestor_justification_required: true
-    approval_stage:
-      approval_timeout_in_days: 3
-      alternative_approval_enabled: true
-      enable_alternative_approval_in_days: 1
-      approver_justification_required: false
-      primary_approver:
-        subject_type: "groupMembers"
-      alternative_approver:
-        subject_type: "groupMembers"
+    approval_stage:                              
+      primary_approver:                        
+        subject_type: "groupMembers"             
   assignment_review_settings:
     enabled: false
   requestor_settings:
