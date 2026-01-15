@@ -227,3 +227,10 @@ catalogs:
     externally_visible: false
     resources:
       - "DTS Contributors (sub:dts-sharedservices-demo)"
+  
+  - name: "Privileged Identity Management"
+    description: "Privileged Identity Management - Global Administrator access"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS Global Admin RBAC"

@@ -782,3 +782,15 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS Contributors (sub:dts-sharedservices-demo)"
+  
+  - name: "Global Administrator - PIM Access"
+    description: "Temporary Global Administrator access via PIM with mandatory approval and time-bound membership"
+    catalog_name: "Privileged Identity Management"
+    policies:
+      - name: "PIM-Global-Admin-Approval"
+        requestor_groups:
+          - "DTS Global Admin Eligible"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS Global Admin RBAC"
