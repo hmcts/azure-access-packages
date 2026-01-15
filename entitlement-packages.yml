@@ -769,3 +769,16 @@ packages:
     resource_roles:
       - "DTS JIT Access dtsse DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
+
+      
+  - name: "Contributors - dts-sharedservices-demo"
+    description: "Grants contributors access to dts-sharedservices-demo subscription"
+    catalog_name: "Contributors"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS Contributors Eligible (sub: dts-sharedservices-demo)"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS Contributors (sub:dts-sharedservices-demo)"
