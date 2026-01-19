@@ -1323,9 +1323,9 @@ packages:
     resource_roles:
       - "DTS Contributors (sub:moj common platform non-live management)"
 
-  - name: "Global Administrator - PIM Access"
-    description: "Temporary Global Administrator access via PIM with mandatory approval and time-bound membership"
-    catalog_name: "Privileged Identity Management"
+  - name: "Global Administrator"
+    description: "Global Administrator access to all subscription"
+    catalog_name: "Global Administrator Access"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
