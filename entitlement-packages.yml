@@ -1327,10 +1327,12 @@ packages:
     description: "Temporary Global Administrator access via PIM with mandatory approval and time-bound membership"
     catalog_name: "Privileged Identity Management"
     policies:
-      - name: "PIM-Global-Admin-Approval"
+      - name: "self-approval-with-justification"
         requestor_groups:
           - "DTS Global Admin Eligible"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Global Admin RBAC"
+      - "Conditional Access: Risky sign-in multifactor authentication (a4ea6c0f-b8fb-4d29-91f1-9f8cf0601e98)"
+      - "DTS Owners (mg:HMCTS)"
+      - "GeoBlocking - Restricted Users"

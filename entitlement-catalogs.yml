@@ -273,9 +273,11 @@ catalogs:
       - "DTS Contributors (sub:dcd-cftapps-demo)"
       - "DTS Contributors (sub:moj common platform non-live management)"
 
-  - name: "Global Admins"
-    description: "Privileged Identity Management - Global Administrator access"
+  - name: "Global Administrator Access"
+    description: "GA access"
     published: true
     externally_visible: false
     resources:
-      - "DTS Global Admin RBAC"
+      - "Conditional Access: Risky sign-in multifactor authentication (a4ea6c0f-b8fb-4d29-91f1-9f8cf0601e98)"
+      - "DTS Owners (mg:HMCTS)"
+      - "GeoBlocking - Restricted Users"
