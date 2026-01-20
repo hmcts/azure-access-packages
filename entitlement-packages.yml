@@ -1329,7 +1329,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Global Admin Eligible"
+          - "DTS Global Admins Eligible"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
