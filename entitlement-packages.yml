@@ -1333,6 +1333,4 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "Conditional Access: Risky sign-in multifactor authentication (a4ea6c0f-b8fb-4d29-91f1-9f8cf0601e98)"
-      - "DTS Owners (mg:HMCTS)"
-      - "GeoBlocking - Restricted Users"
+      - "DTS Global Admins"
