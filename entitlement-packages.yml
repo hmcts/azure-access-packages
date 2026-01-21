@@ -1322,3 +1322,15 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS Contributors (sub:moj common platform non-live management)"
+
+  - name: "Global Administrator"
+    description: "Global Administrator access to all subscription"
+    catalog_name: "Global Administrator Access"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS Global Admins Eligible"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS Global Admins"
