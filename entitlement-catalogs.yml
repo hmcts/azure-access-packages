@@ -272,3 +272,10 @@ catalogs:
       - "DTS Contributors (sub:hmcts-hub-nonprod-intsvc)"
       - "DTS Contributors (sub:dcd-cftapps-demo)"
       - "DTS Contributors (sub:moj common platform non-live management)"
+
+  - name: "Owners"
+    description: "Access to the subscription owners role"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS Owners (sub:cp-copilot-beta)"
