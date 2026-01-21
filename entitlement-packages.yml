@@ -778,7 +778,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-management-nonprod-intsvc)"
+          - "DTS Contributors Eligible (sub:dts-management-nonprod-intsvc)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -790,7 +790,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: moj dcd atlassian lve)"
+          - "DTS Contributors Eligible (sub:moj dcd atlassian lve)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -802,7 +802,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-sharedservices-stg)"
+          - "DTS Contributors Eligible (sub:dts-sharedservices-stg)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -814,7 +814,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-sharedservices-ithc)"
+          - "DTS Contributors Eligible (sub:dts-sharedservices-ithc)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -826,7 +826,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-heritage-intsvc-dev)"
+          - "DTS Contributors Eligible (sub:dts-heritage-intsvc-dev)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -838,7 +838,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-sharedservices-demo)"
+          - "DTS Contributors Eligible (sub:dts-sharedservices-demo)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -850,7 +850,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-cftptl-intsvc)"
+          - "DTS Contributors Eligible (sub:dts-cftptl-intsvc)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -862,7 +862,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dcd-cnp-qa)"
+          - "DTS Contributors Eligible (sub:dcd-cnp-qa)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -874,7 +874,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-management-prod-intsvc)"
+          - "DTS Contributors Eligible (sub:dts-management-prod-intsvc)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -886,7 +886,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-archiving-test)"
+          - "DTS Contributors Eligible (sub:dts-archiving-test)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -898,7 +898,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dcd-cftapps-stg)"
+          - "DTS Contributors Eligible (sub:dcd-cftapps-stg)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -910,7 +910,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-sharedservices-test)"
+          - "DTS Contributors Eligible (sub:dts-sharedservices-test)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -922,7 +922,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-heritage-extsvc-stg)"
+          - "DTS Contributors Eligible (sub:dts-heritage-extsvc-stg)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -934,7 +934,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: moj dcd atlassian nle)"
+          - "DTS Contributors Eligible (sub:moj dcd atlassian nle)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -946,7 +946,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-archiving-prod)"
+          - "DTS Contributors Eligible (sub:dts-archiving-prod)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -958,7 +958,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-sharedservicesptl)"
+          - "DTS Contributors Eligible (sub:dts-sharedservicesptl)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -970,7 +970,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: crime-ado-poc)"
+          - "DTS Contributors Eligible (sub:crime-ado-poc)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -982,7 +982,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dcd-cft-vh-pilot)"
+          - "DTS Contributors Eligible (sub:dcd-cft-vh-pilot)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -994,7 +994,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dcd-robotics-dev)"
+          - "DTS Contributors Eligible (sub:dcd-robotics-dev)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1006,7 +1006,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dcd-cftapps-prod)"
+          - "DTS Contributors Eligible (sub:dcd-cftapps-prod)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1018,7 +1018,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dcd-rdo-development)"
+          - "DTS Contributors Eligible (sub:dcd-rdo-development)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1030,7 +1030,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-dataingest-stg)"
+          - "DTS Contributors Eligible (sub:dts-dataingest-stg)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1042,7 +1042,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: cp-copilot-beta)"
+          - "DTS Contributors Eligible (sub:cp-copilot-beta)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1054,7 +1054,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-sharedservices-prod)"
+          - "DTS Contributors Eligible (sub:dts-sharedservices-prod)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1066,7 +1066,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-heritage-intsvc-prod)"
+          - "DTS Contributors Eligible (sub:dts-heritage-intsvc-prod)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1078,7 +1078,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dcd-rdo-production)"
+          - "DTS Contributors Eligible (sub:dcd-rdo-production)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1090,7 +1090,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: moj common platform production)"
+          - "DTS Contributors Eligible (sub:moj common platform production)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1102,7 +1102,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dcd-cnp-dev)"
+          - "DTS Contributors Eligible (sub:dcd-cnp-dev)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1114,7 +1114,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-dataingest-prod)"
+          - "DTS Contributors Eligible (sub:dts-dataingest-prod)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1126,7 +1126,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: hmcts-soc-prod)"
+          - "DTS Contributors Eligible (sub:hmcts-soc-prod)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1138,7 +1138,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dcd-cftapps-ithc)"
+          - "DTS Contributors Eligible (sub:dcd-cftapps-ithc)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1150,7 +1150,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: hmcts-hub-prod-intsvc)"
+          - "DTS Contributors Eligible (sub:hmcts-hub-prod-intsvc)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1162,7 +1162,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dcd-aws-migration)"
+          - "DTS Contributors Eligible (sub:dcd-aws-migration)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1174,7 +1174,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-heritage-extsvc-prod)"
+          - "DTS Contributors Eligible (sub:dts-heritage-extsvc-prod)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1186,7 +1186,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dcd-cftapps-dev)"
+          - "DTS Contributors Eligible (sub:dcd-cftapps-dev)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1198,7 +1198,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dcd-cnp-prod)"
+          - "DTS Contributors Eligible (sub:dcd-cnp-prod)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1210,7 +1210,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: reform-cft-mgmt)"
+          - "DTS Contributors Eligible (sub:reform-cft-mgmt)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1222,7 +1222,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-heritage-intsvc-stg)"
+          - "DTS Contributors Eligible (sub:dts-heritage-intsvc-stg)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1234,7 +1234,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: moj common platform operational services)"
+          - "DTS Contributors Eligible (sub:moj common platform operational services)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1246,7 +1246,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dts-sharedservices-dev)"
+          - "DTS Contributors Eligible (sub:dts-sharedservices-dev)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1258,7 +1258,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dcd-cftapps-test)"
+          - "DTS Contributors Eligible (sub:dcd-cftapps-test)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1270,7 +1270,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dcd-cftappsdata-demo)"
+          - "DTS Contributors Eligible (sub:dcd-cftappsdata-demo)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1282,7 +1282,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: hmcts-control)"
+          - "DTS Contributors Eligible (sub:hmcts-control)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1294,7 +1294,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: hmcts-hub-nonprod-intsvc)"
+          - "DTS Contributors Eligible (sub:hmcts-hub-nonprod-intsvc)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1306,7 +1306,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: dcd-cftapps-demo)"
+          - "DTS Contributors Eligible (sub:dcd-cftapps-demo)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -1318,28 +1318,20 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: moj common platform non-live management)"
+          - "DTS Contributors Eligible (sub:moj common platform non-live management)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:moj common platform non-live management)"
+      - "DTS Contributors (sub:moj common platform non-live management)"
 
-
-# dump all possible group access to be accessed into the owner catalogue
-# the packages are one specific
-# package which are for requestor from group eligible
-# approved by dts platops
-# allowing use of pim role
-# Owner packages
-#roger testing
-  - name: "Owners - cp-copilot-beta"
-    description: "Grants Owners access to cp-copilot-beta subscription"
-    catalog_name: "Owners"
+  - name: "Global Administrator"
+    description: "Global Administrator access to all subscription"
+    catalog_name: "Global Administrator Access"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS Owners Eligible (sub: cp-copilot-beta)"
+          - "DTS Global Admins Eligible"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:cp-copilot-beta)"
+      - "DTS Global Admins"

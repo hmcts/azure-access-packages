@@ -279,3 +279,10 @@ catalogs:
     externally_visible: false
     resources:
       - "DTS Owners (sub:cp-copilot-beta)"
+      
+  - name: "Global Administrator Access"
+    description: "GA access"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS Global Admins"
