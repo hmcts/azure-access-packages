@@ -333,11 +333,11 @@ packages:
         requestor_groups:
           - "DTS SDS Developers"
     resource_roles:
-      - "DTS Owners (sub:dts-sharedservices-ithc)"
-      - "DTS Owners (sub:dts-sharedservices-test)"
-      - "DTS Owners (sub:dts-sharedservices-dev)"
-      - "DTS Owners (sub:dts-sharedservices-stg)"
-      - "DTS Owners (sub:dts-sharedservices-demo)"
+      - "DTS Contributors (sub:dts-sharedservices-ithc)"
+      - "DTS Contributors (sub:dts-sharedservices-test)"
+      - "DTS Contributors (sub:dts-sharedservices-dev)"
+      - "DTS Contributors (sub:dts-sharedservices-stg)"
+      - "DTS Contributors (sub:dts-sharedservices-demo)"
 
   - name: "SharedServices Storage Blob Data Reader (Production)"
     description: "This will provide Storage Blob Data Reader access to SharedServices subscriptions classified as production."
@@ -755,7 +755,7 @@ packages:
           - "DTS Readers (mg:CFT-Prod)"
           - "DTS Readers (sub:dcd-cnp-prod)"
     resource_roles:
-      - "DTS Redis Cache Owners"
+      - "DTS Redis Cache Contributors"
 
   - name: "Database - dtsse read access - self approval"
     description: "Grants read access to dtsse databases"
@@ -770,13 +770,10 @@ packages:
       - "DTS JIT Access dtsse DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
 
- # Contributor Packages 
-
- # Owner Packages 
-
-  - name: "Owners - dts-management-nonprod-intsvc"
-    description: "Grants Owners access to dts-management-nonprod-intsvc subscription"
-    catalog_name: "Owners"
+      
+  - name: "Contributors - dts-management-nonprod-intsvc"
+    description: "Grants contributors access to dts-management-nonprod-intsvc subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -784,11 +781,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-management-nonprod-intsvc)"
+      - "DTS Contributors (sub:dts-management-nonprod-intsvc)"
 
-  - name: "Owners - moj dcd atlassian lve"
-    description: "Grants Owners access to moj dcd atlassian lve subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - moj dcd atlassian lve"
+    description: "Grants contributors access to moj dcd atlassian lve subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -796,11 +793,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:moj dcd atlassian lve)"
+      - "DTS Contributors (sub:moj dcd atlassian lve)"
 
-  - name: "Owners - dts-sharedservices-stg"
-    description: "Grants Owners access to dts-sharedservices-stg subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dts-sharedservices-stg"
+    description: "Grants contributors access to dts-sharedservices-stg subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -808,11 +805,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-sharedservices-stg)"
+      - "DTS Contributors (sub:dts-sharedservices-stg)"
 
-  - name: "Owners - dts-sharedservices-ithc"
-    description: "Grants Owners access to dts-sharedservices-ithc subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dts-sharedservices-ithc"
+    description: "Grants contributors access to dts-sharedservices-ithc subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -820,11 +817,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-sharedservices-ithc)"
+      - "DTS Contributors (sub:dts-sharedservices-ithc)"
 
-  - name: "Owners - dts-heritage-intsvc-dev"
-    description: "Grants Owners access to dts-heritage-intsvc-dev subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dts-heritage-intsvc-dev"
+    description: "Grants contributors access to dts-heritage-intsvc-dev subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -832,11 +829,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-heritage-intsvc-dev)"
+      - "DTS Contributors (sub:dts-heritage-intsvc-dev)"
 
-  - name: "Owners - dts-sharedservices-demo"
-    description: "Grants Owners access to dts-sharedservices-demo subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dts-sharedservices-demo"
+    description: "Grants contributors access to dts-sharedservices-demo subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -844,11 +841,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-sharedservices-demo)"
+      - "DTS Contributors (sub:dts-sharedservices-demo)"
 
-  - name: "Owners - dts-cftptl-intsvc"
-    description: "Grants Owners access to dts-cftptl-intsvc subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dts-cftptl-intsvc"
+    description: "Grants contributors access to dts-cftptl-intsvc subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -856,11 +853,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-cftptl-intsvc)"
+      - "DTS Contributors (sub:dts-cftptl-intsvc)"
 
-  - name: "Owners - dcd-cnp-qa"
-    description: "Grants Owners access to dcd-cnp-qa subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dcd-cnp-qa"
+    description: "Grants contributors access to dcd-cnp-qa subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -868,11 +865,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dcd-cnp-qa)"
+      - "DTS Contributors (sub:dcd-cnp-qa)"
 
-  - name: "Owners - dts-management-prod-intsvc"
-    description: "Grants Owners access to dts-management-prod-intsvc subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dts-management-prod-intsvc"
+    description: "Grants contributors access to dts-management-prod-intsvc subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -880,11 +877,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-management-prod-intsvc)"
+      - "DTS Contributors (sub:dts-management-prod-intsvc)"
 
-  - name: "Owners - dts-archiving-test"
-    description: "Grants Owners access to dts-archiving-test subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dts-archiving-test"
+    description: "Grants contributors access to dts-archiving-test subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -892,11 +889,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-archiving-test)"
+      - "DTS Contributors (sub:dts-archiving-test)"
 
-  - name: "Owners - dcd-cftapps-stg"
-    description: "Grants Owners access to dcd-cftapps-stg subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dcd-cftapps-stg"
+    description: "Grants contributors access to dcd-cftapps-stg subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -904,11 +901,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dcd-cftapps-stg)"
+      - "DTS Contributors (sub:dcd-cftapps-stg)"
 
-  - name: "Owners - dts-sharedservices-test"
-    description: "Grants Owners access to dts-sharedservices-test subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dts-sharedservices-test"
+    description: "Grants contributors access to dts-sharedservices-test subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -916,11 +913,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-sharedservices-test)"
+      - "DTS Contributors (sub:dts-sharedservices-test)"
 
-  - name: "Owners - dts-heritage-extsvc-stg"
-    description: "Grants Owners access to dts-heritage-extsvc-stg subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dts-heritage-extsvc-stg"
+    description: "Grants contributors access to dts-heritage-extsvc-stg subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -928,11 +925,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-heritage-extsvc-stg)"
+      - "DTS Contributors (sub:dts-heritage-extsvc-stg)"
 
-  - name: "Owners - moj dcd atlassian nle"
-    description: "Grants Owners access to moj dcd atlassian nle subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - moj dcd atlassian nle"
+    description: "Grants contributors access to moj dcd atlassian nle subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -940,11 +937,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:moj dcd atlassian nle)"
+      - "DTS Contributors (sub:moj dcd atlassian nle)"
 
-  - name: "Owners - dts-archiving-prod"
-    description: "Grants Owners access to dts-archiving-prod subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dts-archiving-prod"
+    description: "Grants contributors access to dts-archiving-prod subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -952,11 +949,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-archiving-prod)"
+      - "DTS Contributors (sub:dts-archiving-prod)"
 
-  - name: "Owners - dts-sharedservicesptl"
-    description: "Grants Owners access to dts-sharedservicesptl subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dts-sharedservicesptl"
+    description: "Grants contributors access to dts-sharedservicesptl subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -964,11 +961,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-sharedservicesptl)"
+      - "DTS Contributors (sub:dts-sharedservicesptl)"
 
-  - name: "Owners - crime-ado-poc"
-    description: "Grants Owners access to crime-ado-poc subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - crime-ado-poc"
+    description: "Grants contributors access to crime-ado-poc subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -976,11 +973,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:crime-ado-poc)"
+      - "DTS Contributors (sub:crime-ado-poc)"
 
-  - name: "Owners - dcd-cft-vh-pilot"
-    description: "Grants Owners access to dcd-cft-vh-pilot subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dcd-cft-vh-pilot"
+    description: "Grants contributors access to dcd-cft-vh-pilot subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -988,11 +985,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dcd-cft-vh-pilot)"
+      - "DTS Contributors (sub:dcd-cft-vh-pilot)"
 
-  - name: "Owners - dcd-robotics-dev"
-    description: "Grants Owners access to dcd-robotics-dev subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dcd-robotics-dev"
+    description: "Grants contributors access to dcd-robotics-dev subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1000,11 +997,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dcd-robotics-dev)"
+      - "DTS Contributors (sub:dcd-robotics-dev)"
 
-  - name: "Owners - dcd-cftapps-prod"
-    description: "Grants Owners access to dcd-cftapps-prod subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dcd-cftapps-prod"
+    description: "Grants contributors access to dcd-cftapps-prod subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1012,11 +1009,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dcd-cftapps-prod)"
+      - "DTS Contributors (sub:dcd-cftapps-prod)"
 
-  - name: "Owners - dcd-rdo-development"
-    description: "Grants Owners access to dcd-rdo-development subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dcd-rdo-development"
+    description: "Grants contributors access to dcd-rdo-development subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1024,11 +1021,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dcd-rdo-development)"
+      - "DTS Contributors (sub:dcd-rdo-development)"
 
-  - name: "Owners - dts-dataingest-stg"
-    description: "Grants Owners access to dts-dataingest-stg subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dts-dataingest-stg"
+    description: "Grants contributors access to dts-dataingest-stg subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1036,11 +1033,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-dataingest-stg)"
+      - "DTS Contributors (sub:dts-dataingest-stg)"
 
-  - name: "Owners - cp-copilot-beta"
-    description: "Grants Owners access to cp-copilot-beta subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - cp-copilot-beta"
+    description: "Grants contributors access to cp-copilot-beta subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1048,11 +1045,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:cp-copilot-beta)"
+      - "DTS Contributors (sub:cp-copilot-beta)"
 
-  - name: "Owners - dts-sharedservices-prod"
-    description: "Grants Owners access to dts-sharedservices-prod subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dts-sharedservices-prod"
+    description: "Grants contributors access to dts-sharedservices-prod subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1060,11 +1057,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-sharedservices-prod)"
+      - "DTS Contributors (sub:dts-sharedservices-prod)"
 
-  - name: "Owners - dts-heritage-intsvc-prod"
-    description: "Grants Owners access to dts-heritage-intsvc-prod subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dts-heritage-intsvc-prod"
+    description: "Grants contributors access to dts-heritage-intsvc-prod subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1072,11 +1069,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-heritage-intsvc-prod)"
+      - "DTS Contributors (sub:dts-heritage-intsvc-prod)"
 
-  - name: "Owners - dcd-rdo-production"
-    description: "Grants Owners access to dcd-rdo-production subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dcd-rdo-production"
+    description: "Grants contributors access to dcd-rdo-production subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1084,11 +1081,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dcd-rdo-production)"
+      - "DTS Contributors (sub:dcd-rdo-production)"
 
-  - name: "Owners - moj common platform production"
-    description: "Grants Owners access to moj common platform production subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - moj common platform production"
+    description: "Grants contributors access to moj common platform production subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1096,11 +1093,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:moj common platform production)"
+      - "DTS Contributors (sub:moj common platform production)"
 
-  - name: "Owners - dcd-cnp-dev"
-    description: "Grants Owners access to dcd-cnp-dev subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dcd-cnp-dev"
+    description: "Grants contributors access to dcd-cnp-dev subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1108,11 +1105,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dcd-cnp-dev)"
+      - "DTS Contributors (sub:dcd-cnp-dev)"
 
-  - name: "Owners - dts-dataingest-prod"
-    description: "Grants Owners access to dts-dataingest-prod subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dts-dataingest-prod"
+    description: "Grants contributors access to dts-dataingest-prod subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1120,11 +1117,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-dataingest-prod)"
+      - "DTS Contributors (sub:dts-dataingest-prod)"
 
-  - name: "Owners - hmcts-soc-prod"
-    description: "Grants Owners access to hmcts-soc-prod subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - hmcts-soc-prod"
+    description: "Grants contributors access to hmcts-soc-prod subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1132,11 +1129,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:hmcts-soc-prod)"
+      - "DTS Contributors (sub:hmcts-soc-prod)"
 
-  - name: "Owners - dcd-cftapps-ithc"
-    description: "Grants Owners access to dcd-cftapps-ithc subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dcd-cftapps-ithc"
+    description: "Grants contributors access to dcd-cftapps-ithc subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1144,11 +1141,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dcd-cftapps-ithc)"
+      - "DTS Contributors (sub:dcd-cftapps-ithc)"
 
-  - name: "Owners - hmcts-hub-prod-intsvc"
-    description: "Grants Owners access to hmcts-hub-prod-intsvc subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - hmcts-hub-prod-intsvc"
+    description: "Grants contributors access to hmcts-hub-prod-intsvc subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1156,11 +1153,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:hmcts-hub-prod-intsvc)"
+      - "DTS Contributors (sub:hmcts-hub-prod-intsvc)"
 
-  - name: "Owners - dcd-aws-migration"
-    description: "Grants Owners access to dcd-aws-migration subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dcd-aws-migration"
+    description: "Grants contributors access to dcd-aws-migration subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1168,11 +1165,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dcd-aws-migration)"
+      - "DTS Contributors (sub:dcd-aws-migration)"
 
-  - name: "Owners - dts-heritage-extsvc-prod"
-    description: "Grants Owners access to dts-heritage-extsvc-prod subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dts-heritage-extsvc-prod"
+    description: "Grants contributors access to dts-heritage-extsvc-prod subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1180,11 +1177,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-heritage-extsvc-prod)"
+      - "DTS Contributors (sub:dts-heritage-extsvc-prod)"
 
-  - name: "Owners - dcd-cftapps-dev"
-    description: "Grants Owners access to dcd-cftapps-dev subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dcd-cftapps-dev"
+    description: "Grants contributors access to dcd-cftapps-dev subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1192,11 +1189,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dcd-cftapps-dev)"
+      - "DTS Contributors (sub:dcd-cftapps-dev)"
 
-  - name: "Owners - dcd-cnp-prod"
-    description: "Grants Owners access to dcd-cnp-prod subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dcd-cnp-prod"
+    description: "Grants contributors access to dcd-cnp-prod subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1204,11 +1201,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dcd-cnp-prod)"
+      - "DTS Contributors (sub:dcd-cnp-prod)"
 
-  - name: "Owners - reform-cft-mgmt"
-    description: "Grants Owners access to reform-cft-mgmt subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - reform-cft-mgmt"
+    description: "Grants contributors access to reform-cft-mgmt subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1216,11 +1213,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:reform-cft-mgmt)"
+      - "DTS Contributors (sub:reform-cft-mgmt)"
 
-  - name: "Owners - dts-heritage-intsvc-stg"
-    description: "Grants Owners access to dts-heritage-intsvc-stg subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dts-heritage-intsvc-stg"
+    description: "Grants contributors access to dts-heritage-intsvc-stg subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1228,11 +1225,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-heritage-intsvc-stg)"
+      - "DTS Contributors (sub:dts-heritage-intsvc-stg)"
 
-  - name: "Owners - moj common platform operational services"
-    description: "Grants Owners access to moj common platform operational services subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - moj common platform operational services"
+    description: "Grants contributors access to moj common platform operational services subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1240,11 +1237,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:moj common platform operational services)"
+      - "DTS Contributors (sub:moj common platform operational services)"
 
-  - name: "Owners - dts-sharedservices-dev"
-    description: "Grants Owners access to dts-sharedservices-dev subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dts-sharedservices-dev"
+    description: "Grants contributors access to dts-sharedservices-dev subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1252,11 +1249,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dts-sharedservices-dev)"
+      - "DTS Contributors (sub:dts-sharedservices-dev)"
 
-  - name: "Owners - dcd-cftapps-test"
-    description: "Grants Owners access to dcd-cftapps-test subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dcd-cftapps-test"
+    description: "Grants contributors access to dcd-cftapps-test subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1264,11 +1261,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dcd-cftapps-test)"
+      - "DTS Contributors (sub:dcd-cftapps-test)"
 
-  - name: "Owners - dcd-cftappsdata-demo"
-    description: "Grants Owners access to dcd-cftappsdata-demo subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dcd-cftappsdata-demo"
+    description: "Grants contributors access to dcd-cftappsdata-demo subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1276,11 +1273,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dcd-cftappsdata-demo)"
+      - "DTS Contributors (sub:dcd-cftappsdata-demo)"
 
-  - name: "Owners - hmcts-control"
-    description: "Grants Owners access to hmcts-control subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - hmcts-control"
+    description: "Grants contributors access to hmcts-control subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1288,11 +1285,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:hmcts-control)"
+      - "DTS Contributors (sub:hmcts-control)"
 
-  - name: "Owners - hmcts-hub-nonprod-intsvc"
-    description: "Grants Owners access to hmcts-hub-nonprod-intsvc subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - hmcts-hub-nonprod-intsvc"
+    description: "Grants contributors access to hmcts-hub-nonprod-intsvc subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1300,11 +1297,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:hmcts-hub-nonprod-intsvc)"
+      - "DTS Contributors (sub:hmcts-hub-nonprod-intsvc)"
 
-  - name: "Owners - dcd-cftapps-demo"
-    description: "Grants Owners access to dcd-cftapps-demo subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - dcd-cftapps-demo"
+    description: "Grants contributors access to dcd-cftapps-demo subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1312,11 +1309,11 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Owners (sub:dcd-cftapps-demo)"
+      - "DTS Contributors (sub:dcd-cftapps-demo)"
 
-  - name: "Owners - moj common platform non-live management"
-    description: "Grants Owners access to moj common platform non-live management subscription"
-    catalog_name: "Owners"
+  - name: "Contributors - moj common platform non-live management"
+    description: "Grants contributors access to moj common platform non-live management subscription"
+    catalog_name: "Contributors"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1325,6 +1322,18 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS Contributors (sub:moj common platform non-live management)"
+
+  - name: "Owners - cp-copilot-beta"
+    description: "Grants Owners access to cp-copilot-beta subscription"
+    catalog_name: "Owners"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS Owners Eligible (sub:cp-copilot-beta)"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS Owners (sub:cp-copilot-beta)"
 
   - name: "Global Administrator"
     description: "Global Administrator access to all subscription"
