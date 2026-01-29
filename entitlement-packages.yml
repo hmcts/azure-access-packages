@@ -670,6 +670,16 @@ packages:
     resource_roles:
       - "DTS JIT Access Juror DB Admin"
 
+  - name: "Database - Courtfines DB read access"
+    description: "This will provide read access to Courtfines production Database"
+    catalog_name: "Courtfines Database Access"
+    policies:
+      - name: "self-approval"
+        requestor_groups:
+          - "DTS Court Fines"
+    resource_roles:
+      - "DTS JIT Access courtfines DB Reader SC"
+
   - name: "Database - Darts DB read access"
     description: "This will provide read access to Darts Modernisation production Database"
     catalog_name: "Darts Database Access"
