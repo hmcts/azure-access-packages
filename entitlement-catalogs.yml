@@ -331,7 +331,7 @@ catalogs:
       - "DTS Owners (sub:hmcts-hub-nonprod-intsvc)"
       - "DTS Owners (sub:dcd-cftapps-demo)"
       - "DTS Owners (sub:moj common platform non-live management)"
-      
+
   - name: "Global Administrator Access"
     description: "GA access"
     published: true
