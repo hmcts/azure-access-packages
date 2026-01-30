@@ -280,13 +280,6 @@ catalogs:
       - "DTS Contributors (sub:dcd-cftapps-demo)"
       - "DTS Contributors (sub:moj common platform non-live management)"
 
-  - name: "Contributors SC Access"
-    description: "Access to the DTS (Security cleared) contributors role"
-    published: true
-    externally_visible: false
-    resources:
-      - "DTS Platform Operations SC"
-
   - name: "Owners"
     description: "Access to the subscription Owner role"
     published: true
