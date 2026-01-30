@@ -280,6 +280,13 @@ catalogs:
       - "DTS Contributors (sub:dcd-cftapps-demo)"
       - "DTS Contributors (sub:moj common platform non-live management)"
 
+  - name: "Contributors SC Access"
+    description: "Access to the DTS (Security cleared) contributors role"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS Platform Operations SC"
+
   - name: "Owners"
     description: "Access to the subscription Owner role"
     published: true
@@ -331,7 +338,7 @@ catalogs:
       - "DTS Owners (sub:hmcts-hub-nonprod-intsvc)"
       - "DTS Owners (sub:dcd-cftapps-demo)"
       - "DTS Owners (sub:moj common platform non-live management)"
-      
+
   - name: "Global Administrator Access"
     description: "GA access"
     published: true

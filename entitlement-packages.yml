@@ -1333,6 +1333,19 @@ packages:
     resource_roles:
       - "DTS Contributors (sub:moj common platform non-live management)"
 
+  # Contributors SC
+  - name: "Contributor (Security Cleared)"
+    description: "Contributor (SC) access, required for accessing other packages "
+    catalog_name: "Contributors SC Access"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS Contributors SC Eligible"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS Platform Operations SC"
+
   # Owners
   - name: "Owners - dts-management-nonprod-intsvc"
     description: "Grants owners access to dts-management-nonprod-intsvc subscription"
