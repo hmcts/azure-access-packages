@@ -331,7 +331,24 @@ catalogs:
       - "DTS Owners (sub:hmcts-hub-nonprod-intsvc)"
       - "DTS Owners (sub:dcd-cftapps-demo)"
       - "DTS Owners (sub:moj common platform non-live management)"
-      
+
+  - name: "Contributors SC Access (management groups)"
+    description: "(SC required) Grants contributor access to HMCTS management group"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS Contributors (mg:HMCTS)"
+
+  - name: "Contributors non-SC Access (management groups)"
+    description: "Grants contributor access to non-sc management group"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS Contributors (mg:CFT-NonProd)"
+      - "DTS Contributors (mg:Heritage-NonProd)"
+      - "DTS Contributors (mg:Platform-NonProd)"
+      - "DTS Contributors (mg:SDS-NonProd)"
+
   - name: "Global Administrator Access"
     description: "GA access"
     published: true

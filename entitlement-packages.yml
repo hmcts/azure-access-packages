@@ -1899,6 +1899,33 @@ packages:
     resource_roles:
       - "DTS Global Admins"
 
+  # Management group permissions
+  - name: "Contributors - Prod management group (mg:HMCTS)"
+    description: "(SC required) Package for contributor access to HMCTS management group"
+    catalog_name: "Contributors SC Access (management groups)"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS Platform Operations SC"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS Contributors (mg:HMCTS)"
+
+  - name: "Contributors - NonProd management group"
+    description: "Package for contributor access to NonProd management groups"
+    catalog_name: "Contributors non-SC Access (management groups)"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS Platform Operations"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS Contributors (mg:CFT-NonProd)"
+      - "DTS Contributors (mg:SDS-NonProd)"
+      - "DTS Contributors (mg:Platform-NonProd)"
+      - "DTS Contributors (mg:Heritage-NonProd)"
   # DLRM Data Ingestion Admin
   - name: "DLRM Data Ingestion Admin (env:staging)"
     description: "Grants admin access to DLRM Data Ingestion in Staging environment"
