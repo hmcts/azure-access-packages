@@ -228,7 +228,7 @@ catalogs:
     resources:
       - "DTS Redis Cache Contributors"
 
-  - name: "Contributors"
+  - name: "Contributors (subscriptions)"
     description: "Access to the subscription contributors role"
     published: true
     externally_visible: false
@@ -280,7 +280,7 @@ catalogs:
       - "DTS Contributors (sub:dcd-cftapps-demo)"
       - "DTS Contributors (sub:moj common platform non-live management)"
 
-  - name: "Owners"
+  - name: "Owners (subscriptions)"
     description: "Access to the subscription Owner role"
     published: true
     externally_visible: false
@@ -331,6 +331,20 @@ catalogs:
       - "DTS Owners (sub:hmcts-hub-nonprod-intsvc)"
       - "DTS Owners (sub:dcd-cftapps-demo)"
       - "DTS Owners (sub:moj common platform non-live management)"
+
+  - name: "Contributors SC Access (management groups)"
+    description: "(SC required) Grants contributor access to HMCTS management group"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS Contributors (mg:HMCTS)"
+
+  - name: "Contributors non-SC Access (management groups)"
+    description: "Grants contributor access to CFT-NonProd management group"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS Contributors (mg:CFT-NonProd)"
 
   - name: "Global Administrator Access"
     description: "GA access"

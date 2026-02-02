@@ -1898,3 +1898,28 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS Global Admins"
+
+  # Management group permissions
+  - name: "Contributors - (mg:HMCTS)"
+    description: "(SC required) Package for contributor access to HMCTS management group"
+    catalog_name: "Contributors SC Access (management groups)"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS Platform Operations SC"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS Contributors (mg:HMCTS)"
+
+  - name: "Contributors - (mg:CFT-NonProd)"
+    description: "Package for contributor access to CFT-NonProd management group"
+    catalog_name: "Contributors non-SC Access (management groups)"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS Platform Operations"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS Contributors (mg:CFT-NonProd)"
