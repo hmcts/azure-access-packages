@@ -1900,7 +1900,7 @@ packages:
       - "DTS Global Admins"
 
   # Management group permissions
-  - name: "Contributors - (mg:HMCTS)"
+  - name: "Contributors - Prod management group (mg:HMCTS)"
     description: "(SC required) Package for contributor access to HMCTS management group"
     catalog_name: "Contributors SC Access (management groups)"
     policies:
@@ -1912,8 +1912,8 @@ packages:
     resource_roles:
       - "DTS Contributors (mg:HMCTS)"
 
-  - name: "Contributors - (mg:CFT-NonProd)"
-    description: "Package for contributor access to CFT-NonProd management group"
+  - name: "Contributors - NonProd management group"
+    description: "Package for contributor access to NonProd management groups"
     catalog_name: "Contributors non-SC Access (management groups)"
     policies:
       - name: "self-approval-with-justification"
@@ -1923,39 +1923,6 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS Contributors (mg:CFT-NonProd)"
-
-  - name: "Contributors - (mg:Heritage-NonProd)"
-    description: "Package for contributor access to Heritage-NonProd management group"
-    catalog_name: "Contributors non-SC Access (management groups)"
-    policies:
-      - name: "self-approval-with-justification"
-        requestor_groups:
-          - "DTS Platform Operations"
-        approver_groups:
-          - "DTS Platform Operations"
-    resource_roles:
-      - "DTS Contributors (mg:Heritage-NonProd)"
-
-  - name: "Contributors - (mg:Platform-NonProd)"
-    description: "Package for contributor access to Platform-NonProd management group"
-    catalog_name: "Contributors non-SC Access (management groups)"
-    policies:
-      - name: "self-approval-with-justification"
-        requestor_groups:
-          - "DTS Platform Operations"
-        approver_groups:
-          - "DTS Platform Operations"
-    resource_roles:
-      - "DTS Contributors (mg:Platform-NonProd)"
-
-  - name: "Contributors - (mg:SDS-NonProd)"
-    description: "Package for contributor access to SDS-NonProd management group"
-    catalog_name: "Contributors non-SC Access (management groups)"
-    policies:
-      - name: "self-approval-with-justification"
-        requestor_groups:
-          - "DTS Platform Operations"
-        approver_groups:
-          - "DTS Platform Operations"
-    resource_roles:
       - "DTS Contributors (mg:SDS-NonProd)"
+      - "DTS Contributors (mg:Platform-NonProd)"
+      - "DTS Contributors (mg:Heritage-NonProd)"
