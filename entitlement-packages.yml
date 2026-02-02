@@ -1923,3 +1923,39 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS Contributors (mg:CFT-NonProd)"
+
+  - name: "Contributors - (mg:Heritage-NonProd)"
+    description: "Package for contributor access to Heritage-NonProd management group"
+    catalog_name: "Contributors non-SC Access (management groups)"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS Platform Operations"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS Contributors (mg:Heritage-NonProd)"
+
+  - name: "Contributors - (mg:Platform-NonProd)"
+    description: "Package for contributor access to Platform-NonProd management group"
+    catalog_name: "Contributors non-SC Access (management groups)"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS Platform Operations"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS Contributors (mg:Platform-NonProd)"
+
+  - name: "Contributors - (mg:SDS-NonProd)"
+    description: "Package for contributor access to SDS-NonProd management group"
+    catalog_name: "Contributors non-SC Access (management groups)"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS Platform Operations"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS Contributors (mg:SDS-NonProd)"
