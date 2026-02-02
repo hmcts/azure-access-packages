@@ -1926,3 +1926,27 @@ packages:
       - "DTS Contributors (mg:SDS-NonProd)"
       - "DTS Contributors (mg:Platform-NonProd)"
       - "DTS Contributors (mg:Heritage-NonProd)"
+  # DLRM Data Ingestion Admin
+  - name: "DLRM Data Ingestion Admin (env:staging)"
+    description: "Grants admin access to DLRM Data Ingestion in Staging environment"
+    catalog_name: "DLRM"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS DLRM Data Ingestion Admin Eligible (env:staging)"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS DLRM Data Ingestion Admin (env:staging)"
+
+  - name: "DLRM Data Ingestion Admin (env:production)"
+    description: "Grants admin access to DLRM Data Ingestion in Production environment"
+    catalog_name: "DLRM"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS DLRM Data Ingestion Admin Eligible (env:production)"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS DLRM Data Ingestion Admin (env:production)"

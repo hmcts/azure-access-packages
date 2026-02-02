@@ -355,3 +355,11 @@ catalogs:
     externally_visible: false
     resources:
       - "DTS Global Admins"
+
+  - name: "DLRM"
+    description: "DLRM Data Ingestion Access"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS DLRM Data Ingestion Admin (env:staging)"
+      - "DTS DLRM Data Ingestion Admin (env:production)"
