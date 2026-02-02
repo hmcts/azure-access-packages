@@ -280,7 +280,7 @@ catalogs:
       - "DTS Contributors (sub:dcd-cftapps-demo)"
       - "DTS Contributors (sub:moj common platform non-live management)"
 
-  - name: "Owners (subscriptions)"
+  - name: "Owners"
     description: "Access to the subscription Owner role"
     published: true
     externally_visible: false
