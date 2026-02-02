@@ -783,7 +783,7 @@ packages:
   # Contributors
   - name: "Contributors - dts-management-nonprod-intsvc"
     description: "Grants contributors access to dts-management-nonprod-intsvc subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -795,7 +795,7 @@ packages:
 
   - name: "Contributors - moj dcd atlassian lve"
     description: "Grants contributors access to moj dcd atlassian lve subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -807,7 +807,7 @@ packages:
 
   - name: "Contributors - dts-sharedservices-stg"
     description: "Grants contributors access to dts-sharedservices-stg subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -819,7 +819,7 @@ packages:
 
   - name: "Contributors - dts-sharedservices-ithc"
     description: "Grants contributors access to dts-sharedservices-ithc subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -831,7 +831,7 @@ packages:
 
   - name: "Contributors - dts-heritage-intsvc-dev"
     description: "Grants contributors access to dts-heritage-intsvc-dev subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -843,7 +843,7 @@ packages:
 
   - name: "Contributors - dts-sharedservices-demo"
     description: "Grants contributors access to dts-sharedservices-demo subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -855,7 +855,7 @@ packages:
 
   - name: "Contributors - dts-cftptl-intsvc"
     description: "Grants contributors access to dts-cftptl-intsvc subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -867,7 +867,7 @@ packages:
 
   - name: "Contributors - dcd-cnp-qa"
     description: "Grants contributors access to dcd-cnp-qa subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -879,7 +879,7 @@ packages:
 
   - name: "Contributors - dts-management-prod-intsvc"
     description: "Grants contributors access to dts-management-prod-intsvc subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -891,7 +891,7 @@ packages:
 
   - name: "Contributors - dts-archiving-test"
     description: "Grants contributors access to dts-archiving-test subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -903,7 +903,7 @@ packages:
 
   - name: "Contributors - dcd-cftapps-stg"
     description: "Grants contributors access to dcd-cftapps-stg subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -915,7 +915,7 @@ packages:
 
   - name: "Contributors - dts-sharedservices-test"
     description: "Grants contributors access to dts-sharedservices-test subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -927,7 +927,7 @@ packages:
 
   - name: "Contributors - dts-heritage-extsvc-stg"
     description: "Grants contributors access to dts-heritage-extsvc-stg subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -939,7 +939,7 @@ packages:
 
   - name: "Contributors - moj dcd atlassian nle"
     description: "Grants contributors access to moj dcd atlassian nle subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -951,7 +951,7 @@ packages:
 
   - name: "Contributors - dts-archiving-prod"
     description: "Grants contributors access to dts-archiving-prod subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -963,7 +963,7 @@ packages:
 
   - name: "Contributors - dts-sharedservicesptl"
     description: "Grants contributors access to dts-sharedservicesptl subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -975,7 +975,7 @@ packages:
 
   - name: "Contributors - crime-ado-poc"
     description: "Grants contributors access to crime-ado-poc subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -987,7 +987,7 @@ packages:
 
   - name: "Contributors - dcd-cft-vh-pilot"
     description: "Grants contributors access to dcd-cft-vh-pilot subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -999,7 +999,7 @@ packages:
 
   - name: "Contributors - dcd-robotics-dev"
     description: "Grants contributors access to dcd-robotics-dev subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1011,7 +1011,7 @@ packages:
 
   - name: "Contributors - dcd-cftapps-prod"
     description: "Grants contributors access to dcd-cftapps-prod subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1023,7 +1023,7 @@ packages:
 
   - name: "Contributors - dcd-rdo-development"
     description: "Grants contributors access to dcd-rdo-development subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1035,7 +1035,7 @@ packages:
 
   - name: "Contributors - dts-dataingest-stg"
     description: "Grants contributors access to dts-dataingest-stg subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1047,7 +1047,7 @@ packages:
 
   - name: "Contributors - cp-copilot-beta"
     description: "Grants contributors access to cp-copilot-beta subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1059,7 +1059,7 @@ packages:
 
   - name: "Contributors - dts-sharedservices-prod"
     description: "Grants contributors access to dts-sharedservices-prod subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1071,7 +1071,7 @@ packages:
 
   - name: "Contributors - dts-heritage-intsvc-prod"
     description: "Grants contributors access to dts-heritage-intsvc-prod subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1083,7 +1083,7 @@ packages:
 
   - name: "Contributors - dcd-rdo-production"
     description: "Grants contributors access to dcd-rdo-production subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1095,7 +1095,7 @@ packages:
 
   - name: "Contributors - moj common platform production"
     description: "Grants contributors access to moj common platform production subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1107,7 +1107,7 @@ packages:
 
   - name: "Contributors - dcd-cnp-dev"
     description: "Grants contributors access to dcd-cnp-dev subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1119,7 +1119,7 @@ packages:
 
   - name: "Contributors - dts-dataingest-prod"
     description: "Grants contributors access to dts-dataingest-prod subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1131,7 +1131,7 @@ packages:
 
   - name: "Contributors - hmcts-soc-prod"
     description: "Grants contributors access to hmcts-soc-prod subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1143,7 +1143,7 @@ packages:
 
   - name: "Contributors - dcd-cftapps-ithc"
     description: "Grants contributors access to dcd-cftapps-ithc subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1155,7 +1155,7 @@ packages:
 
   - name: "Contributors - hmcts-hub-prod-intsvc"
     description: "Grants contributors access to hmcts-hub-prod-intsvc subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1167,7 +1167,7 @@ packages:
 
   - name: "Contributors - dcd-aws-migration"
     description: "Grants contributors access to dcd-aws-migration subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1179,7 +1179,7 @@ packages:
 
   - name: "Contributors - dts-heritage-extsvc-prod"
     description: "Grants contributors access to dts-heritage-extsvc-prod subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1191,7 +1191,7 @@ packages:
 
   - name: "Contributors - dcd-cftapps-dev"
     description: "Grants contributors access to dcd-cftapps-dev subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1203,7 +1203,7 @@ packages:
 
   - name: "Contributors - dcd-cnp-prod"
     description: "Grants contributors access to dcd-cnp-prod subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1215,7 +1215,7 @@ packages:
 
   - name: "Contributors - reform-cft-mgmt"
     description: "Grants contributors access to reform-cft-mgmt subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1227,7 +1227,7 @@ packages:
 
   - name: "Contributors - dts-heritage-intsvc-stg"
     description: "Grants contributors access to dts-heritage-intsvc-stg subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1239,7 +1239,7 @@ packages:
 
   - name: "Contributors - moj common platform operational services"
     description: "Grants contributors access to moj common platform operational services subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1251,7 +1251,7 @@ packages:
 
   - name: "Contributors - dts-sharedservices-dev"
     description: "Grants contributors access to dts-sharedservices-dev subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1263,7 +1263,7 @@ packages:
 
   - name: "Contributors - dcd-cftapps-test"
     description: "Grants contributors access to dcd-cftapps-test subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1275,7 +1275,7 @@ packages:
 
   - name: "Contributors - dcd-cftappsdata-demo"
     description: "Grants contributors access to dcd-cftappsdata-demo subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1287,7 +1287,7 @@ packages:
 
   - name: "Contributors - hmcts-control"
     description: "Grants contributors access to hmcts-control subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1299,7 +1299,7 @@ packages:
 
   - name: "Contributors - hmcts-hub-nonprod-intsvc"
     description: "Grants contributors access to hmcts-hub-nonprod-intsvc subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1311,7 +1311,7 @@ packages:
 
   - name: "Contributors - dcd-cftapps-demo"
     description: "Grants contributors access to dcd-cftapps-demo subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
@@ -1323,7 +1323,7 @@ packages:
 
   - name: "Contributors - moj common platform non-live management"
     description: "Grants contributors access to moj common platform non-live management subscription"
-    catalog_name: "Contributors"
+    catalog_name: "Contributors (subscriptions)"
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
