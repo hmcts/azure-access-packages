@@ -371,3 +371,10 @@ catalogs:
     externally_visible: false
     resources:
       - "DTS CFT Idam Ops SC"
+      
+  - name: "DCD IDAM Group Access"
+    description: "DCD IDAM Group Access"
+    published: true
+    externally_visible: false
+    resources:
+      - "dcd_idam"
