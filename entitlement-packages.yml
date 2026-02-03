@@ -1960,3 +1960,15 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS DLRM Data Ingestion Admin (env:production)"
+
+  - name: "DCD IDAM Group Access"
+    description: "Allows dcd_idam_eligible_contributor members to become members of dcd_idam group"
+    catalog_name: "DCD IDAM"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "dcd_idam_eligible_contributor"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "dcd_idam"
