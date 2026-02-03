@@ -220,6 +220,7 @@ catalogs:
     externally_visible: false
     resources:
       - "DTS JIT Access darts DB Reader SC"
+      - "DTS JIT Access Darts DB Admin"
 
   - name: "Redis Cache Access"
     description: "Redis Cache Resources Production Access"

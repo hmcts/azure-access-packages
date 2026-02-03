@@ -690,6 +690,16 @@ packages:
     resource_roles:
       - "DTS JIT Access darts DB Reader SC"
 
+  - name: "Database - Darts DB admin access"
+    description: "This will provide admin access to Darts Modernisation production Database"
+    catalog_name: "Darts Database Access"
+    policies:
+      - name: "self-approval"
+        requestor_groups:
+          - "DTS Darts Modernisation Admin"
+    resource_roles:
+      - "DTS JIT Access Darts DB Admin"
+
   - name: "Database - ET read access - self approval"
     description: "Grants read access to ET databases"
     catalog_name: "Databases"
