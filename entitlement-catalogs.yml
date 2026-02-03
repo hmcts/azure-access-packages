@@ -229,7 +229,7 @@ catalogs:
     resources:
       - "DTS Redis Cache Contributors"
 
-  - name: "Contributors"
+  - name: "Contributors (subscriptions)"
     description: "Access to the subscription contributors role"
     published: true
     externally_visible: false
