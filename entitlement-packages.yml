@@ -1972,3 +1972,16 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "dcd_idam"
+      
+# DTS CFT Idam Ops SC
+  - name: "DTS CFT Idam Ops SC Group"
+    description: "Grants access to DTS CFT Idam Ops Security Clearance role"
+    catalog_name: "DTS CFT Idam Ops SC Group"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS CFT Idam Ops SC Eligible"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS CFT Idam Ops SC"
