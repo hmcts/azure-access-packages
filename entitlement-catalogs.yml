@@ -364,13 +364,6 @@ catalogs:
     resources:
       - "DTS DLRM Data Ingestion Admin (env:staging)"
       - "DTS DLRM Data Ingestion Admin (env:production)"
-
-  - name: "DTS CFT Idam Ops SC Group"
-    description: "DTS CFT Idam Ops SC Access"
-    published: true
-    externally_visible: false
-    resources:
-      - "DTS CFT Idam Ops SC"
       
   - name: "DCD IDAM Group Access"
     description: "DCD IDAM Group Access"
@@ -378,3 +371,10 @@ catalogs:
     externally_visible: false
     resources:
       - "dcd_idam"
+
+  - name: "DTS CFT Idam Ops SC Group"
+    description: "DTS CFT Idam Ops SC Access"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS CFT Idam Ops SC"
