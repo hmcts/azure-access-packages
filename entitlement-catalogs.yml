@@ -364,3 +364,10 @@ catalogs:
     resources:
       - "DTS DLRM Data Ingestion Admin (env:staging)"
       - "DTS DLRM Data Ingestion Admin (env:production)"
+
+  - name: "DCD IDAM Group Access"
+    description: "DCD IDAM Group Access"
+    published: true
+    externally_visible: false
+    resources:
+      - "dcd_idam"
