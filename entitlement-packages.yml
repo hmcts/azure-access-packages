@@ -1985,3 +1985,16 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS CFT Idam Ops SC"
+
+# DTS CFT Idam Ops SC
+  - name: "Cactus Group Access"
+    description: "Grants access to Cactus Group Access"
+    catalog_name: "Cactus Group Access"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "Cactus Group Eligible"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "cactus-group"
