@@ -378,3 +378,10 @@ catalogs:
     externally_visible: false
     resources:
       - "DTS CFT Idam Ops SC"
+
+  - name: "Cactus Group Access"
+    description: "Cactus Group Access"
+    published: true
+    externally_visible: false
+    resources:
+      - "cactus-group"
