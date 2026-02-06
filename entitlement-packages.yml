@@ -1998,3 +1998,16 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "cactus-group"
+
+# DCD Core DevOps Azure Contributor
+  - name: "DCD Core DevOps Azure Contributor"
+    description: "Grants Azure Contributor access to DCD Core DevOps"
+    catalog_name: "Contributors (subscriptions)"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "AAD RBAC DCD Core DevOps Azure Contributor Eligible"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "AAD-RBAC-DCD-Core-DevOps-Azure-Contributor"
