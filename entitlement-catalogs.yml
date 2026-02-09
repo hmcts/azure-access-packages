@@ -386,3 +386,10 @@ catalogs:
     externally_visible: false
     resources:
       - "cactus-group"
+
+  - name: "DTS Crime Legacy Data Migration Admin Group"
+    description: "DTS Crime Legacy Data Migration Admin Access"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS Crime Legacy Data Migration Admin"
