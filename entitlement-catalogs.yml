@@ -394,3 +394,10 @@ catalogs:
     resources:
       - "DTS Crime Legacy Data Migration Admin (env:staging)"
       - "DTS Crime Legacy Data Migration Admin (env:production)"
+
+  - name: "DTS DLRM Synapse workspace contributors"
+    description: "Access to DTS DLRM Synapse workspace contributors group"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS DLRM Synapse workspace contributors"

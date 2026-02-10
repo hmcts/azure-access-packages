@@ -2013,9 +2013,9 @@ packages:
       - "AAD-RBAC-DCD-Core-DevOps-Azure-Contributor"
 
 # DTS Crime Legacy Data Migration Admin
-  - name: "DTS Crime Legacy Data Migration Admin Group (env:staging)"
+  - name: "DTS Crime Legacy Data Migration Admin (env:staging)"
     description: "DTS Crime Legacy Data Migration Admin Access"
-    catalog_name: "DTS Crime Legacy Data Migration Admin Group (env:staging)"
+    catalog_name: "DTS Crime Legacy Data Migration Admin (env:staging)"
     policies:
       - name: "self-approval"
         requestor_groups:
@@ -2025,9 +2025,9 @@ packages:
     resource_roles:
       - "DTS Crime Legacy Data Migration Admin (env:staging)"
 
-  - name: "DTS Crime Legacy Data Migration Admin Group (env:production)"
+  - name: "DTS Crime Legacy Data Migration Admin (env:production)"
     description: "DTS Crime Legacy Data Migration Admin Access"
-    catalog_name: "DTS Crime Legacy Data Migration Admin Group (env:production)"
+    catalog_name: "DTS Crime Legacy Data Migration Admin (env:production)"
     policies:
       - name: "self-approval"
         requestor_groups:
@@ -2036,5 +2036,18 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS Crime Legacy Data Migration Admin (env:production)"
+
+# DTS DLRM Synapse workspace contributors
+  - name: "DTS DLRM Synapse workspace contributors"
+    description: "Access to DTS DLRM Synapse workspace contributors group"
+    catalog_name: "DTS DLRM Synapse workspace contributors"
+    policies:
+    - name: "self-approval"
+      requestor_groups:
+          - "DTS DLRM Synapse workspace contributors Eligible"
+      approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+    - "DTS DLRM Synapse workspace contributors"
 
   
