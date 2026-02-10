@@ -386,3 +386,10 @@ catalogs:
     externally_visible: false
     resources:
       - "cactus-group"
+
+  - name: "DTS Azure PIM Approvers Access"
+    description: "DTS Azure PIM Approvers Access"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS Azure PIM Approvers (CNP)"
