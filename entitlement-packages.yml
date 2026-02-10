@@ -2013,9 +2013,9 @@ packages:
       - "AAD-RBAC-DCD-Core-DevOps-Azure-Contributor"
 
 # DTS Crime Legacy Data Migration Admin
-  - name: "DTS Crime Legacy Data Migration Admin Group"
+  - name: "DTS Crime Legacy Data Migration Admin Group (env:staging)"
     description: "DTS Crime Legacy Data Migration Admin Access"
-    catalog_name: "DTS Crime Legacy Data Migration Admin Group"
+    catalog_name: "DTS Crime Legacy Data Migration Admin Group (env:staging)"
     policies:
       - name: "self-approval"
         requestor_groups:
@@ -2023,6 +2023,18 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Crime Legacy Data Migration Admin"
+      - "DTS Crime Legacy Data Migration Admin (env:staging)"
+
+  - name: "DTS Crime Legacy Data Migration Admin Group (env:production)"
+    description: "DTS Crime Legacy Data Migration Admin Access"
+    catalog_name: "DTS Crime Legacy Data Migration Admin Group (env:production)"
+    policies:
+      - name: "self-approval"
+        requestor_groups:
+          - "DTS Crime Legacy Data Migration Admin Eligible"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS Crime Legacy Data Migration Admin (env:production)"
 
   
