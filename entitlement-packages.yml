@@ -2019,7 +2019,7 @@ packages:
     policies:
       - name: "self-approval"
         requestor_groups:
-          - "DTS Crime Legacy Data Migration Admin Eligible"
+          - "DTS Crime Legacy Data Migration Admin Eligible (env:staging)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
@@ -2031,7 +2031,7 @@ packages:
     policies:
       - name: "self-approval"
         requestor_groups:
-          - "DTS Crime Legacy Data Migration Admin Eligible"
+          - "DTS Crime Legacy Data Migration Admin Eligible (env:production)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
