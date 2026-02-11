@@ -387,26 +387,9 @@ catalogs:
     resources:
       - "cactus-group"
 
-<<<<<<< HEAD
   - name: "DTS Azure PIM Approvers Access"
     description: "DTS Azure PIM Approvers Access"
     published: true
     externally_visible: false
     resources:
       - "DTS Azure PIM Approvers (CNP)"
-=======
-  - name: "DTS Crime Legacy Data Migration Admin Group"
-    description: "DTS Crime Legacy Data Migration Admin Access"
-    published: true
-    externally_visible: false
-    resources:
-      - "DTS Crime Legacy Data Migration Admin (env:staging)"
-      - "DTS Crime Legacy Data Migration Admin (env:production)"
-
-  - name: "DTS DLRM Synapse workspace contributors"
-    description: "Access to DTS DLRM Synapse workspace contributors group"
-    published: true
-    externally_visible: false
-    resources:
-      - "DTS DLRM Synapse workspace contributors"
->>>>>>> master
