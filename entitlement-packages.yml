@@ -2051,3 +2051,14 @@ packages:
     - "DTS DLRM Synapse workspace contributors"
 
   
+  - name: " DTS Azure PIM Approvers Access"
+    description: "Grants access to DTS Azure PIM Approvers group"
+    catalog_name: "DTS Azure PIM Approvers Access"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS Azure PIM Approvers Eligible (CNP)"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS Azure PIM Approvers (CNP)" 

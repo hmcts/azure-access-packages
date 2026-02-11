@@ -401,3 +401,10 @@ catalogs:
     externally_visible: false
     resources:
       - "DTS DLRM Synapse workspace contributors"
+
+  - name: "DTS Azure PIM Approvers Access"
+    description: "DTS Azure PIM Approvers Access"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS Azure PIM Approvers (CNP)"
