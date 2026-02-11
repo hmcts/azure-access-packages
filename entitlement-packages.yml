@@ -2012,14 +2012,42 @@ packages:
     resource_roles:
       - "AAD-RBAC-DCD-Core-DevOps-Azure-Contributor"
 
-  - name: " DTS Azure PIM Approvers Access"
-    description: "Grants access to DTS Azure PIM Approvers group"
-    catalog_name: "DTS Azure PIM Approvers Access"
+# DTS Crime Legacy Data Migration Admin
+  - name: "DTS Crime Legacy Data Migration Admin (env:staging)"
+    description: "DTS Crime Legacy Data Migration Admin Access"
+    catalog_name: "DTS Crime Legacy Data Migration Admin Group"
     policies:
-      - name: "self-approval-with-justification"
+      - name: "self-approval"
         requestor_groups:
-          - "DTS Azure PIM Approvers Eligible (CNP)"
+          - "DTS Crime Legacy Data Migration Admin Eligible (env:staging)"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS Azure PIM Approvers (CNP)"
+      - "DTS Crime Legacy Data Migration Admin (env:staging)"
+
+  - name: "DTS Crime Legacy Data Migration Admin (env:production)"
+    description: "DTS Crime Legacy Data Migration Admin Access"
+    catalog_name: "DTS Crime Legacy Data Migration Admin Group"
+    policies:
+      - name: "self-approval"
+        requestor_groups:
+          - "DTS Crime Legacy Data Migration Admin Eligible (env:production)"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS Crime Legacy Data Migration Admin (env:production)"
+
+# DTS DLRM Synapse workspace contributors
+  - name: "DTS DLRM Synapse workspace contributors"
+    description: "Access to DTS DLRM Synapse workspace contributors group"
+    catalog_name: "DTS DLRM Synapse workspace contributors"
+    policies:
+    - name: "self-approval"
+      requestor_groups:
+          - "DTS DLRM Synapse workspace contributors Eligible"
+      approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+    - "DTS DLRM Synapse workspace contributors"
+
+  
