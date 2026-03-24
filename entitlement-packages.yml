@@ -1936,6 +1936,35 @@ packages:
       - "DTS Contributors (mg:SDS-NonProd)"
       - "DTS Contributors (mg:Platform-NonProd)"
       - "DTS Contributors (mg:Heritage-NonProd)"
+  
+    # Management group User Access Administrator permissions
+  - name: "User Access Administrators - Prod management group (mg:HMCTS)"
+    description: "(SC required) Package for User Access Administrators access to HMCTS management group"
+    catalog_name: "User Access Administrators SC Access (management groups)"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS Platform Operations SC"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS User Access Administrators (mg:HMCTS)"
+
+  - name: "User Access Administrators - NonProd management group"
+    description: "Package for User Access Administrators access to NonProd management groups"
+    catalog_name: "User Access Administrators non-SC Access (management groups)"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS Platform Operations"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS User Access Administrators (mg:CFT-NonProd)"
+      - "DTS User Access Administrators (mg:SDS-NonProd)"
+      - "DTS User Access Administrators (mg:Platform-NonProd)"
+      - "DTS User Access Administrators (mg:Heritage-NonProd)"
+
   # DLRM Data Ingestion Admin
   - name: "DLRM Data Ingestion Admin (env:staging)"
     description: "Grants admin access to DLRM Data Ingestion in Staging environment"
