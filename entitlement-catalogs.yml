@@ -351,6 +351,24 @@ catalogs:
       - "DTS Contributors (mg:Platform-NonProd)"
       - "DTS Contributors (mg:SDS-NonProd)"
 
+  - name: "User Access Administrators SC Access (management groups)"
+    description: "(SC required) Grants User Access Administrators access to HMCTS management group"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS User Access Administrators (mg:HMCTS)"
+
+  - name: "User Access Administrators non-SC Access (management groups)"
+    description: "Grants User Access Administrators access to non-sc management group"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS User Access Administrators (mg:CFT-NonProd)"
+      - "DTS User Access Administrators (mg:Heritage-NonProd)"
+      - "DTS User Access Administrators (mg:Platform-NonProd)"
+      - "DTS User Access Administrators (mg:SDS-NonProd)"
+
+
   - name: "Global Administrator Access"
     description: "GA access"
     published: true
