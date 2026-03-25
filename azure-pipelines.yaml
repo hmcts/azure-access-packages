@@ -111,4 +111,3 @@ stages:
                 -var client_secret=$(client-secret)
                 -var tenant_id=${{ variables.tenant_id }}
                 -compact-warnings
-                -lock-timeout=30s
