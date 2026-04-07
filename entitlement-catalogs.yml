@@ -419,3 +419,10 @@ catalogs:
     externally_visible: false
     resources:
       - "DTS DLRM Synapse workspace contributors"
+
+  - name: "DTS CNP Purview Root Collection Access"
+    description: "Access to DTS CNP Purview Root Collection Access group"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS CNP Purview Root Collection Access"

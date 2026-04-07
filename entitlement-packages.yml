@@ -2079,4 +2079,15 @@ packages:
     resource_roles:
     - "DTS DLRM Synapse workspace contributors"
 
-  
+  # DTS CNP Purview Root Collection Access
+  - name: "DTS CNP Purview Root Collection Access"
+    description: "Access to DTS CNP Purview Root Collection Admin Group"
+    catalog_name: "DTS CNP Purview Root Collection Access"
+    policies:
+    - name: "self-approval"
+      requestor_groups:
+          - DTS CNP Purview Root Collection Access Eligible
+      approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+    - "DTS CNP Purview Root Collection Access"
