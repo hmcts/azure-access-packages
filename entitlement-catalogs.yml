@@ -144,6 +144,7 @@ catalogs:
       - "DTS Platform Operations PostgreSQL Admin Access SC"
       - "DTS ServiceNow MySQL DB Access for Administrators"
       - "DTS ServiceNow MySQL DB Access for Users"
+      - "DTS JIT Access tax-tribunals DB Reader SC"
 
   - name: "SharedServices Subscriptions CT"
     description: "DTS-SharedServices Subscriptions"
