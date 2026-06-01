@@ -2106,7 +2106,7 @@ packages:
     - "DTS CNP Purview Root Collection Access"
 
   # Crime Standing Data Service
-  - name: "DTS CSDS Contributor (env:dev)"
+  - name: "DTS CSDS Contributors (env:dev)"
     description: "DTS Crime Standing Data Service Contributor Access for Development Environment"
     catalog_name: "DTS Crime Standing Data Service Contributor Group"
     policies:
@@ -2116,8 +2116,8 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS CSDS Contributor (env:dev)"
-  - name: "DTS CSDS Contributor (env:ithc)"
+      - "DTS CSDS Contributors (env:dev)"
+  - name: "DTS CSDS Contributors (env:ithc)"
     description: "DTS Crime Standing Data Service Contributor Access for ITHC Environment"
     catalog_name: "DTS Crime Standing Data Service Contributor Group"
     policies:
@@ -2127,8 +2127,8 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS CSDS Contributor (env:ithc)"
-  - name: "DTS CSDS Contributor (env:stg)"
+      - "DTS CSDS Contributors (env:ithc)"
+  - name: "DTS CSDS Contributors (env:stg)"
     description: "DTS Crime Standing Data Service Contributor Access for Staging Environment"
     catalog_name: "DTS Crime Standing Data Service Contributor Group"
     policies:
@@ -2138,8 +2138,8 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS CSDS Contributor (env:stg)"
-  - name: "DTS CSDS Contributor (env:prod)"
+      - "DTS CSDS Contributors (env:stg)"
+  - name: "DTS CSDS Contributors (env:prod)"
     description: "DTS Crime Standing Data Service Contributor Access for Production Environment"
     catalog_name: "DTS Crime Standing Data Service Contributor Group"
     policies:
@@ -2149,4 +2149,4 @@ packages:
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
-      - "DTS CSDS Contributor (env:prod)"
+      - "DTS CSDS Contributors (env:prod)"
