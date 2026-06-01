@@ -433,7 +433,7 @@ catalogs:
     published: true
     externally_visible: false
     resources:
-      - "DTS CSDS Contributor (env:dev)"
-      - "DTS CSDS Contributor (env:ithc)"
-      - "DTS CSDS Contributor (env:stg)"
-      - "DTS CSDS Contributor (env:prod)"
+      - "DTS CSDS Contributors (env:dev)"
+      - "DTS CSDS Contributors (env:ithc)"
+      - "DTS CSDS Contributors (env:stg)"
+      - "DTS CSDS Contributors (env:prod)"
