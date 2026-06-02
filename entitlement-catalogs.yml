@@ -353,7 +353,8 @@ catalogs:
       - "DTS Contributors (mg:SDS-NonProd)"
 
   - name: "User Access Administrators SC Access (management groups)"
-    description: "(SC required) Grants User Access Administrators access to HMCTS management group"
+    description: "(SC required) Grants User Access Administrators access to HMCTS
+      management group"
     published: true
     externally_visible: false
     resources:
@@ -369,7 +370,6 @@ catalogs:
       - "DTS User Access Administrators (mg:Platform-NonProd)"
       - "DTS User Access Administrators (mg:SDS-NonProd)"
 
-
   - name: "Global Administrator Access"
     description: "GA access"
     published: true
@@ -384,7 +384,7 @@ catalogs:
     resources:
       - "DTS DLRM Data Ingestion Admin (env:staging)"
       - "DTS DLRM Data Ingestion Admin (env:production)"
-      
+
   - name: "DCD IDAM Group Access"
     description: "DCD IDAM Group Access"
     published: true
@@ -427,3 +427,13 @@ catalogs:
     externally_visible: false
     resources:
       - "DTS CNP Purview Root Collection Access"
+
+  - name: "DTS Crime Standing Data Service Contributor Group"
+    description: "DTS CSDS Contributor Access"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS CSDS Contributors (env:dev)"
+      - "DTS CSDS Contributors (env:ithc)"
+      - "DTS CSDS Contributors (env:stg)"
+      - "DTS CSDS Contributors (env:prod)"
