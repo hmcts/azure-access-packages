@@ -125,6 +125,7 @@ catalogs:
       - "DTS JIT Access owaspdependency DB Reader SC"
       - "DTS JIT Access pact-broker DB Reader SC"
       - "DTS JIT Access payment DB Reader SC"
+      - "DTS JIT Access pcs DB Reader SC"
       - "DTS JIT Access pcq DB Reader SC"
       - "DTS JIT Access pip DB Reader SC"
       - "DTS JIT Access pre DB Reader SC"
