@@ -91,15 +91,14 @@ data "azuread_group" "assignment_managers" {
   security_enabled = true
 }
 
-data "azuread_access_package_catalog_role" "assignment_manager" {
-  display_name = "Access package assignment manager"
-}
-
 resource "azuread_access_package_catalog_role_assignment" "assignment_managers" {
   for_each = {
     for item in local.catalogs_assignment_managers : "${item.catalog_name}:${item.group}" => item
   }
-  role_id             = data.azuread_access_package_catalog_role.assignment_manager.object_id
+  # Microsoft's fixed built-in role definition ID for "Access package
+  # assignment manager" - stable across tenants, so no data source lookup
+  # needed.
+  role_id             = "e2182095-804a-4656-ae11-64734e9b7ae5"
   principal_object_id = data.azuread_group.assignment_managers[each.key].object_id
   catalog_id          = azuread_access_package_catalog.catalog[each.value.catalog_name].id
 }
