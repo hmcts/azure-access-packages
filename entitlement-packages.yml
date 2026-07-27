@@ -2150,3 +2150,67 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS CSDS Contributors (env:prod)"
+
+  - name: "CACTUS - Users - Dev"
+    description: "User role for the CACTUS application in DEV, assigned directly by a business stakeholder"
+    catalog_name: "CACTUS - User Roles"
+    policies:
+      - name: "direct-assignment"
+    resource_roles:
+      - "DTS Cactususers-dev"
+
+  - name: "CACTUS - Admins - Dev"
+    description: "Admin role for the CACTUS application in DEV, assigned directly by a business stakeholder"
+    catalog_name: "CACTUS - User Roles"
+    policies:
+      - name: "direct-assignment"
+    resource_roles:
+      - "DTS CactusAdmins-dev"
+
+  - name: "CACTUS - CCRC - Dev"
+    description: "CCRC role for the CACTUS application in DEV, assigned directly by a business stakeholder"
+    catalog_name: "CACTUS - User Roles"
+    policies:
+      - name: "direct-assignment"
+    resource_roles:
+      - "DTS CactusCCRC-dev"
+
+  - name: "CACTUS - Costs - Dev"
+    description: "Costs role for the CACTUS application in DEV, assigned directly by a business stakeholder"
+    catalog_name: "CACTUS - User Roles"
+    policies:
+      - name: "direct-assignment"
+    resource_roles:
+      - "DTS CactusCosts-dev"
+  
+  - name: "CACTUS - Counsel Table - Dev"
+    description: "Counsel Table role for the CACTUS application in DEV, assigned directly by a business stakeholder"
+    catalog_name: "CACTUS - User Roles"
+    policies:
+      - name: "direct-assignment"
+    resource_roles:
+      - "DTS CactusCounselTable-dev"
+
+  - name: "CACTUS - Court Clerks - Dev"
+    description: "Court Clerks role for the CACTUS application in DEV, assigned directly by a business stakeholder"
+    catalog_name: "CACTUS - User Roles"
+    policies:
+      - name: "direct-assignment"
+    resource_roles:
+      - "DTS CactusCourtClerks-dev"
+
+  - name: "CACTUS - Finished Cases - Dev"
+    description: "Finished Cases role for the CACTUS application in DEV, assigned directly by a business stakeholder"
+    catalog_name: "CACTUS - User Roles"
+    policies:
+      - name: "direct-assignment"
+    resource_roles:
+      - "DTS CactusFinishedCases-dev"
+
+  - name: "CACTUS - Judges Tables - Dev"
+    description: "Judges Tables role for the CACTUS application in DEV, assigned directly by a business stakeholder"
+    catalog_name: "CACTUS - User Roles"
+    policies:
+      - name: "direct-assignment"
+    resource_roles:
+      - "DTS CactusJudgesTables-dev"

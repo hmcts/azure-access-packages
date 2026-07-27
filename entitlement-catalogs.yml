@@ -1,6 +1,14 @@
 # ------------------------------------------------
 # List of Entitlement management for Catalogs
 # Resource types: SharePointOnline, AadApplication or AadGroup
+#
+# Optional `assignment_managers` field: a list of AD group display names to
+# grant the built-in "Access package assignment manager" role on this
+# catalog. Members of these groups can directly assign (or remove) any
+# access package in the catalog to a user from MyAccess / the Entra admin
+# center, without the user submitting a request. Pair with access packages
+# whose policy is `direct-assignment` (see package-policies/) for a pure
+# assign-on-behalf-of flow. See README.md for details.
 # ------------------------------------------------
 catalogs:
   - name: "Demo"
@@ -437,3 +445,15 @@ catalogs:
       - "DTS CSDS Contributors (env:ithc)"
       - "DTS CSDS Contributors (env:stg)"
       - "DTS CSDS Contributors (env:prod)"
+
+  - name: "CACTUS - User Roles"
+    description: "Allows business stakeholders to assign users to roles in the CACTUS application, without the user requesting it themselves."
+    published: true
+    externally_visible: false
+    assignment_managers:
+      - "DTS CACTUS Access Assigners"
+    resources:
+      - "APP Case Management Portal - Caseworker"
+      - "APP Case Management Portal - Team Leader"
+      - "APP Case Management Portal - Read Only Auditor"
+      - "APP Case Management Portal - System Administrator"

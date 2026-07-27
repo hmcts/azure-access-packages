@@ -69,3 +69,37 @@ resource "azuread_access_package_catalog_role_assignment" "groups" {
   principal_object_id = data.azuread_group.this.object_id
   catalog_id          = azuread_access_package_catalog.catalog[each.value.name].id
 }
+
+# --------------- ACCESS PACKAGE ASSIGNMENT MANAGERS ----------------------
+# Delegates the built-in "Access package assignment manager" role to
+# business stakeholder groups declared via `assignment_managers` on a
+# catalog in entitlement-catalogs.yml. This lets those stakeholders assign
+# (and remove) any access package in that catalog directly to a user from
+# the MyAccess / Entra admin center, without the user first having to know
+# which package to request or submitting a request themselves. This role
+# cannot create/edit access packages or policies, and it cannot bypass a
+# policy's approval requirement - pair it with a policy that has
+# approval_settings.approval_required = false (see package-policies/direct-assignment.yml)
+# for a true "assign with no further approval" flow.
+# ---------------------------------------------------------------------------
+
+data "azuread_group" "assignment_managers" {
+  for_each = {
+    for item in local.catalogs_assignment_managers : "${item.catalog_name}:${item.group}" => item
+  }
+  display_name     = each.value.group
+  security_enabled = true
+}
+
+data "azuread_access_package_catalog_role" "assignment_manager" {
+  display_name = "Access package assignment manager"
+}
+
+resource "azuread_access_package_catalog_role_assignment" "assignment_managers" {
+  for_each = {
+    for item in local.catalogs_assignment_managers : "${item.catalog_name}:${item.group}" => item
+  }
+  role_id             = data.azuread_access_package_catalog_role.assignment_manager.object_id
+  principal_object_id = data.azuread_group.assignment_managers[each.key].object_id
+  catalog_id          = azuread_access_package_catalog.catalog[each.value.catalog_name].id
+}

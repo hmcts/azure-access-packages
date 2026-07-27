@@ -11,6 +11,18 @@ locals {
     ]
   ])
 
+  # Business stakeholders (Access package assignment managers) who can directly
+  # assign access packages within a catalog to a user, without the user having
+  # to know which package/role to request or submit a request themselves.
+  catalogs_assignment_managers = flatten([
+    for catalog in local.catalogs : [
+      for group in try(catalog.assignment_managers, []) : {
+        catalog_name = catalog.name
+        group        = group
+      }
+    ]
+  ])
+
   # Get the resource added to the package from the catalog resource list
   packages_resource_roles = flatten([
     for package in local.packages : [

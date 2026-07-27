@@ -1,0 +1,31 @@
+# Use on access packages that should only ever be granted by a business
+# stakeholder holding the "Access package assignment manager" role on the
+# package's catalog (see `assignment_managers` in entitlement-catalogs.yml),
+# rather than requested by the end user themselves.
+#
+# requests_accepted: false / scope_type: "NoSubjects" means nobody can submit
+# a self-service request under this policy - the only way in is a direct
+# assignment. approval_required is false because assignment managers cannot
+# bypass an approval step, so leaving it on would make direct assignment
+# impossible; the stakeholder's act of assigning is itself the approval.
+#
+# duration_in_days / expiration_date are deliberately omitted: leaving both
+# unset makes the assignment indefinite (no automatic expiry). Access is
+# removed only when the same business stakeholder (or anyone else with the
+# Access package assignment manager / Catalog owner role) explicitly revokes
+# it via Assignments > Remove. extension_enabled is left off too since there's
+# no expiry to extend. If you'd rather access lapse automatically, add
+# `duration_in_days: <n>` back in.
+name: "direct-assignment"
+policy:
+  display_name: "Direct assignment by business stakeholder"
+  description: "Access is granted only via direct assignment by a designated business stakeholder, and lasts until that assignment is revoked. Cannot be requested by users."
+  approval_settings:
+    approval_required: false
+  assignment_review_settings:
+    enabled: false
+  requestor_settings:
+    requestor:
+      subject_type: "groupMembers"
+    requests_accepted: false
+    scope_type: "NoSubjects"

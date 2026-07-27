@@ -17,9 +17,48 @@ Existing policies that cover most use cases are:
   - One day access, no approval required, must provide justification on the request.
 - `Database-self-approval-with-justification`
   - Standard database policy, 1 day access, can extend once for an additional 24 hours, requires justification and jira / ticket reference.  Approval not required.
+- `direct-assignment`
+  - No self-service requests accepted (`scope_type: NoSubjects`). Access can only be granted by a business stakeholder directly assigning the package to a user, and lasts indefinitely until that stakeholder revokes it (no `duration_in_days`/`expiration_date` set) - see [Assigning access packages on a user's behalf](#assigning-access-packages-on-a-users-behalf) below.
 
 Additional access policy can be added by creating a new file in the `package-policies` folder and
 defining the properties for you specific policy.
+
+## Assigning access packages on a user's behalf
+
+Some applications have many roles (modelled as groups/access packages), and the end user often
+doesn't know which one they need. For these, a business stakeholder - typically the person who
+would otherwise be the approver - can be delegated the ability to directly assign the correct
+access package to a user, instead of the user requesting it themselves.
+
+This is done with Entra's built-in **Access package assignment manager** catalog role, which lets
+its holders assign or remove any access package in that catalog for a user, but not create or
+edit access packages/policies. To grant it:
+
+```yaml
+catalogs:
+  - name: "My Application"
+    ...
+    assignment_managers:
+      - "My Application Business Stakeholders"
+```
+
+Any AD group listed under `assignment_managers` is granted the role for that catalog. Members can
+then use **Entra admin center > ID Governance > Entitlement management > Access packages > (package)
+> Assignments > New assignment** to assign a package to a user directly.
+
+Note that assignment managers **cannot bypass a policy's approval requirement** - if the policy
+they pick requires approval, a direct assignment still waits on that approval. To get a true
+"stakeholder assigns, done" flow, use the `direct-assignment` policy (or one modelled on it) on the
+access packages those stakeholders should be able to hand out, which also accepts no self-service
+requests so users can't request the package themselves.
+
+The `direct-assignment` policy also has no `duration_in_days`/`expiration_date`, so assignments made
+under it never expire automatically - access lasts until an assignment manager or catalog owner
+removes it (**Assignments > select user > Remove**). This mirrors "assigned by a stakeholder, revoked
+by that stakeholder". If you'd rather access lapse on its own after a period, add `duration_in_days`
+back into the policy (with `extension_enabled` if it should be renewable); for indefinite access it's
+worth pairing with an `assignment_review_settings` recurring review so it still gets periodically
+recertified rather than being purely "set and forget".
 
 ## Setting a Policy
 To associate a policy with an access package it's easy.
