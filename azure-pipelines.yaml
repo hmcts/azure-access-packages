@@ -88,8 +88,8 @@ stages:
             inputs:
               azureSubscription: ${{ variables.serviceConnection }}
               connectedServiceName: ${{ variables.serviceConnection }}
-              keyVaultName: access-packages-kv
-              secretsFilter: "client-secret"
+              keyVaultName: central-app-reg-kv
+              secretsFilter: "access-packages-secret"
 
           - template: steps/terraform.yaml@cnp-azuredevops-libraries
             parameters:
@@ -108,5 +108,5 @@ stages:
                 -var subscription_id=${{ variables.terraformSubscriptionID }}
                 -var env=${{ variables.environment }}
                 -var client_id=${{ variables.client_id }}
-                -var client_secret=$(client-secret)
+                -var client_secret=$(access-packages-secret)
                 -var tenant_id=${{ variables.tenant_id }}
