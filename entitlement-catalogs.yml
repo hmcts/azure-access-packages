@@ -111,6 +111,7 @@ catalogs:
       - "DTS JIT Access ctsc DB Reader SC"
       - "DTS JIT Access div DB Reader SC"
       - "DTS JIT Access draft-store DB Reader SC"
+      - "DTS JIT Access draft-store DB Writer SC"
       - "DTS JIT Access em DB Reader SC"
       - "DTS JIT Access ethos DB Reader SC"
       - "DTS JIT Access et DB Reader SC"
