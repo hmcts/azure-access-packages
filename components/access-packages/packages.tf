@@ -56,6 +56,7 @@ resource "azuread_access_package_resource_package_association" "this" {
 resource "azuread_access_package_assignment_policy" "this" {
   for_each = {
     for idx, policy in local.package_assignment_policy : format("%s:%s", policy.policy_name, policy.access_package) => policy
+    if try(policy.policy.expiration.duration, null) == null
   }
   access_package_id = azuread_access_package.package[each.value.access_package].id
   display_name      = each.value.policy.display_name
@@ -150,6 +151,80 @@ resource "azuread_access_package_assignment_policy" "this" {
           subject_type = each.value.policy.requestor_settings.requestor.subject_type
         }
       }
+    }
+  }
+}
+
+resource "msgraph_resource" "access_package_assignment_policy" {
+  for_each = {
+    for idx, policy in local.package_assignment_policy : format("%s:%s", policy.policy_name, policy.access_package) => policy
+    if try(policy.policy.expiration.duration, null) != null
+  }
+
+  url           = "identityGovernance/entitlementManagement/assignmentPolicies"
+  api_version   = "v1.0"
+  update_method = "PUT"
+
+  body = {
+    displayName              = each.value.policy.display_name
+    description              = each.value.policy.description
+    allowedTargetScope       = "specificDirectoryUsers"
+    automaticRequestSettings = null
+    specificAllowedTargets = [
+      for requestor in try(each.value.requestor_groups, []) : {
+        "@odata.type" = "#microsoft.graph.groupMembers"
+        groupId       = data.azuread_group.requestors[requestor].id
+      }
+    ]
+    expiration = {
+      endDateTime = null
+      duration    = each.value.policy.expiration.duration
+      type        = each.value.policy.expiration.type
+    }
+    requestorSettings = {
+      enableTargetsToSelfAddAccess           = true
+      enableTargetsToSelfUpdateAccess        = false
+      enableTargetsToSelfRemoveAccess        = true
+      allowCustomAssignmentSchedule          = false
+      enableOnBehalfRequestorsToAddAccess    = false
+      enableOnBehalfRequestorsToUpdateAccess = false
+      enableOnBehalfRequestorsToRemoveAccess = false
+      onBehalfRequestors                     = []
+    }
+    requestApprovalSettings = {
+      isApprovalRequiredForAdd         = try(each.value.policy.approval_settings.approval_required, false)
+      isApprovalRequiredForUpdate      = try(each.value.policy.approval_settings.approval_required_for_extension, false)
+      isRequestorJustificationRequired = try(each.value.policy.approval_settings.requestor_justification_required, false)
+      stages = try(each.value.policy.approval_settings.approval_required, false) ? [
+        {
+          durationBeforeAutomaticDenial   = try(each.value.policy.approval_settings.approval_stage.duration_before_automatic_denial, format("P%dD", each.value.policy.approval_settings.approval_stage.approval_timeout_in_days))
+          isApproverJustificationRequired = try(each.value.policy.approval_settings.approval_stage.approver_justification_required, false)
+          isEscalationEnabled             = try(each.value.policy.approval_settings.approval_stage.alternative_approval_enabled, false)
+          primaryApprovers = [
+            for approver in try(each.value.approver_groups, []) : {
+              "@odata.type" = "#microsoft.graph.groupMembers"
+              groupId       = data.azuread_group.approvers[approver].id
+            }
+          ]
+          fallbackPrimaryApprovers    = []
+          escalationApprovers         = []
+          fallbackEscalationApprovers = []
+        }
+      ] : []
+    }
+    reviewSettings = null
+    questions = [
+      for question in try(each.value.policy.questions, []) : {
+        "@odata.type" = "#microsoft.graph.accessPackageTextInputQuestion"
+        isRequired    = try(question.required, false)
+        sequence      = try(question.sequence, null)
+        text = {
+          defaultText = try(question.text.default_text, "")
+        }
+      }
+    ]
+    accessPackage = {
+      id = azuread_access_package.package[each.value.access_package].id
     }
   }
 }

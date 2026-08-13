@@ -131,6 +131,7 @@ catalogs:
       - "DTS JIT Access pre DB Reader SC"
       - "DTS JIT Access probate DB Reader SC"
       - "DTS JIT Access rd DB Reader SC"
+      - "DTS JIT Access rd DB Writer SC"
       - "DTS JIT Access reform-scan DB Reader SC"
       - "DTS JIT Access send-letter DB Reader SC"
       - "DTS JIT Access sscs DB Reader SC"
