@@ -136,6 +136,42 @@ stages:
                     sys.exit(f"Wrong app id in token, expected {expected}")
                 if "EntitlementManagement.ReadWrite.All" not in roles:
                     sys.exit("Missing EntitlementManagement.ReadWrite.All in token roles")
+
+                def graph_get(path):
+                    import urllib.request
+
+                    request = urllib.request.Request(
+                        f"https://graph.microsoft.com/v1.0/{path}",
+                        headers={"Authorization": f"Bearer {token}"},
+                    )
+                    with urllib.request.urlopen(request) as response:
+                        return json.loads(response.read().decode("utf-8"))
+
+                service_principals = graph_get(
+                    f"servicePrincipals?$filter=appId eq '{expected}'&$select=id,displayName,appId"
+                ).get("value", [])
+                if not service_principals:
+                    sys.exit("Could not find service principal for app id")
+
+                service_principal = service_principals[0]
+                service_principal_id = service_principal["id"]
+                print("servicePrincipalObjectId:", service_principal_id)
+                print("servicePrincipalDisplayName:", service_principal.get("displayName"))
+
+                catalogs = graph_get(
+                    "identityGovernance/entitlementManagement/catalogs?$filter=displayName eq 'Databases'&$select=id,displayName"
+                ).get("value", [])
+                if catalogs:
+                    print("databasesCatalogId:", catalogs[0]["id"])
+                else:
+                    print("databasesCatalogId: not found")
+
+                role_assignments = graph_get(
+                    "roleManagement/entitlementManagement/roleAssignments?"
+                    f"$filter=principalId eq '{service_principal_id}'&"
+                    "$expand=roleDefinition&$select=id,appScopeId,roleDefinition"
+                ).get("value", [])
+                print("entitlementRoleAssignments:", json.dumps(role_assignments, indent=2))
                 PY
 
           - template: steps/terraform.yaml@cnp-azuredevops-libraries
