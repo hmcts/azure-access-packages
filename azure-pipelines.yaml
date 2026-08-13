@@ -92,7 +92,7 @@ stages:
               secretsFilter: "access-packages-secret"
 
           - task: Bash@3
-            displayName: "CLI test current RD policy body"
+            displayName: "CLI test beta RD policy body"
             env:
               CLIENT_ID: ${{ variables.client_id }}
               CLIENT_SECRET: $(access-packages-secret)
@@ -145,43 +145,40 @@ stages:
                   --arg requestorGroupId "${requestor_group_id}" \
                   --arg approverGroupId "${approver_group_id}" \
                   '{
+                    accessPackageId: $packageId,
                     displayName: "Initial Policy",
                     description: "Initial Policy",
-                    allowedTargetScope: "specificDirectoryUsers",
-                    specificAllowedTargets: [
-                      {
-                        "@odata.type": "#microsoft.graph.groupMembers",
-                        groupId: $requestorGroupId
-                      }
-                    ],
+                    canExtend: false,
                     expiration: {
                       duration: "PT2H",
                       type: "afterDuration"
                     },
                     requestorSettings: {
-                      enableTargetsToSelfAddAccess: true,
-                      enableTargetsToSelfUpdateAccess: false,
-                      enableTargetsToSelfRemoveAccess: true,
-                      allowCustomAssignmentSchedule: false,
-                      enableOnBehalfRequestorsToAddAccess: false,
-                      enableOnBehalfRequestorsToUpdateAccess: false,
-                      enableOnBehalfRequestorsToRemoveAccess: false,
-                      onBehalfRequestors: []
+                      scopeType: "SpecificDirectorySubjects",
+                      acceptRequests: true,
+                      allowedRequestors: [
+                        {
+                          "@odata.type": "#microsoft.graph.groupMembers",
+                          id: $requestorGroupId,
+                          isBackup: false
+                        }
+                      ]
                     },
                     requestApprovalSettings: {
-                      isApprovalRequiredForAdd: true,
-                      isApprovalRequiredForUpdate: false,
+                      isApprovalRequired: true,
+                      isApprovalRequiredForExtension: false,
                       isRequestorJustificationRequired: true,
-                      stages: [
+                      approvalMode: "SingleStage",
+                      approvalStages: [
                         {
-                          durationBeforeAutomaticDenial: "P1D",
+                          approvalStageTimeOutInDays: 1,
                           isApproverJustificationRequired: false,
                           isEscalationEnabled: false,
-                          durationBeforeEscalation: "PT0S",
                           primaryApprovers: [
                             {
                               "@odata.type": "#microsoft.graph.groupMembers",
-                              groupId: $approverGroupId
+                              id: $approverGroupId,
+                              isBackup: false
                             }
                           ],
                           fallbackPrimaryApprovers: [],
@@ -196,17 +193,16 @@ stages:
                         isRequired: true,
                         isAnswerEditable: true,
                         sequence: 0,
-                        text: "Halo ID (include all changes being executed)"
+                        text: {
+                          defaultText: "Halo ID (include all changes being executed)"
+                        }
                       }
-                    ],
-                    accessPackage: {
-                      id: $packageId
-                    }
+                    ]
                   }')
 
                 created_policy_id=$(az rest \
                   --method post \
-                  --url "https://graph.microsoft.com/v1.0/identityGovernance/entitlementManagement/assignmentPolicies" \
+                  --url "https://graph.microsoft.com/beta/identityGovernance/entitlementManagement/accessPackageAssignmentPolicies" \
                   --headers "Content-Type=application/json" \
                   --body "${policy_body}" \
                   --query id \
@@ -217,7 +213,7 @@ stages:
 
                 az rest \
                   --method delete \
-                  --url "https://graph.microsoft.com/v1.0/identityGovernance/entitlementManagement/assignmentPolicies/${created_policy_id}" \
+                  --url "https://graph.microsoft.com/beta/identityGovernance/entitlementManagement/accessPackageAssignmentPolicies/${created_policy_id}" \
                   --output none
 
                 echo "cliCurrentPolicyDelete: success"
