@@ -137,16 +137,38 @@ stages:
                 if "EntitlementManagement.ReadWrite.All" not in roles:
                     sys.exit("Missing EntitlementManagement.ReadWrite.All in token roles")
 
-                def graph_get(path):
+                def graph_request(method, path, body=None):
+                    import urllib.error
+                    import urllib.parse
                     import urllib.request
 
-                    path = path.replace(" ", "%20").replace("'", "%27")
+                    url = "https://graph.microsoft.com/v1.0/" + urllib.parse.quote(path, safe="/?$=&(),")
+                    data = None
+                    headers = {"Authorization": f"Bearer {token}"}
+                    if body is not None:
+                        data = json.dumps(body).encode("utf-8")
+                        headers["Content-Type"] = "application/json"
                     request = urllib.request.Request(
-                        f"https://graph.microsoft.com/v1.0/{path}",
-                        headers={"Authorization": f"Bearer {token}"},
+                        url,
+                        data=data,
+                        headers=headers,
+                        method=method,
                     )
-                    with urllib.request.urlopen(request) as response:
-                        return json.loads(response.read().decode("utf-8"))
+                    try:
+                        with urllib.request.urlopen(request) as response:
+                            response_body = response.read().decode("utf-8")
+                            return response.status, json.loads(response_body) if response_body else {}
+                    except urllib.error.HTTPError as error:
+                        response_body = error.read().decode("utf-8")
+                        print(f"Graph {method} {path} failed with {error.code}:")
+                        print(response_body)
+                        return error.code, json.loads(response_body) if response_body else {}
+
+                def graph_get(path):
+                    status, body = graph_request("GET", path)
+                    if status >= 400:
+                        sys.exit(f"Graph GET failed for {path}")
+                    return body
 
                 service_principals = graph_get(
                     f"servicePrincipals?$filter=appId eq '{expected}'&$select=id,displayName,appId"
@@ -173,6 +195,67 @@ stages:
                     "$expand=roleDefinition&$select=id,appScopeId,roleDefinition"
                 ).get("value", [])
                 print("entitlementRoleAssignments:", json.dumps(role_assignments, indent=2))
+
+                packages = graph_get(
+                    "identityGovernance/entitlementManagement/accessPackages?"
+                    "$filter=displayName eq 'Database - RD write access - 2 Hours'&"
+                    "$select=id,displayName"
+                ).get("value", [])
+                if not packages:
+                    sys.exit("RD write access package not found for raw Graph policy diagnostic")
+
+                package_id = packages[0]["id"]
+                print("rdWriteAccessPackageId:", package_id)
+
+                diagnostic_policy = {
+                    "displayName": "diagnostic-policy-delete-me",
+                    "description": "Temporary policy created by pipeline diagnostics",
+                    "allowedTargetScope": "notSpecified",
+                    "specificAllowedTargets": [],
+                    "expiration": {
+                        "endDateTime": None,
+                        "duration": None,
+                        "type": "noExpiration",
+                    },
+                    "requestorSettings": {
+                        "enableTargetsToSelfAddAccess": False,
+                        "enableTargetsToSelfUpdateAccess": False,
+                        "enableTargetsToSelfRemoveAccess": False,
+                        "allowCustomAssignmentSchedule": True,
+                        "enableOnBehalfRequestorsToAddAccess": False,
+                        "enableOnBehalfRequestorsToUpdateAccess": False,
+                        "enableOnBehalfRequestorsToRemoveAccess": False,
+                        "onBehalfRequestors": [],
+                    },
+                    "requestApprovalSettings": {
+                        "isApprovalRequiredForAdd": False,
+                        "isApprovalRequiredForUpdate": False,
+                        "stages": [],
+                    },
+                    "accessPackage": {
+                        "id": package_id,
+                    },
+                }
+
+                status, created_policy = graph_request(
+                    "POST",
+                    "identityGovernance/entitlementManagement/assignmentPolicies",
+                    diagnostic_policy,
+                )
+                if status >= 400:
+                    sys.exit("Raw Graph diagnostic policy create failed")
+
+                created_policy_id = created_policy["id"]
+                print("rawGraphDiagnosticPolicyCreate: success")
+                print("rawGraphDiagnosticPolicyId:", created_policy_id)
+
+                delete_status, _ = graph_request(
+                    "DELETE",
+                    f"identityGovernance/entitlementManagement/assignmentPolicies/{created_policy_id}",
+                )
+                if delete_status >= 400:
+                    sys.exit("Raw Graph diagnostic policy delete failed")
+                print("rawGraphDiagnosticPolicyDelete: success")
                 PY
 
           - template: steps/terraform.yaml@cnp-azuredevops-libraries
