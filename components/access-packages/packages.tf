@@ -166,34 +166,31 @@ resource "msgraph_resource" "access_package_assignment_policy" {
   update_method = "PUT"
 
   body = {
-    displayName        = each.value.policy.display_name
-    description        = each.value.policy.description
-    allowedTargetScope = "specificDirectoryUsers"
-    specificAllowedTargets = [
-      for requestor in try(each.value.requestor_groups, []) : {
-        "@odata.type" = "#microsoft.graph.groupMembers"
-        groupId       = data.azuread_group.requestors[requestor].id
-      }
-    ]
+    accessPackageId = azuread_access_package.package[each.value.access_package].id
+    displayName     = each.value.policy.display_name
+    description     = each.value.policy.description
+    canExtend       = try(each.value.policy.extension_enabled, false)
     expiration = {
       duration = each.value.policy.expiration.duration
       type     = each.value.policy.expiration.type
     }
     requestorSettings = {
-      enableTargetsToSelfAddAccess           = true
-      enableTargetsToSelfUpdateAccess        = false
-      enableTargetsToSelfRemoveAccess        = true
-      allowCustomAssignmentSchedule          = false
-      enableOnBehalfRequestorsToAddAccess    = false
-      enableOnBehalfRequestorsToUpdateAccess = false
-      enableOnBehalfRequestorsToRemoveAccess = false
-      onBehalfRequestors                     = []
+      scopeType      = "SpecificDirectorySubjects"
+      acceptRequests = true
+      allowedRequestors = [
+        for requestor in try(each.value.requestor_groups, []) : {
+          "@odata.type" = "#microsoft.graph.groupMembers"
+          id            = data.azuread_group.requestors[requestor].id
+          isBackup      = false
+        }
+      ]
     }
     requestApprovalSettings = {
       isApprovalRequiredForAdd         = try(each.value.policy.approval_settings.approval_required, false)
       isApprovalRequiredForUpdate      = try(each.value.policy.approval_settings.approval_required_for_extension, false)
       isRequestorJustificationRequired = try(each.value.policy.approval_settings.requestor_justification_required, false)
-      stages = try(each.value.policy.approval_settings.approval_required, false) ? [
+      approvalMode                     = try(each.value.policy.approval_settings.approval_required, false) ? "SingleStage" : "NoApproval"
+      approvalStages = try(each.value.policy.approval_settings.approval_required, false) ? [
         {
           durationBeforeAutomaticDenial   = try(each.value.policy.approval_settings.approval_stage.duration_before_automatic_denial, format("P%dD", each.value.policy.approval_settings.approval_stage.approval_timeout_in_days))
           isApproverJustificationRequired = try(each.value.policy.approval_settings.approval_stage.approver_justification_required, false)
@@ -202,7 +199,8 @@ resource "msgraph_resource" "access_package_assignment_policy" {
           primaryApprovers = [
             for approver in try(each.value.approver_groups, []) : {
               "@odata.type" = "#microsoft.graph.groupMembers"
-              groupId       = data.azuread_group.approvers[approver].id
+              id            = data.azuread_group.approvers[approver].id
+              isBackup      = false
             }
           ]
           fallbackPrimaryApprovers    = []
