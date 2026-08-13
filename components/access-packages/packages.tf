@@ -198,6 +198,7 @@ resource "msgraph_resource" "access_package_assignment_policy" {
           durationBeforeAutomaticDenial   = try(each.value.policy.approval_settings.approval_stage.duration_before_automatic_denial, format("P%dD", each.value.policy.approval_settings.approval_stage.approval_timeout_in_days))
           isApproverJustificationRequired = try(each.value.policy.approval_settings.approval_stage.approver_justification_required, false)
           isEscalationEnabled             = try(each.value.policy.approval_settings.approval_stage.alternative_approval_enabled, false)
+          durationBeforeEscalation        = "P14D"
           primaryApprovers = [
             for approver in try(each.value.approver_groups, []) : {
               "@odata.type" = "#microsoft.graph.groupMembers"
@@ -212,10 +213,11 @@ resource "msgraph_resource" "access_package_assignment_policy" {
     }
     questions = [
       for question in try(each.value.policy.questions, []) : {
-        "@odata.type" = "#microsoft.graph.accessPackageTextInputQuestion"
-        isRequired    = try(question.required, false)
-        sequence      = try(question.sequence, null)
-        text          = try(question.text.default_text, "")
+        "@odata.type"    = "#microsoft.graph.accessPackageTextInputQuestion"
+        isRequired       = try(question.required, false)
+        isAnswerEditable = true
+        sequence         = try(question.sequence, null)
+        text             = try(question.text.default_text, "")
       }
     ]
     accessPackage = {
