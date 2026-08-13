@@ -161,45 +161,48 @@ resource "msgraph_resource" "access_package_assignment_policy" {
     if try(policy.policy.expiration.duration, null) != null
   }
 
-  url           = "identityGovernance/entitlementManagement/accessPackageAssignmentPolicies"
-  api_version   = "beta"
+  url           = "identityGovernance/entitlementManagement/assignmentPolicies"
+  api_version   = "v1.0"
   update_method = "PUT"
 
   body = {
-    accessPackageId = azuread_access_package.package[each.value.access_package].id
-    displayName     = each.value.policy.display_name
-    description     = each.value.policy.description
-    canExtend       = try(each.value.policy.extension_enabled, false)
+    displayName        = each.value.policy.display_name
+    description        = each.value.policy.description
+    allowedTargetScope = "specificDirectoryUsers"
+    specificAllowedTargets = [
+      for requestor in try(each.value.requestor_groups, []) : {
+        "@odata.type" = "#microsoft.graph.groupMembers"
+        groupId       = data.azuread_group.requestors[requestor].id
+      }
+    ]
     expiration = {
       duration = each.value.policy.expiration.duration
       type     = each.value.policy.expiration.type
     }
     requestorSettings = {
-      scopeType      = "SpecificDirectorySubjects"
-      acceptRequests = true
-      allowedRequestors = [
-        for requestor in try(each.value.requestor_groups, []) : {
-          "@odata.type" = "#microsoft.graph.groupMembers"
-          id            = data.azuread_group.requestors[requestor].id
-          isBackup      = false
-        }
-      ]
+      enableTargetsToSelfAddAccess           = true
+      enableTargetsToSelfUpdateAccess        = false
+      enableTargetsToSelfRemoveAccess        = true
+      allowCustomAssignmentSchedule          = false
+      enableOnBehalfRequestorsToAddAccess    = false
+      enableOnBehalfRequestorsToUpdateAccess = false
+      enableOnBehalfRequestorsToRemoveAccess = false
+      onBehalfRequestors                     = []
     }
     requestApprovalSettings = {
-      isApprovalRequired               = try(each.value.policy.approval_settings.approval_required, false)
-      isApprovalRequiredForExtension   = try(each.value.policy.approval_settings.approval_required_for_extension, false)
+      isApprovalRequiredForAdd         = try(each.value.policy.approval_settings.approval_required, false)
+      isApprovalRequiredForUpdate      = try(each.value.policy.approval_settings.approval_required_for_extension, false)
       isRequestorJustificationRequired = try(each.value.policy.approval_settings.requestor_justification_required, false)
-      approvalMode                     = try(each.value.policy.approval_settings.approval_required, false) ? "SingleStage" : "NoApproval"
-      approvalStages = try(each.value.policy.approval_settings.approval_required, false) ? [
+      stages = try(each.value.policy.approval_settings.approval_required, false) ? [
         {
-          approvalStageTimeOutInDays      = try(each.value.policy.approval_settings.approval_stage.approval_timeout_in_days, 1)
+          durationBeforeAutomaticDenial   = try(each.value.policy.approval_settings.approval_stage.duration_before_automatic_denial, format("P%dD", each.value.policy.approval_settings.approval_stage.approval_timeout_in_days))
           isApproverJustificationRequired = try(each.value.policy.approval_settings.approval_stage.approver_justification_required, false)
           isEscalationEnabled             = try(each.value.policy.approval_settings.approval_stage.alternative_approval_enabled, false)
+          durationBeforeEscalation        = "PT0S"
           primaryApprovers = [
             for approver in try(each.value.approver_groups, []) : {
               "@odata.type" = "#microsoft.graph.groupMembers"
-              id            = data.azuread_group.approvers[approver].id
-              isBackup      = false
+              groupId       = data.azuread_group.approvers[approver].id
             }
           ]
           fallbackPrimaryApprovers    = []
@@ -214,10 +217,11 @@ resource "msgraph_resource" "access_package_assignment_policy" {
         isRequired       = try(question.required, false)
         isAnswerEditable = true
         sequence         = try(question.sequence, null)
-        text = {
-          defaultText = try(question.text.default_text, "")
-        }
+        text             = try(question.text.default_text, "")
       }
     ]
+    accessPackage = {
+      id = azuread_access_package.package[each.value.access_package].id
+    }
   }
 }
