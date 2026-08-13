@@ -27,8 +27,5 @@ provider "azuread" {
 }
 
 provider "msgraph" {
-  client_id     = var.client_id
-  client_secret = var.client_secret
-  tenant_id     = var.tenant_id
-  use_cli       = false
+  use_cli = false
 }
