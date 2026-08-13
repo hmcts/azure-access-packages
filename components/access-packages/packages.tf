@@ -169,6 +169,7 @@ resource "msgraph_resource" "access_package_assignment_policy" {
     accessPackageId = azuread_access_package.package[each.value.access_package].id
     displayName     = each.value.policy.display_name
     description     = each.value.policy.description
+    canExtend       = try(each.value.policy.extension_enabled, false)
     expiration = {
       duration = each.value.policy.expiration.duration
       type     = each.value.policy.expiration.type
@@ -179,7 +180,8 @@ resource "msgraph_resource" "access_package_assignment_policy" {
       allowedRequestors = [
         for requestor in try(each.value.requestor_groups, []) : {
           "@odata.type" = "#microsoft.graph.groupMembers"
-          groupId       = data.azuread_group.requestors[requestor].id
+          id            = data.azuread_group.requestors[requestor].id
+          isBackup      = false
         }
       ]
     }
@@ -187,6 +189,7 @@ resource "msgraph_resource" "access_package_assignment_policy" {
       isApprovalRequired               = try(each.value.policy.approval_settings.approval_required, false)
       isApprovalRequiredForExtension   = try(each.value.policy.approval_settings.approval_required_for_extension, false)
       isRequestorJustificationRequired = try(each.value.policy.approval_settings.requestor_justification_required, false)
+      approvalMode                     = try(each.value.policy.approval_settings.approval_required, false) ? "SingleStage" : "NoApproval"
       approvalStages = try(each.value.policy.approval_settings.approval_required, false) ? [
         {
           approvalStageTimeOutInDays      = try(each.value.policy.approval_settings.approval_stage.approval_timeout_in_days, 1)
@@ -195,7 +198,7 @@ resource "msgraph_resource" "access_package_assignment_policy" {
           primaryApprovers = [
             for approver in try(each.value.approver_groups, []) : {
               "@odata.type" = "#microsoft.graph.groupMembers"
-              groupId       = data.azuread_group.approvers[approver].id
+              id            = data.azuread_group.approvers[approver].id
               isBackup      = false
             }
           ]
