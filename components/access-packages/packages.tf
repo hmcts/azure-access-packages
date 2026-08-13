@@ -166,10 +166,9 @@ resource "msgraph_resource" "access_package_assignment_policy" {
   update_method = "PUT"
 
   body = {
-    displayName              = each.value.policy.display_name
-    description              = each.value.policy.description
-    allowedTargetScope       = "specificDirectoryUsers"
-    automaticRequestSettings = null
+    displayName        = each.value.policy.display_name
+    description        = each.value.policy.description
+    allowedTargetScope = "specificDirectoryUsers"
     specificAllowedTargets = [
       for requestor in try(each.value.requestor_groups, []) : {
         "@odata.type" = "#microsoft.graph.groupMembers"
@@ -177,9 +176,8 @@ resource "msgraph_resource" "access_package_assignment_policy" {
       }
     ]
     expiration = {
-      endDateTime = null
-      duration    = each.value.policy.expiration.duration
-      type        = each.value.policy.expiration.type
+      duration = each.value.policy.expiration.duration
+      type     = each.value.policy.expiration.type
     }
     requestorSettings = {
       enableTargetsToSelfAddAccess           = true
@@ -212,15 +210,12 @@ resource "msgraph_resource" "access_package_assignment_policy" {
         }
       ] : []
     }
-    reviewSettings = null
     questions = [
       for question in try(each.value.policy.questions, []) : {
         "@odata.type" = "#microsoft.graph.accessPackageTextInputQuestion"
         isRequired    = try(question.required, false)
         sequence      = try(question.sequence, null)
-        text = {
-          defaultText = try(question.text.default_text, "")
-        }
+        text          = try(question.text.default_text, "")
       }
     ]
     accessPackage = {
