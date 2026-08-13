@@ -140,6 +140,7 @@ stages:
                 def graph_get(path):
                     import urllib.request
 
+                    path = path.replace(" ", "%20").replace("'", "%27")
                     request = urllib.request.Request(
                         f"https://graph.microsoft.com/v1.0/{path}",
                         headers={"Authorization": f"Bearer {token}"},
