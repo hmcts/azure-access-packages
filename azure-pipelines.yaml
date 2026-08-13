@@ -91,6 +91,137 @@ stages:
               keyVaultName: central-app-reg-kv
               secretsFilter: "access-packages-secret"
 
+          - task: Bash@3
+            displayName: "CLI test current RD policy body"
+            env:
+              CLIENT_ID: ${{ variables.client_id }}
+              CLIENT_SECRET: $(access-packages-secret)
+              TENANT_ID: ${{ variables.tenant_id }}
+            inputs:
+              targetType: inline
+              script: |
+                set -euo pipefail
+
+                az login \
+                  --service-principal \
+                  --username "${CLIENT_ID}" \
+                  --password "${CLIENT_SECRET}" \
+                  --tenant "${TENANT_ID}" \
+                  --allow-no-subscriptions \
+                  --output none
+
+                rd_package_id=$(az rest \
+                  --method get \
+                  --url "https://graph.microsoft.com/v1.0/identityGovernance/entitlementManagement/accessPackages?\$filter=displayName%20eq%20'Database%20-%20RD%20write%20access%20-%202%20Hours'&\$select=id,displayName" \
+                  --query "value[0].id" \
+                  --output tsv)
+
+                requestor_group_id=$(az rest \
+                  --method get \
+                  --url "https://graph.microsoft.com/v1.0/groups?\$filter=displayName%20eq%20'DTS%20CFT%20SC'&\$select=id,displayName" \
+                  --query "value[0].id" \
+                  --output tsv)
+
+                approver_group_id=$(az rest \
+                  --method get \
+                  --url "https://graph.microsoft.com/v1.0/groups?\$filter=displayName%20eq%20'DTS%20RD%20Admins'&\$select=id,displayName" \
+                  --query "value[0].id" \
+                  --output tsv)
+
+                if [ -z "${rd_package_id}" ] || [ -z "${requestor_group_id}" ] || [ -z "${approver_group_id}" ]; then
+                  echo "Missing id for package/requestor/approver"
+                  echo "rd_package_id=${rd_package_id}"
+                  echo "requestor_group_id=${requestor_group_id}"
+                  echo "approver_group_id=${approver_group_id}"
+                  exit 1
+                fi
+
+                echo "rdWriteAccessPackageId: ${rd_package_id}"
+                echo "requestorGroupId: ${requestor_group_id}"
+                echo "approverGroupId: ${approver_group_id}"
+
+                policy_body=$(jq -n \
+                  --arg packageId "${rd_package_id}" \
+                  --arg requestorGroupId "${requestor_group_id}" \
+                  --arg approverGroupId "${approver_group_id}" \
+                  '{
+                    displayName: "Initial Policy",
+                    description: "Initial Policy",
+                    allowedTargetScope: "specificDirectoryUsers",
+                    specificAllowedTargets: [
+                      {
+                        "@odata.type": "#microsoft.graph.groupMembers",
+                        groupId: $requestorGroupId
+                      }
+                    ],
+                    expiration: {
+                      duration: "PT2H",
+                      type: "afterDuration"
+                    },
+                    requestorSettings: {
+                      enableTargetsToSelfAddAccess: true,
+                      enableTargetsToSelfUpdateAccess: false,
+                      enableTargetsToSelfRemoveAccess: true,
+                      allowCustomAssignmentSchedule: false,
+                      enableOnBehalfRequestorsToAddAccess: false,
+                      enableOnBehalfRequestorsToUpdateAccess: false,
+                      enableOnBehalfRequestorsToRemoveAccess: false,
+                      onBehalfRequestors: []
+                    },
+                    requestApprovalSettings: {
+                      isApprovalRequiredForAdd: true,
+                      isApprovalRequiredForUpdate: false,
+                      isRequestorJustificationRequired: true,
+                      stages: [
+                        {
+                          durationBeforeAutomaticDenial: "P1D",
+                          isApproverJustificationRequired: false,
+                          isEscalationEnabled: false,
+                          durationBeforeEscalation: "PT0S",
+                          primaryApprovers: [
+                            {
+                              "@odata.type": "#microsoft.graph.groupMembers",
+                              groupId: $approverGroupId
+                            }
+                          ],
+                          fallbackPrimaryApprovers: [],
+                          escalationApprovers: [],
+                          fallbackEscalationApprovers: []
+                        }
+                      ]
+                    },
+                    questions: [
+                      {
+                        "@odata.type": "#microsoft.graph.accessPackageTextInputQuestion",
+                        isRequired: true,
+                        isAnswerEditable: true,
+                        sequence: 0,
+                        text: "Halo ID (include all changes being executed)"
+                      }
+                    ],
+                    accessPackage: {
+                      id: $packageId
+                    }
+                  }')
+
+                created_policy_id=$(az rest \
+                  --method post \
+                  --url "https://graph.microsoft.com/v1.0/identityGovernance/entitlementManagement/assignmentPolicies" \
+                  --headers "Content-Type=application/json" \
+                  --body "${policy_body}" \
+                  --query id \
+                  --output tsv)
+
+                echo "cliCurrentPolicyCreate: success"
+                echo "cliCurrentPolicyId: ${created_policy_id}"
+
+                az rest \
+                  --method delete \
+                  --url "https://graph.microsoft.com/v1.0/identityGovernance/entitlementManagement/assignmentPolicies/${created_policy_id}" \
+                  --output none
+
+                echo "cliCurrentPolicyDelete: success"
+
           - template: steps/terraform.yaml@cnp-azuredevops-libraries
             parameters:
               location: ${{ parameters.location }}
