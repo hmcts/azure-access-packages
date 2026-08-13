@@ -23,7 +23,7 @@ policy:
   - required: true
     sequence: 0
     text:
-      default_text: "Jira / Halo link"
+      default_text: "Halo ID (include all changes being executed)"
   requestor_settings:
     requestor:
       subject_type: "groupMembers"
