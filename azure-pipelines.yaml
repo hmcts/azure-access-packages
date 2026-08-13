@@ -256,6 +256,98 @@ stages:
                 if delete_status >= 400:
                     sys.exit("Raw Graph diagnostic policy delete failed")
                 print("rawGraphDiagnosticPolicyDelete: success")
+
+                def group_id(display_name):
+                    groups = graph_get(
+                        f"groups?$filter=displayName eq '{display_name}'&$select=id,displayName"
+                    ).get("value", [])
+                    if not groups:
+                        sys.exit(f"Group not found: {display_name}")
+                    print(f"groupId:{display_name}:", groups[0]["id"])
+                    return groups[0]["id"]
+
+                requestor_group_id = group_id("DTS CFT SC")
+                approver_group_id = group_id("DTS RD Admins")
+
+                terraform_like_policy = {
+                    "displayName": "diagnostic-rd-write-policy-delete-me",
+                    "description": "Temporary policy created by pipeline diagnostics",
+                    "allowedTargetScope": "specificDirectoryUsers",
+                    "specificAllowedTargets": [
+                        {
+                            "@odata.type": "#microsoft.graph.groupMembers",
+                            "groupId": requestor_group_id,
+                        }
+                    ],
+                    "expiration": {
+                        "duration": "PT2H",
+                        "type": "afterDuration",
+                    },
+                    "requestorSettings": {
+                        "enableTargetsToSelfAddAccess": True,
+                        "enableTargetsToSelfUpdateAccess": False,
+                        "enableTargetsToSelfRemoveAccess": True,
+                        "allowCustomAssignmentSchedule": False,
+                        "enableOnBehalfRequestorsToAddAccess": False,
+                        "enableOnBehalfRequestorsToUpdateAccess": False,
+                        "enableOnBehalfRequestorsToRemoveAccess": False,
+                        "onBehalfRequestors": [],
+                    },
+                    "requestApprovalSettings": {
+                        "isApprovalRequiredForAdd": True,
+                        "isApprovalRequiredForUpdate": False,
+                        "isRequestorJustificationRequired": True,
+                        "stages": [
+                            {
+                                "durationBeforeAutomaticDenial": "P1D",
+                                "isApproverJustificationRequired": False,
+                                "isEscalationEnabled": False,
+                                "durationBeforeEscalation": "PT0S",
+                                "primaryApprovers": [
+                                    {
+                                        "@odata.type": "#microsoft.graph.groupMembers",
+                                        "groupId": approver_group_id,
+                                    }
+                                ],
+                                "fallbackPrimaryApprovers": [],
+                                "escalationApprovers": [],
+                                "fallbackEscalationApprovers": [],
+                            }
+                        ],
+                    },
+                    "questions": [
+                        {
+                            "@odata.type": "#microsoft.graph.accessPackageTextInputQuestion",
+                            "isRequired": True,
+                            "isAnswerEditable": True,
+                            "sequence": 0,
+                            "text": "Halo ID (include all changes being executed)",
+                        }
+                    ],
+                    "accessPackage": {
+                        "id": package_id,
+                    },
+                }
+
+                status, created_policy = graph_request(
+                    "POST",
+                    "identityGovernance/entitlementManagement/assignmentPolicies",
+                    terraform_like_policy,
+                )
+                if status >= 400:
+                    sys.exit("Raw Graph Terraform-like policy create failed")
+
+                created_policy_id = created_policy["id"]
+                print("rawGraphTerraformLikePolicyCreate: success")
+                print("rawGraphTerraformLikePolicyId:", created_policy_id)
+
+                delete_status, _ = graph_request(
+                    "DELETE",
+                    f"identityGovernance/entitlementManagement/assignmentPolicies/{created_policy_id}",
+                )
+                if delete_status >= 400:
+                    sys.exit("Raw Graph Terraform-like policy delete failed")
+                print("rawGraphTerraformLikePolicyDelete: success")
                 PY
 
           - template: steps/terraform.yaml@cnp-azuredevops-libraries
