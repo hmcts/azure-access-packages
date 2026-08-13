@@ -11,7 +11,7 @@ policy:
     approval_required: true
     approval_stage:
       approval_timeout_in_days: 1
-      duration_before_automatic_denial: "PT2H"
+      duration_before_automatic_denial: "P1D"
       approver_justification_required: false
       enable_alternative_approval_in_days: 0
       primary_approver:
