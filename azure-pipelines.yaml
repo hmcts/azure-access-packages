@@ -365,12 +365,12 @@ stages:
                 ARM_CLIENT_SECRET: $(access-packages-secret)
                 ARM_TENANT_ID: ${{ variables.tenant_id }}
                 ARM_USE_CLI: "false"
+                TF_VAR_client_id: ${{ variables.client_id }}
+                TF_VAR_client_secret: $(access-packages-secret)
+                TF_VAR_tenant_id: ${{ variables.tenant_id }}
               initCommandOptions: >
                 -reconfigure
                 -var subscription_id=${{ variables.terraformSubscriptionID }}
               planCommandOptions: >
                 -var subscription_id=${{ variables.terraformSubscriptionID }}
                 -var env=${{ variables.environment }}
-                -var client_id=${{ variables.client_id }}
-                -var client_secret=$(access-packages-secret)
-                -var tenant_id=${{ variables.tenant_id }}
