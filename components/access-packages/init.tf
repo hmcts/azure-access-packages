@@ -26,4 +26,6 @@ provider "azuread" {
   tenant_id     = var.tenant_id
 }
 
-provider "msgraph" {}
+provider "msgraph" {
+  use_cli = false
+}
