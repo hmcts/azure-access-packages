@@ -198,7 +198,7 @@ resource "msgraph_resource" "access_package_assignment_policy" {
           durationBeforeAutomaticDenial   = try(each.value.policy.approval_settings.approval_stage.duration_before_automatic_denial, format("P%dD", each.value.policy.approval_settings.approval_stage.approval_timeout_in_days))
           isApproverJustificationRequired = try(each.value.policy.approval_settings.approval_stage.approver_justification_required, false)
           isEscalationEnabled             = try(each.value.policy.approval_settings.approval_stage.alternative_approval_enabled, false)
-          durationBeforeEscalation        = "P14D"
+          durationBeforeEscalation        = "PT0S"
           primaryApprovers = [
             for approver in try(each.value.approver_groups, []) : {
               "@odata.type" = "#microsoft.graph.groupMembers"
