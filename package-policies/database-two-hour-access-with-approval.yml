@@ -1,14 +1,17 @@
-name: "Database-one-day-access-with-approval"
+name: "Database-two-hour-access-with-approval"
 policy:
   display_name: "Initial Policy"
   description: "Initial Policy"
-  duration_in_days: 1
+  expiration:
+    type: "afterDuration"
+    duration: "PT2H"
   extension_enabled: false
   approval_settings:
     approval_required_for_extension: false
     approval_required: true
     approval_stage:
       approval_timeout_in_days: 1
+      duration_before_automatic_denial: "PT2H"
       approver_justification_required: false
       enable_alternative_approval_in_days: 0
       primary_approver:
