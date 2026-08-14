@@ -94,7 +94,6 @@ stages:
           - template: steps/terraform.yaml@cnp-azuredevops-libraries
             parameters:
               location: ${{ parameters.location }}
-              serviceConnection: ${{ variables.serviceConnection }}
               product: ${{ variables.product }}
               overrideAction: ${{ parameters.overrideAction }}
               environment: ${{ variables.environment }}
