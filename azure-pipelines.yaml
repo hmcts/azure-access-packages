@@ -9,7 +9,7 @@ resources:
   repositories:
     - repository: cnp-azuredevops-libraries
       type: github
-      ref: refs/heads/master
+      ref: refs/heads/debug-msgraph-apply-token
       name: hmcts/cnp-azuredevops-libraries
       endpoint: "hmcts"
 
@@ -106,6 +106,9 @@ stages:
                 ARM_CLIENT_SECRET: $(access-packages-secret)
                 ARM_TENANT_ID: ${{ variables.tenant_id }}
                 ARM_USE_CLI: "false"
+                AZURE_CLIENT_ID: ${{ variables.client_id }}
+                AZURE_CLIENT_SECRET: $(access-packages-secret)
+                AZURE_TENANT_ID: ${{ variables.tenant_id }}
               initCommandOptions: >
                 -reconfigure
                 -var subscription_id=${{ variables.terraformSubscriptionID }}
