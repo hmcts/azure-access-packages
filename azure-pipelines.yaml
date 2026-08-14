@@ -140,14 +140,152 @@ stages:
                 echo "requestorGroupId: ${requestor_group_id}"
                 echo "approverGroupId: ${approver_group_id}"
 
-                policy_body=$(jq -n \
+                graph_token=$(az account get-access-token \
+                  --resource https://graph.microsoft.com \
+                  --query accessToken \
+                  --output tsv)
+
+                run_id="${BUILD_BUILDID:-manual}-$(date +%s)"
+                beta_url="https://graph.microsoft.com/beta/identityGovernance/entitlementManagement/accessPackageAssignmentPolicies"
+
+                try_beta_policy() {
+                  label="$1"
+                  body="$2"
+
+                  echo "---- betaPolicyTest: ${label} ----"
+                  response=$(curl -sS \
+                    --request POST \
+                    --url "${beta_url}" \
+                    --header "Authorization: Bearer ${graph_token}" \
+                    --header "Content-Type: application/json" \
+                    --data "${body}" \
+                    --write-out "\n%{http_code}")
+
+                  status=$(printf '%s\n' "${response}" | tail -n 1)
+                  response_body=$(printf '%s\n' "${response}" | sed '$d')
+
+                  echo "status: ${status}"
+                  if [ "${status}" -ge 200 ] && [ "${status}" -lt 300 ]; then
+                    created_policy_id=$(printf '%s' "${response_body}" | jq -r '.id // empty')
+                    echo "result: success"
+                    echo "policyId: ${created_policy_id}"
+
+                    if [ -n "${created_policy_id}" ]; then
+                      delete_status=$(curl -sS \
+                        --request DELETE \
+                        --url "${beta_url}/${created_policy_id}" \
+                        --header "Authorization: Bearer ${graph_token}" \
+                        --output /tmp/beta-policy-delete-response.json \
+                        --write-out "%{http_code}")
+                      echo "deleteStatus: ${delete_status}"
+                    fi
+                  else
+                    echo "result: failure"
+                    printf '%s\n' "${response_body}"
+                  fi
+                }
+
+                provider_style_body=$(jq -n \
+                  --arg packageId "${rd_package_id}" \
+                  --arg approverGroupId "${approver_group_id}" \
+                  --arg runId "${run_id}" \
+                  '{
+                    accessPackageId: $packageId,
+                    displayName: ("diag-beta-provider-style-" + $runId),
+                    description: "Temporary beta policy diagnostic",
+                    expiration: {
+                      duration: "P90D",
+                      type: "afterDuration"
+                    },
+                    requestorSettings: {
+                      scopeType: "AllExistingDirectoryMemberUsers"
+                    },
+                    requestApprovalSettings: {
+                      isApprovalRequired: true,
+                      approvalStages: [
+                        {
+                          approvalStageTimeOutInDays: 14,
+                          primaryApprovers: [
+                            {
+                              "@odata.type": "#microsoft.graph.groupMembers",
+                              groupId: $approverGroupId,
+                              description: "DTS RD Admins"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }')
+
+                specific_p1d_no_question_body=$(jq -n \
                   --arg packageId "${rd_package_id}" \
                   --arg requestorGroupId "${requestor_group_id}" \
                   --arg approverGroupId "${approver_group_id}" \
+                  --arg runId "${run_id}" \
                   '{
                     accessPackageId: $packageId,
-                    displayName: "Initial Policy",
-                    description: "Initial Policy",
+                    displayName: ("diag-beta-specific-p1d-" + $runId),
+                    description: "Temporary beta policy diagnostic",
+                    expiration: {
+                      duration: "P1D",
+                      type: "afterDuration"
+                    },
+                    requestorSettings: {
+                      scopeType: "SpecificDirectorySubjects",
+                      acceptRequests: true,
+                      allowedRequestors: [
+                        {
+                          "@odata.type": "#microsoft.graph.groupMembers",
+                          groupId: $requestorGroupId
+                        }
+                      ]
+                    },
+                    requestApprovalSettings: {
+                      isApprovalRequired: true,
+                      isApprovalRequiredForExtension: false,
+                      isRequestorJustificationRequired: true,
+                      approvalStages: [
+                        {
+                          approvalStageTimeOutInDays: 1,
+                          isApproverJustificationRequired: false,
+                          isEscalationEnabled: false,
+                          primaryApprovers: [
+                            {
+                              "@odata.type": "#microsoft.graph.groupMembers",
+                              groupId: $approverGroupId
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }')
+
+                specific_pt2h_no_question_body=$(printf '%s' "${specific_p1d_no_question_body}" | jq \
+                  --arg runId "${run_id}" \
+                  '.displayName = ("diag-beta-specific-pt2h-" + $runId) | .expiration.duration = "PT2H"')
+
+                specific_pt2h_with_question_body=$(printf '%s' "${specific_pt2h_no_question_body}" | jq \
+                  '.questions = [
+                    {
+                      "@odata.type": "#microsoft.graph.accessPackageTextInputQuestion",
+                      isRequired: true,
+                      isAnswerEditable: true,
+                      sequence: 0,
+                      text: {
+                        defaultText: "Halo ID (include all changes being executed)"
+                      }
+                    }
+                  ]')
+
+                current_beta_body=$(jq -n \
+                  --arg packageId "${rd_package_id}" \
+                  --arg requestorGroupId "${requestor_group_id}" \
+                  --arg approverGroupId "${approver_group_id}" \
+                  --arg runId "${run_id}" \
+                  '{
+                    accessPackageId: $packageId,
+                    displayName: ("diag-beta-current-" + $runId),
+                    description: "Temporary beta policy diagnostic",
                     canExtend: false,
                     expiration: {
                       duration: "PT2H",
@@ -200,23 +338,11 @@ stages:
                     ]
                   }')
 
-                created_policy_id=$(az rest \
-                  --method post \
-                  --url "https://graph.microsoft.com/beta/identityGovernance/entitlementManagement/accessPackageAssignmentPolicies" \
-                  --headers "Content-Type=application/json" \
-                  --body "${policy_body}" \
-                  --query id \
-                  --output tsv)
-
-                echo "cliCurrentPolicyCreate: success"
-                echo "cliCurrentPolicyId: ${created_policy_id}"
-
-                az rest \
-                  --method delete \
-                  --url "https://graph.microsoft.com/beta/identityGovernance/entitlementManagement/accessPackageAssignmentPolicies/${created_policy_id}" \
-                  --output none
-
-                echo "cliCurrentPolicyDelete: success"
+                try_beta_policy "provider-style-p90-groupId" "${provider_style_body}"
+                try_beta_policy "specific-p1d-groupId-no-question" "${specific_p1d_no_question_body}"
+                try_beta_policy "specific-pt2h-groupId-no-question" "${specific_pt2h_no_question_body}"
+                try_beta_policy "specific-pt2h-groupId-with-question" "${specific_pt2h_with_question_body}"
+                try_beta_policy "current-pt2h-id-with-question" "${current_beta_body}"
 
           - template: steps/terraform.yaml@cnp-azuredevops-libraries
             parameters:
