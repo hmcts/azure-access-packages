@@ -127,9 +127,8 @@ memberships only, not writer/admin or network/bastion entitlements.
 - Non-production: `DTS JIT Access opal DB Reader NonProd`, requestable by
   `DTS Green on Black`.
 
-Deploy the group definitions in `azure-access` first. Then merge the required
-PostgreSQL module support to its master, promote the `opal-shared-infrastructure`
-reader configuration through master, and verify database permissions before
+Deploy the group definitions in `azure-access` first. Then promote the OPAL-owned grant step in `opal-shared-infrastructure`
+through master and verify database permissions before
 publishing these packages. The package pipeline cannot resolve groups that
 have not yet been created.
 
