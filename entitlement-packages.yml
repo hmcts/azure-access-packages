@@ -2176,3 +2176,23 @@ packages:
           - "DTS Platform Operations"
     resource_roles:
       - "DTS CSDS Contributors (env:prod)"
+
+  - name: "Database - Opal production DB read access"
+    description: "Time-limited read access to OPAL production PostgreSQL databases"
+    catalog_name: "Opal Database Access"
+    policies:
+      - name: "Database-self-approval-with-justification"
+        requestor_groups:
+          - "DTS Opal DB Access Eligible SC"
+    resource_roles:
+      - "DTS JIT Access opal DB Reader SC"
+
+  - name: "Database - Opal non-production DB read access"
+    description: "Time-limited read access to OPAL non-production PostgreSQL databases only"
+    catalog_name: "Opal Database Access"
+    policies:
+      - name: "Database-self-approval-with-justification"
+        requestor_groups:
+          - "DTS Green on Black"
+    resource_roles:
+      - "DTS JIT Access opal DB Reader NonProd"

@@ -112,3 +112,28 @@ policies:
       requests_accepted:
       scope_type:
 ```
+
+
+## OPAL database access packages
+
+The OPAL catalog provides independent production and non-production reader
+packages, each using `Database-self-approval-with-justification` (one day,
+justification and Jira/Halo link required). These are database reader
+memberships only, not writer/admin or network/bastion entitlements.
+
+- Production: `DTS JIT Access opal DB Reader SC`, requestable only by
+  `DTS Opal DB Access Eligible SC`. That eligibility group is initially empty;
+  approved SC members must be confirmed and added separately before use.
+- Non-production: `DTS JIT Access opal DB Reader NonProd`, requestable by
+  `DTS Green on Black`.
+
+Deploy the group definitions in `azure-access` first. Then merge the required
+PostgreSQL module support to its master, promote the `opal-shared-infrastructure`
+reader configuration through master, and verify database permissions before
+publishing these packages. The package pipeline cannot resolve groups that
+have not yet been created.
+
+Acceptance: verify requestor eligibility, one-day assignment, justification
+and ticket questions, SELECT-only database access, environment separation,
+and removal of membership on expiry. Test fresh database connections after
+expiry; existing database sessions are not necessarily terminated.
