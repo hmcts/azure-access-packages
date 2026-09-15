@@ -2217,5 +2217,7 @@ packages:
       - name: "Database-two-hour-access-with-approval"
         requestor_groups:
           - "DTS Opal DB Access Eligible SC"
+        approver_groups:
+          - "DTS Platform Operations"
     resource_roles:
       - "DTS JIT Access opal DB Writer SC"
