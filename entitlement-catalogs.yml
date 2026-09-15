@@ -442,9 +442,10 @@ catalogs:
       - "DTS CSDS Contributors (env:prod)"
 
   - name: "Opal Database Access"
-    description: "OPAL PostgreSQL reader access for production and non-production"
+    description: "OPAL PostgreSQL read access and production write access"
     published: true
     externally_visible: false
     resources:
       - "DTS JIT Access opal DB Reader SC"
+      - "DTS JIT Access opal DB Writer SC"
       - "DTS JIT Access opal DB Reader NonProd"
