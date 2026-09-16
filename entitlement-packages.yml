@@ -2218,6 +2218,6 @@ packages:
         requestor_groups:
           - "DTS Opal DB Access Eligible SC"
         approver_groups:
-          - "DTS Platform Operations"
+          - "DTS Opal Database Access Approvers"
     resource_roles:
       - "DTS JIT Access opal DB Writer SC"
