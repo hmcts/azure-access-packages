@@ -47,7 +47,7 @@ packages:
     policies:
       - name: "Database-self-approval-with-justification"
         requestor_groups:
-          - "DTS CFT SC"
+          - "DTS Possession Claim Service"
         approver_groups:
           - "DTS Platform Operations"
     resource_roles:
