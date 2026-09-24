@@ -47,9 +47,9 @@ packages:
     policies:
       - name: "Database-self-approval-with-justification"
         requestor_groups:
-          - "DTS CFT SC"
+          - "DTS PCS DB Access Eligible SC"
         approver_groups:
-          - "DTS Platform Operations"
+          - "DTS PCS DB Access Eligible SC"
     resource_roles:
       - "DTS JIT Access pcs DB Writer SC"
       - "DTS Production Bastion Access for Users (DevOps)"
