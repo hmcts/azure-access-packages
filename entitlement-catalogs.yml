@@ -142,6 +142,7 @@ catalogs:
       - "DTS JIT Access xui DB Reader SC"
       - "DTS JIT Access sptribs DB Reader SC"
       - "DTS JIT Access dtsse DB Reader SC"
+      - "DTS JIT Access dtsse-services DB Reader SC"
       - "DTS Production Bastion Access for Users (DevOps)"
       - "DTS JIT Access ccd DB Writer SC"
       - "DTS Platform Operations PostgreSQL Admin Access"
