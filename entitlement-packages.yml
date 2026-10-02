@@ -166,6 +166,19 @@ packages:
     resource_roles:
       - "DTS JIT Access wa DB Reader SC"
 
+  - name: "Database - wa write access - self approval"
+    description: "Grants write access to the Work Allocation TM API database (cft_task_db)"
+    catalog_name: "Databases"
+    policies:
+      - name: "Database-self-approval-with-justification"
+        requestor_groups:
+          - "DTS CFT SC"
+        approver_groups:
+          - "DTS Platform Operations"
+    resource_roles:
+      - "DTS JIT Access wa DB Writer SC"
+      - "DTS Production Bastion Access for Users (DevOps)"
+
   - name: "Database - ethos read access - self approval"
     description: "Grants read access to Ethos database"
     catalog_name: "Databases"
