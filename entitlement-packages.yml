@@ -2234,3 +2234,25 @@ packages:
           - "DTS Opal Database Access Approvers"
     resource_roles:
       - "DTS JIT Access opal DB Writer SC"
+
+  - name: "Database - Rota non-production DB write access"
+    description: "Time-limited write access to Rota non-production PostgreSQL databases only"
+    catalog_name: "Rota Database Access"
+    policies:
+      - name: "Database-self-approval-with-justification"
+        requestor_groups:
+          - "CPP Rota"
+    resource_roles:
+      - "DTS JIT Access rota DB Writer NonProd"
+
+  - name: "Database - Rota production DB write access"
+    description: "Time-limited write access to Rota production PostgreSQL databases"
+    catalog_name: "Rota Database Access"
+    policies:
+      - name: "Database-two-hour-access-with-approval"
+        requestor_groups:
+          - "DTS Rota DB Access Eligible SC"
+        approver_groups:
+          - "DTS Rota Database Access Approvers"
+    resource_roles:
+      - "DTS JIT Access rota DB Writer SC"
