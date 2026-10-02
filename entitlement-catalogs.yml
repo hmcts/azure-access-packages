@@ -450,3 +450,11 @@ catalogs:
       - "DTS JIT Access opal DB Reader SC"
       - "DTS JIT Access opal DB Writer SC"
       - "DTS JIT Access opal DB Reader NonProd"
+
+  - name: "Rota Database Access"
+    description: "Rota PostgreSQL write access for production and non-production"
+    published: true
+    externally_visible: false
+    resources:
+      - "DTS JIT Access rota DB Writer SC"
+      - "DTS CFT Rota DB Access Writer"
