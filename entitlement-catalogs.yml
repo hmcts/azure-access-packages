@@ -457,4 +457,4 @@ catalogs:
     externally_visible: false
     resources:
       - "DTS JIT Access rota DB Writer SC"
-      - "DTS JIT Access rota DB Writer NonProd"
+      - "DTS CFT Rota DB Access Writer"

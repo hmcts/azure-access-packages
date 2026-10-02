@@ -2243,7 +2243,7 @@ packages:
         requestor_groups:
           - "CPP Rota"
     resource_roles:
-      - "DTS JIT Access rota DB Writer NonProd"
+      - "DTS CFT Rota DB Access Writer"
 
   - name: "Database - Rota production DB write access"
     description: "Time-limited write access to Rota production PostgreSQL databases"
