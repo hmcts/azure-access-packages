@@ -2234,3 +2234,18 @@ packages:
           - "DTS Opal Database Access Approvers"
     resource_roles:
       - "DTS JIT Access opal DB Writer SC"
+
+  - name: "Database - ccpay write access - 2 Hours"
+      description: "Grants write access to ccpay databases"
+      catalog_name: "Databases"
+      policies:
+        - name: "Database-two-hour-access-with-approval"
+          requestor_groups:
+            - "DTS CFT SC"
+          approver_groups:
+            - "DTS CCPAY DB Admins"
+      resource_roles:
+        - "DTS JIT Access ccpay DB Writer SC"
+        - "DTS JIT Access payment DB Writer SC"
+        - "DTS JIT Access fees-register DB Writer SC"
+        - "DTS Production Bastion Access for Users (DevOps)"
