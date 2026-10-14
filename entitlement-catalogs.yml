@@ -142,6 +142,7 @@ catalogs:
       - "DTS JIT Access sscs DB Reader SC"
       - "DTS JIT Access ts DB Reader SC"
       - "DTS JIT Access wa DB Reader SC"
+      - "DTS JIT Access wa DB Writer SC"
       - "DTS JIT Access xui DB Reader SC"
       - "DTS JIT Access sptribs DB Reader SC"
       - "DTS JIT Access dtsse DB Reader SC"
