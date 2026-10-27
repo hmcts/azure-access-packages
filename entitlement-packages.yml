@@ -167,7 +167,7 @@ packages:
       - "DTS JIT Access wa DB Reader SC"
 
   - name: "Database - wa write access - self approval"
-    description: "Grants write access to the Work Allocation TM API database (cft_task_db) - 2 hours"
+    description: "Grants write access to Work Allocation (wa) databases [wa_workflow, wa_case_event & cft_task_db] - 2 hours"
     catalog_name: "Databases"
     policies:
       - name: "Database-two-hour-access-with-approval"
