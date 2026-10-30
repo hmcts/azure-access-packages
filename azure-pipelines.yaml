@@ -50,7 +50,7 @@ variables:
   - name: terraformInitSubscription
     value: "04d27a32-7a07-48b3-95b8-3c8691e1a263"
   - name: serviceConnection
-    value: DTS-SHAREDSERVICES-PROD
+    value: DTS-SHAREDSERVICES-PROD-WIF
   - name: action
     value: ${{ parameters.action }}
   - template: vars/input-variables.yaml@cnp-azuredevops-libraries
@@ -75,7 +75,7 @@ stages:
             parameters:
               keyvaultName: "infra-vault-nonprod"
               keyvaultSecret: "azure-devops-sp-token"
-              serviceConnection: "DCD-CFT-Sandbox"
+              serviceConnection: "DCD-CFT-Sandbox-WIF"
               overrideAction: ${{ parameters.overrideAction }}
 
   - stage: deploy
@@ -102,9 +102,6 @@ stages:
               terraformInitSubscription: ${{ variables.terraformInitSubscription }}
               tfVarsFile: NULL
               terraformEnvironmentVariables:
-                ARM_CLIENT_ID: ${{ variables.client_id }}
-                ARM_CLIENT_SECRET: $(access-packages-secret)
-                ARM_TENANT_ID: ${{ variables.tenant_id }}
                 ARM_USE_CLI: "false"
               initCommandOptions: >
                 -reconfigure
