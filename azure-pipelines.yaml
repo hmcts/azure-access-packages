@@ -102,9 +102,6 @@ stages:
               terraformInitSubscription: ${{ variables.terraformInitSubscription }}
               tfVarsFile: NULL
               terraformEnvironmentVariables:
-                ARM_CLIENT_ID: ${{ variables.client_id }}
-                ARM_CLIENT_SECRET: $(access-packages-secret)
-                ARM_TENANT_ID: ${{ variables.tenant_id }}
                 ARM_USE_CLI: "false"
               initCommandOptions: >
                 -reconfigure
