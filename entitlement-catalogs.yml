@@ -110,6 +110,8 @@ catalogs:
       - "DTS JIT Access cmc DB Reader SC"
       - "DTS JIT Access cpo DB Reader SC"
       - "DTS JIT Access ctsc DB Reader SC"
+      - "DTS JIT Access deed-poll DB Reader SC"
+      - "DTS JIT Access deed-poll DB Writer SC"
       - "DTS JIT Access div DB Reader SC"
       - "DTS JIT Access draft-store DB Reader SC"
       - "DTS JIT Access draft-store DB Writer SC"
