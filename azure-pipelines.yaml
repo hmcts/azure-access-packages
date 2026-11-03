@@ -109,6 +109,6 @@ stages:
               initCommandOptions: >
                 -reconfigure
                 -var subscription_id=${{ variables.terraformSubscriptionID }}
-              planCommandOptions: >
+              planCommandOptions: >-
                 -var subscription_id=${{ variables.terraformSubscriptionID }}
                 -var env=${{ variables.environment }}
