@@ -46,6 +46,17 @@ When terraform processes the access packages it will associate your access packa
 No `users` or `groups` are created in this repo. It assumes they already exist and would error out on `apply` not found.
 To create users and groups please have a look at the `azure-access` repo in GitHub
 
+## Pipeline authentication
+
+The pipeline uses two identities:
+
+- **`DTS-SHAREDSERVICES-PROD-WIF` service connection** (managed identity via OIDC): Terraform backend and `azurerm`.
+- **access-packages app registration**: `azuread` and `msgraph`, which need permissions the WIF identity doesn't have. Its client secret is `access-packages-secret` in the `central-app-reg-kv` Key Vault, passed to Terraform as `-var client_id/client_secret/tenant_id`.
+
+Don't set `ARM_CLIENT_ID`, `ARM_CLIENT_SECRET` or `ARM_TENANT_ID` in the pipeline. They conflict with the WIF sign-in and the pipeline fails.
+
+Keep `use_oidc = false` on the `msgraph` provider in `init.tf`. Without it, `msgraph` signs in as the WIF identity instead of the app.
+
 ## Skeleton Template
 A full list of all possible attributes, the police does not need to have all of it. Full detail
 can be found in the [provider](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/resources/access_package_assignment_policy) documentation
