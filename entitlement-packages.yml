@@ -389,6 +389,16 @@ packages:
       - "DTS Blob Readers (sub:dts-sharedservices-prod)"
       - "DTS Readers (sub:dts-sharedservices-prod)"
 
+  - name: "Storage - Probate Blob Data Reader (Production)"
+    description: "Grants Storage Blob Data Reader (PIM eligible) on the Probate production storage accounts"
+    catalog_name: "Storage Blob Data Reader (Production)"
+    policies:
+      - name: "self-approval-with-justification"
+        requestor_groups:
+          - "DTS CFT SC"
+    resource_roles:
+      - "DTS Probate Storage Blob Data Reader (env:prod)"
+
   - name: "SecOps Production Bastion Server Access"
     description: "This will provide access to Bastion Servers for SecOps in the Production environments."
     catalog_name: "Bastion Servers"

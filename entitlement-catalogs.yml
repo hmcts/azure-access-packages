@@ -30,6 +30,7 @@ catalogs:
     resources:
       - "DTS Blob Readers (sub:dts-sharedservices-prod)"
       - "DTS CFT Developers"
+      - "DTS Probate Storage Blob Data Reader (env:prod)"
       - "DTS Readers (sub:dts-sharedservices-prod)"
 
   - name: "SC"
