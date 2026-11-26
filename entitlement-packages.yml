@@ -395,7 +395,7 @@ packages:
     policies:
       - name: "self-approval-with-justification"
         requestor_groups:
-          - "DTS CFT SC"
+          - "DTS Probate SC"
     resource_roles:
       - "DTS Probate Storage Blob Data Reader (env:prod)"
 
